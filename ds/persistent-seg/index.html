@@ -2898,7 +2898,7 @@
 <p>那么我们分析一下，发现每次修改操作修改的点的个数是一样的。<br />
 （例如下图，修改了 <span><span class="MathJax_Preview">[1,8]</span><script type="math/tex">[1,8]</script></span> 中对应权值为1的结点，红色的点即为更改的点）<br />
 <img alt="" src="https://i.loli.net/2018/08/04/5b6503acf15f9.png" /></p>
-<p>只更改了 <span><span class="MathJax_Preview">O(log(n))</span><script type="math/tex">O(log(n))</script></span> 个结点，形成一条链，也就是说每次更改的结点数 = 树的高度。<br />
+<p>只更改了 <span><span class="MathJax_Preview">O(\log{n})</span><script type="math/tex">O(\log{n})</script></span> 个结点，形成一条链，也就是说每次更改的结点数 = 树的高度。<br />
 注意主席树不能使用堆式存储法，就是说不能用 <span><span class="MathJax_Preview">x\times 2</span><script type="math/tex">x\times 2</script></span> , <span><span class="MathJax_Preview">x\times 2+1</span><script type="math/tex">x\times 2+1</script></span> 来表示左右儿子，而是应该动态开点，并保存每个节点的左右儿子编号。<br />
 所以我们只要在记录左右儿子的基础上存一下插入每个数的时候的根节点就可以持久化辣。</p>
 <p>我们把问题简化一下：每次求 <span><span class="MathJax_Preview">[1,r]</span><script type="math/tex">[1,r]</script></span> 区间内的 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 小值。<br />
@@ -2910,10 +2910,10 @@
 所以……如果需要得到 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的统计信息，只需要用 <span><span class="MathJax_Preview">[1,r]</span><script type="math/tex">[1,r]</script></span> 的信息减去 <span><span class="MathJax_Preview">[1,l - 1]</span><script type="math/tex">[1,l - 1]</script></span> 的信息就行了。</p>
 <p>那么至此，该问题解决！（完结撒花）</p>
 <p>关于空间问题，我们分析一下：由于我们是动态开点的，所以一棵线段树只会出现 <span><span class="MathJax_Preview">2n-1</span><script type="math/tex">2n-1</script></span> 个结点。<br />
-然后，有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次修改，每次增加 <span><span class="MathJax_Preview">\log(n)</span><script type="math/tex">\log(n)</script></span> 个结点。那么最坏情况结点数会达到 <span><span class="MathJax_Preview">2n-1+n\log(n)</span><script type="math/tex">2n-1+n\log(n)</script></span> ，那么此题的 <span><span class="MathJax_Preview">n \leq 10^5</span><script type="math/tex">n \leq 10^5</script></span> ，通过计算得到 <span><span class="MathJax_Preview">\log_2(10^5)\approx 17</span><script type="math/tex">\log_2(10^5)\approx 17</script></span> 。<br />
+然后，有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次修改，每次增加 <span><span class="MathJax_Preview">\log{n}</span><script type="math/tex">\log{n}</script></span> 个结点。那么最坏情况结点数会达到 <span><span class="MathJax_Preview">2n-1+n\log{n}</span><script type="math/tex">2n-1+n\log{n}</script></span> ，那么此题的 <span><span class="MathJax_Preview">n \leq 10^5</span><script type="math/tex">n \leq 10^5</script></span> ，通过计算得到 <span><span class="MathJax_Preview">\lceil\log_2{10^5}\rceil = 17</span><script type="math/tex">\lceil\log_2{10^5}\rceil = 17</script></span> 。<br />
 那么把 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 和 <span><span class="MathJax_Preview">\log</span><script type="math/tex">\log</script></span> 的结果代入这个式子，变成 <span><span class="MathJax_Preview">2\times 10^5-1+17\times 10^5</span><script type="math/tex">2\times 10^5-1+17\times 10^5</script></span>，忽略掉 <span><span class="MathJax_Preview">-1</span><script type="math/tex">-1</script></span> ，大概就是 <span><span class="MathJax_Preview">19\times 10^5</span><script type="math/tex">19\times 10^5</script></span> 。</p>
 <p>算了这么一大堆，I tell you: 千万不要吝啬空间！保守一点，直接上个 <span><span class="MathJax_Preview">2^5\times 10^5</span><script type="math/tex">2^5\times 10^5</script></span>，接近原空间的两倍（即<code>n &lt;&lt; 5</code>）。<br />
-（较真的同学请注意，如果你真的很吝啬，可以自己造个数据输出一下结点数量，但是如果数据没造好把自己卡掉了就<sub><sub>尴尬了</sub></sub>赖你了）</p>
+（较真的同学请注意，如果你真的很吝啬，可以自己造个数据输出一下结点数量，但是如果数据没造好把自己卡掉了就 <del>尴尬了</del> 赖你了）</p>
 <p>代码：
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
