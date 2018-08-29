@@ -2935,7 +2935,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" title="参考" class="md-nav__link">
+  <a href="#_9" title="更快的读入/输出优化" class="md-nav__link">
+    更快的读入/输出优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="参考" class="md-nav__link">
     参考
   </a>
   
@@ -3082,7 +3089,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" title="参考" class="md-nav__link">
+  <a href="#_9" title="更快的读入/输出优化" class="md-nav__link">
+    更快的读入/输出优化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="参考" class="md-nav__link">
     参考
   </a>
   
@@ -3234,7 +3248,117 @@
 </ul>
 <p>输出num可写为write(num);</p>
 <p>也可以写成非递归的形式，来得到更好的效果。</p>
-<h2 id="_9">参考<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<h2 id="_9">更快的读入/输出优化<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>通过<code>fread</code>或者<code>mmap</code>可以实现更快的读入和输出。其本质为一次性读入/输出一个巨大的缓存区，如此比一个一个字符读入输出要快的多(<code>getchar</code>,<code>putchar</code>）。</p>
+<p>更通用的是<code>fread</code>，因为<code>mmap</code>不能在Windows使用。</p>
+<p><code>fread</code>类似于<code>scanf(&quot;%s&quot;)</code>，不过它更为快速，而且可以一次性读入若干个字符（包括空格换行等制表符），如果缓存区足够大，甚至可以一次性读入整个文件。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">fread</span><span class="p">(</span> <span class="kt">void</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">count</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">FILE</span><span class="o">*</span> <span class="n">stream</span> <span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">fwrite</span><span class="p">(</span> <span class="k">const</span> <span class="kt">void</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">count</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">FILE</span><span class="o">*</span> <span class="n">stream</span> <span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<p>使用示例：<code>fread(Buf, 1, MAXSIZE, stdin)</code>，如此从stdin文件流中读入MAXSIZE个字符到Buf中。</p>
+<p>读入之后的使用就跟普通的读入优化相似了，只需要重定义一下getchar。它原来是从文件中读入一个char，现在变成从Buf中读入一个char，也就是头指针向后移动一位。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">char</span> <span class="n">Buf</span><span class="p">[</span><span class="n">MASIZE</span><span class="p">],</span> <span class="o">*</span><span class="n">S</span> <span class="o">=</span> <span class="n">Buf</span><span class="p">;</span>
+<span class="kt">char</span> <span class="nf">getchar</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">S</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p><code>fwrite</code>也是类似的，先放入一个<code>OutBuf[MAXSIZE]</code> 中，最后通过<code>fwrite</code>一次性将<code>OutBuf</code>输出。</p>
+<p>注意<code>fread</code>必须使用文件读入，但是<code>fwrite</code>不需要。</p>
+<p>参考代码：
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>namespace io {
+const int MAXSIZE = 1 &lt;&lt; 22;
+inline char gc() {
+    static char In[MAXSIZE], *at = In, *en = In;
+    if (at == en) {
+        en = (at = In) + fread(In, 1, MAXSIZE, stdin);
+    }
+    return at == en ? EOF : *at++;
+}
+template &lt;class T&gt; inline T gt() {
+    char c;
+    while (c = gc(), !isdigit(c) &amp;&amp; c != &#39;-&#39;) {}
+    bool f = c == &#39;-&#39;;
+    T x = f ? 0 : c - &#39;0&#39;;
+    for (c = gc(); isdigit(c); c = gc()) {
+        x = x * 10 + c - &#39;0&#39;;
+    }
+    return f ? -x : x;
+}
+char Out[MAXSIZE], *cur = Out, *end = Out + MAXSIZE - 100;
+void flush() {
+    fwrite(Out, 1, cur - Out, stdout);
+    cur = Out;
+}
+template &lt;typename T&gt; inline void pt(T x, char c = &#39;\n&#39;) {
+    static int S[20], *top;
+    top = S;
+    if (x &lt; 0) {
+        *cur++ = &#39;-&#39;, x = -x;
+    }
+    do {
+        *++top = x % 10, x /= 10;
+    } while (x);
+    while (top != S) {
+        *cur++ = *top-- + &#39;0&#39;;
+    }
+    *cur++ = c;
+    if(cur &gt;= end) {
+        flush();
+    }
+}
+}  // namespace io
+</pre></div>
+</td></tr></table></p>
+<h2 id="_10">参考<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p><a href="http://www.hankcs.com/program/cpp/cin-tie-with-sync_with_stdio-acceleration-input-and-output.html">http://www.hankcs.com/program/cpp/cin-tie-with-sync_with_stdio-acceleration-input-and-output.html</a></p>
 <p><a href="http://meme.biology.tohoku.ac.jp/students/iwasaki/cxx/speed.html">http://meme.biology.tohoku.ac.jp/students/iwasaki/cxx/speed.html</a></p>
                 
