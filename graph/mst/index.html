@@ -3081,6 +3081,153 @@
 </td></tr></table></p>
 <p><code>find_set</code> 调用 <span><span class="MathJax_Preview">O(m)</span><script type="math/tex">O(m)</script></span> 次，merge 调用 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 次。</p>
 <p>排序的复杂度为 <span><span class="MathJax_Preview">O(m \log m)</span><script type="math/tex">O(m \log m)</script></span>，或 <span><span class="MathJax_Preview">O(m)</span><script type="math/tex">O(m)</script></span>（假设能基数排序）。</p>
+<p>那么让我们模拟一下：</p>
+<p>先上数据：
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>4 5
+1 2 2
+1 3 2
+1 4 3
+2 3 4
+3 4 3
+</pre></div>
+</td></tr></table>
+图是这样的：</p>
+<p><img alt="" src="https://i.loli.net/2018/08/15/5b739e33e0140.png" /></p>
+<p>我们用 <span><span class="MathJax_Preview">F</span><script type="math/tex">F</script></span> 表示并查集， <span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span> 表示排序后的结构体，下面是初始的状态：</p>
+<p><span><span class="MathJax_Preview">F</span><script type="math/tex">F</script></span>：</p>
+<table>
+<thead>
+<tr>
+<th align="right">编号</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">祖宗</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<p><span><span class="MathJax_Preview">E</span><script type="math/tex">E</script></span>：</p>
+<table>
+<thead>
+<tr>
+<th align="right">编号</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">start</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td align="right">to</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td align="right">cost</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<p>首先我们发现　１,２　是最小的，于是我们在　１　与　２　建了一条边，由于这是第一次嘛，肯定不会出现环了，并且将　１　和　２　加入一个集合：</p>
+<p><img alt="" src="https://i.loli.net/2018/08/15/5b73a1ccefad4.png" /></p>
+<p><span><span class="MathJax_Preview">F</span><script type="math/tex">F</script></span>：</p>
+<table>
+<thead>
+<tr>
+<th align="right">编号</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">祖宗</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<p>接着发现　１,３，判断　３　和　１　的是不是在一个集合？发现不是，于是将　３　加进去，并且标记　３　归属１。</p>
+<p><img alt="" src="https://i.loli.net/2018/08/15/5b73a376290ac.png" /></p>
+<p><span><span class="MathJax_Preview">F</span><script type="math/tex">F</script></span>：</p>
+<table>
+<thead>
+<tr>
+<th align="right">编号</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">祖宗</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+</tr>
+</tbody>
+</table>
+<p>发现　１,４，同时　１　和　４　不在一个集合，于是将　４　加进去，标记　４　也归属　１。</p>
+<p><img alt="" src="https://i.loli.net/2018/08/15/5b73a3f8e8d0d.png" /></p>
+<table>
+<thead>
+<tr>
+<th align="right">编号</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">祖宗</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>此时，边数为点数　<span><span class="MathJax_Preview">-1</span><script type="math/tex">-1</script></span>，整个最小生成树完成了，代价是　<span><span class="MathJax_Preview">2+2+3=7</span><script type="math/tex">2+2+3=7</script></span>。</p>
 <h3 id="_4">“集合”数据结构的一种实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>只要支持两个接口：find_set 和 merge。</p>
 <p>我们先考虑暴力，直接维护每个元素属于哪个集合，以及每个集合有哪些元素。</p>
