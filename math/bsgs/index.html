@@ -1356,6 +1356,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#30" title="3.0 扩展篇" class="md-nav__link">
+    3.0 扩展篇
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2947,6 +2954,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#30" title="3.0 扩展篇" class="md-nav__link">
+    3.0 扩展篇
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3025,6 +3039,33 @@ a^x \equiv b \bmod p
 <p><del>基于一个<strong>假设</strong>，原联系根是<strong>均匀分布</strong>的，我们<strong>伪证明</strong>一下总复杂度</del>：原根数量定理：数 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 要么没有原根，要么有 <span><span class="MathJax_Preview">\varphi(\varphi(p))</span><script type="math/tex">\varphi(\varphi(p))</script></span> 个原根.</p>
 <p>由于 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 是质数，所以 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 有 <span><span class="MathJax_Preview">\varphi(p-1)</span><script type="math/tex">\varphi(p-1)</script></span> 个原根，所以大概最小的原根为 <span><span class="MathJax_Preview">\frac{p}{\varphi(p-1)}=O(\log\log n)</span><script type="math/tex">\frac{p}{\varphi(p-1)}=O(\log\log n)</script></span>，由于求每一个数时要枚举一遍 <span><span class="MathJax_Preview">p-1</span><script type="math/tex">p-1</script></span> 所有的因数 <span><span class="MathJax_Preview">O(\sqrt p)</span><script type="math/tex">O(\sqrt p)</script></span> 来判断其是否为原根，最后再算上 <strong>BSGS</strong> 的复杂度 <span><span class="MathJax_Preview">O(\sqrt{p})</span><script type="math/tex">O(\sqrt{p})</script></span>，则复杂度约为 <span><span class="MathJax_Preview">O(\sqrt{p}\log \log n)</span><script type="math/tex">O(\sqrt{p}\log \log n)</script></span>.</p>
 <p><a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1319">BZOJ-1319</a> 是一道模板题，代码可以在 <a href="https://blog.csdn.net/Steaunk/article/details/78988376">Steaunk的博客</a> 中看到.</p>
+<h3 id="30">3.0 扩展篇<a class="headerlink" href="#30" title="Permanent link">&para;</a></h3>
+<p>上文提到的情况是 <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 为素数的情况，如果 <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 不是素数呢？</p>
+<p>这就需要用到扩展BSGS算法，不要求 <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 为素数！</p>
+<p>扩展BSGS用到了同余的一条性质：</p>
+<p>令 <span><span class="MathJax_Preview">d=gcd(a,c) ,a=m \times d,b=n \times d,p=k \times d</span><script type="math/tex">d=gcd(a,c) ,a=m \times d,b=n \times d,p=k \times d</script></span>；
+则 <span><span class="MathJax_Preview">m \times d \equiv b \times d (mod c \times d)</span><script type="math/tex">m \times d \equiv b \times d (mod c \times d)</script></span> 等价于 <span><span class="MathJax_Preview">m \equiv n(mod k)</span><script type="math/tex">m \equiv n(mod k)</script></span>
+所以我们要先消除因子：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="o">!=</span><span class="mi">1</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="err">\\无解</span>
+    <span class="n">b</span><span class="err">\</span><span class="o">=</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">);</span>
+    <span class="n">c</span><span class="err">\</span><span class="o">=</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">);</span>
+    <span class="n">d</span><span class="o">*=</span><span class="n">a</span><span class="o">/</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">);</span>
+    <span class="n">num</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>消除完后，就变成了 <span><span class="MathJax_Preview">d \times m^{x-num} \equiv n (mod k)</span><script type="math/tex">d \times m^{x-num} \equiv n (mod k)</script></span>，令 <span><span class="MathJax_Preview">x=i \times m+j+num</span><script type="math/tex">x=i \times m+j+num</script></span>，后面的做法就和普通BSGS一样了。</p>
+<p>注意，因为 <span><span class="MathJax_Preview">i,j \le 0</span><script type="math/tex">i,j \le 0</script></span>，所以 <span><span class="MathJax_Preview">x \le num</span><script type="math/tex">x \le num</script></span>，但不排除解小于等于 <span><span class="MathJax_Preview">num</span><script type="math/tex">num</script></span> 的情况，所以在消因子之前做一下 <span><span class="MathJax_Preview">\Theta(\log_2 p)</span><script type="math/tex">\Theta(\log_2 p)</script></span> 枚举，直接验证 <span><span class="MathJax_Preview">a^i mod c = b</span><script type="math/tex">a^i mod c = b</script></span>，这样就能避免这种情况。</p>
                 
                   
                 
