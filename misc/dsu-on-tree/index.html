@@ -106,6 +106,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -2814,9 +2818,84 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        树上启发式合并
+      </label>
+    
     <a href="./" title="树上启发式合并" class="md-nav__link md-nav__link--active">
       树上启发式合并
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="引入" class="md-nav__link">
+    引入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="算法内容" class="md-nav__link">
+    算法内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="复杂度" class="md-nav__link">
+    复杂度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="大致代码" class="md-nav__link">
+    大致代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="运用" class="md-nav__link">
+    运用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="练习题" class="md-nav__link">
+    练习题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="参考资料/扩展阅读" class="md-nav__link">
+    参考资料/扩展阅读
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2833,6 +2912,83 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="引入" class="md-nav__link">
+    引入
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="算法内容" class="md-nav__link">
+    算法内容
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="复杂度" class="md-nav__link">
+    复杂度
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="大致代码" class="md-nav__link">
+    大致代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="运用" class="md-nav__link">
+    运用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="练习题" class="md-nav__link">
+    练习题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="参考资料/扩展阅读" class="md-nav__link">
+    参考资料/扩展阅读
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2844,7 +3000,152 @@
                   <h1>树上启发式合并</h1>
                 
                  <blockquote class="page-time"></blockquote>
-                
+                <h3 id="_1">引入<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>启发式算法是什么呢？</p>
+<p>启发式算法是基于人类的经验和直观感觉，对一些算法的优化。</p>
+<p>给个例子？</p>
+<p>最常见的就是并查集的按秩合并了，有带按秩合并的并查集中，合并的代码是这样的：</p>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">merge</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">xx</span><span class="o">=</span><span class="n">find</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">yy</span><span class="o">=</span><span class="n">find</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="n">xx</span><span class="p">]</span><span class="o">&lt;</span><span class="n">size</span><span class="p">[</span><span class="n">yy</span><span class="p">])</span><span class="n">swap</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">);</span>
+    <span class="n">fa</span><span class="p">[</span><span class="n">yy</span><span class="p">]</span><span class="o">=</span><span class="n">xx</span><span class="p">;</span><span class="n">size</span><span class="p">[</span><span class="n">xx</span><span class="p">]</span><span class="o">+=</span><span class="n">size</span><span class="p">[</span><span class="n">yy</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+在这里，对于两个大小不一样的集合，我们将大小小的并到大的，而不是大的连接小的。</p>
+<p>为什么呢？这个集合的大小可以认为是集合的高度（在正常情况下），而我们将集合高度小的并到高度大的显然有助于我们找到父亲</p>
+<p>让高度小的树成为高度较大的树的子树，这个优化可以称为启发式合并算法。</p>
+<h3 id="_2">算法内容<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>树上启发式合并（dsu on tree）对于某些树上离线问题可以速度大于等于大部分算法且更易于理解和实现的算法。</p>
+<p>考虑下面的问题：</p>
+<p>给出一棵树，每个节点有颜色，询问一些子树的颜色数量（颜色可重复）。</p>
+<p><img alt="" src="https://cdn.luogu.org/upload/pic/24620.png" /></p>
+<p>对于这种问题解决方式大多是运用大量的数据结构（树套树等），如果可以离线，询问的量巨大，是不是有更简单的方法？</p>
+<p>树上莫队!</p>
+<p>不行，莫队带根号，我要 log</p>
+<p>既然支持离线，考虑预处理后 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 输出答案。</p>
+<p>直接暴力预处理的时间复杂度为 <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>，即对每一个子节点进行一次遍历，每次遍历的复杂度显然与 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 同阶，有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个节点，故复杂度为 <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>。</p>
+<p>可以发现，每个节点的答案是其子树的叠加，考虑利用这个性质处理问题。</p>
+<p>我们可以先预处理出每个节点子树的 <span><span class="MathJax_Preview">size</span><script type="math/tex">size</script></span> 和它的重儿子，重儿子同树链剖分一样，是拥有节点最多子树的儿子，这个过程显然可以 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 完成</p>
+<p>我们用 check[i] 表示颜色<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>有没有出现过，ans[i] 表示他的颜色个数</p>
+<p>遍历一个节点，我们按以下的步骤进行遍历：</p>
+<ul>
+<li>
+<p>先遍历其非重儿子，获取它的 ans，但<strong>不保留遍历后它的 check</strong>；</p>
+</li>
+<li>
+<p>遍历它的重儿子，<strong>保留它的 check</strong>；</p>
+</li>
+<li>
+<p>再次遍历其非重儿子及其父亲，用重儿子的 check 对遍历到的节点进行计算，获取整棵子树的 ans；</p>
+</li>
+</ul>
+<p><img alt="" src="https://cdn.luogu.org/upload/pic/24919.png" /></p>
+<p><em>上图是一个例子</em></p>
+<p>这样，对于一个节点，我们遍历了一次重子树，两次非重子树，显然是最划算的。</p>
+<p>经过这个过程，我们获得了这个节点的子树的所有 ans</p>
+<p>为什么不合并第一步和第三步呢？因为 check 数组不能重复使用，否则空间会太大，需要在 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 的空间内完成。</p>
+<p>显然若一个节点 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 被遍历了 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 次，则其重儿子会被遍历 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 次，轻儿子（如果有的话）会被遍历 <span><span class="MathJax_Preview">2x</span><script type="math/tex">2x</script></span> 次。</p>
+<p>注意除了重儿子，每次遍历完 <span><span class="MathJax_Preview">check</span><script type="math/tex">check</script></span> 要清零。</p>
+<h3 id="_3">复杂度<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>（对于不关心复杂度证明的，可以跳过不看）</p>
+<p>我们像树链剖分一样定义重边和轻边（连向重儿子的为重边，其余为轻边）关于重儿子和重边的定义，可以见下图，对于一棵有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个节点的树：</p>
+<p>根节点到树上任意节点的轻边数不超过 <span><span class="MathJax_Preview">\log n</span><script type="math/tex">\log n</script></span> 条。我们设根到该节点有x条轻边该节点的子树大小为 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>，显然轻边连接的子节点的子树大小小于父亲的一半（若大于一半就不是轻边了），则 <span><span class="MathJax_Preview">y&lt;n/2^x</span><script type="math/tex">y<n/2^x</script></span>，显然 <span><span class="MathJax_Preview">n&gt;2^x</span><script type="math/tex">n>2^x</script></span>，所以 <span><span class="MathJax_Preview">x&lt;\log n</span><script type="math/tex">x<\log n</script></span>。</p>
+<p>又因为如果一个节点是其父亲的重儿子，则他的子树必定在他的兄弟之中最多，所以任意节点到根的路径上所有重边连接的父节点在计算答案是必定不会遍历到这个节点，所以一个节点的被遍历的次数等于他到根节点路径上的轻边树 <span><span class="MathJax_Preview">+1</span><script type="math/tex">+1</script></span>（之所以要 <span><span class="MathJax_Preview">+1</span><script type="math/tex">+1</script></span> 是因为他本身要被遍历到），所以一个节点的被遍历次数 <span><span class="MathJax_Preview">=\log n+1</span><script type="math/tex">=\log n+1</script></span>,总时间复杂度则为 <span><span class="MathJax_Preview">O(n(\log n+1))=O(n\log n)</span><script type="math/tex">O(n(\log n+1))=O(n\log n)</script></span>，输出答案花费 <span><span class="MathJax_Preview">O(m)</span><script type="math/tex">O(m)</script></span>.</p>
+<p><img alt="" src="https://cdn.luogu.org/upload/pic/24909.png" /></p>
+<p><em>图中标红的即为重边，重边连向的子节点为重儿子</em> </p>
+<h3 id="_4">大致代码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>这里是预处理代码
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">dfs1</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">fa</span><span class="p">){</span>
+    <span class="n">size</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">];</span><span class="n">i</span><span class="p">;</span><span class="n">i</span><span class="o">=</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">next</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">v</span><span class="o">=</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">v</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">!=</span><span class="n">fa</span><span class="p">){</span>
+            <span class="n">dfs1</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">);</span>
+            <span class="n">size</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">+=</span><span class="n">size</span><span class="p">[</span><span class="n">v</span><span class="p">];</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">&gt;</span><span class="n">size</span><span class="p">[</span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">]])</span>
+                <span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">=</span><span class="n">v</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+下面是求答案的代码
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">,</span><span class="kt">int</span> <span class="n">fa</span><span class="p">,</span><span class="kt">bool</span> <span class="n">keep</span><span class="p">,</span><span class="kt">bool</span> <span class="n">isson</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">tmp</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">];</span><span class="n">i</span><span class="p">;</span><span class="n">i</span><span class="o">=</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">next</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">v</span><span class="o">=</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">v</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">!=</span><span class="n">fa</span><span class="o">&amp;&amp;</span><span class="n">v</span><span class="o">!=</span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="n">dfs2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">])</span>
+        <span class="n">tmp</span><span class="o">+=</span><span class="n">dfs2</span><span class="p">(</span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">],</span><span class="n">u</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">];</span><span class="n">i</span><span class="p">;</span><span class="n">i</span><span class="o">=</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">next</span><span class="p">){</span>
+        <span class="kt">int</span> <span class="n">v</span><span class="o">=</span><span class="n">tree</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">v</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">!=</span><span class="n">fa</span><span class="o">&amp;&amp;</span><span class="n">v</span><span class="o">!=</span><span class="n">son</span><span class="p">[</span><span class="n">u</span><span class="p">]){</span>
+            <span class="n">tmp</span><span class="o">+=</span><span class="n">dfs2</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">check</span><span class="p">[</span><span class="n">color</span><span class="p">[</span><span class="n">u</span><span class="p">]]){</span><span class="n">tmp</span><span class="o">++</span><span class="p">;</span><span class="n">check</span><span class="p">[</span><span class="n">color</span><span class="p">[</span><span class="n">u</span><span class="p">]]</span><span class="o">=</span><span class="mi">1</span><span class="p">;}</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">keep</span><span class="o">||</span><span class="n">isson</span><span class="p">)</span><span class="n">ans</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">keep</span><span class="p">)</span> <span class="n">memset</span><span class="p">(</span><span class="n">check</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="k">sizeof</span><span class="p">(</span><span class="n">check</span><span class="p">)),</span><span class="n">tmp</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+代码是我口胡出来的，因为没有经过测评不保证正确。</p>
+<h3 id="_5">运用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>1.某些出题人设置的正解是 dsu on tree 的题</p>
+<p>如 <a href="http://codeforces.com/problemset/problem/741/D">CF741D</a>。给一棵树，每个节点的权值是'a'到'v'的字母，每次询问要求在一个子树找一条路径，使该路径包含的字符排序后成为回文串。</p>
+<p>因为是排列后成为回文串，所以一个字符出现了两次相当于没出现，也就是说，这条路径满足<strong>最多有一个字符出现奇数次</strong>。</p>
+<p>正常做法是对每一个节点 dfs，每到一个节点就强行枚举所有字母找到和他异或后结果为1的个数&lt;1的路径，再去最长值，这样 <span><span class="MathJax_Preview">O(n^2\log n)</span><script type="math/tex">O(n^2\log n)</script></span> 的，可以用 dsu on tree 优化到 <span><span class="MathJax_Preview">O(n\log^2n)</span><script type="math/tex">O(n\log^2n)</script></span>。关于具体做法，可以参考下面的扩展阅读</p>
+<p>2.可以用dsu乱搞<sub><sub>吊打std</sub></sub>水分的题</p>
+<p>可以水一些树套树的部分分（没有修改操作），还可以把树上莫队的 <span><span class="MathJax_Preview">O(n\sqrt{m})</span><script type="math/tex">O(n\sqrt{m})</script></span> 吊着打</p>
+<h3 id="_6">练习题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><a href="http://codeforces.com/problemset/problem/600/E">CF600E Lomsat gelral</a></p>
+<p>题意翻译：树的节点有颜色，一种颜色占领了一个子树，当且仅当没有其他颜色在这个子树中出现得比它多。求占领每个子树的所有颜色之和。</p>
+<p><a href="http://uoj.ac/problem/284">UOJ284 快乐游戏鸡</a></p>
+<h3 id="_7">参考资料/扩展阅读<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><a href="http://codeforces.com/blog/entry/44351">CF741D作者介绍的dsu on tree</a></p>
+<p><a href="http://codeforces.com/blog/entry/48871">这位作者的题解</a></p>
                 
                   
                 
