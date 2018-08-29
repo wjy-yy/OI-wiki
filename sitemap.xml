@@ -441,7 +441,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://oi-wiki.org/ds/pb-ds/</loc>
+     <loc>https://oi-wiki.org/ds/pb_ds/</loc>
+     <lastmod>2018-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://oi-wiki.org/ds/pb_ds/priority_queue/</loc>
      <lastmod>2018-08-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
