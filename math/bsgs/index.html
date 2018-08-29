@@ -3046,16 +3046,20 @@ a^x \equiv b \bmod p
 <p>令 <span><span class="MathJax_Preview">d=gcd(a,c) ,a=m \times d,b=n \times d,p=k \times d</span><script type="math/tex">d=gcd(a,c) ,a=m \times d,b=n \times d,p=k \times d</script></span>；
 则 <span><span class="MathJax_Preview">m \times d \equiv b \times d (mod c \times d)</span><script type="math/tex">m \times d \equiv b \times d (mod c \times d)</script></span> 等价于 <span><span class="MathJax_Preview">m \equiv n(mod k)</span><script type="math/tex">m \equiv n(mod k)</script></span>
 所以我们要先消除因子：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">num</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">while</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="o">!=</span><span class="mi">1</span><span class="p">){</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="err">\\无解</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="err">\\无解</span>
+    <span class="p">}</span>
     <span class="n">b</span><span class="err">\</span><span class="o">=</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">);</span>
     <span class="n">c</span><span class="err">\</span><span class="o">=</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">);</span>
     <span class="n">d</span><span class="o">*=</span><span class="n">a</span><span class="o">/</span><span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">);</span>
