@@ -1948,6 +1948,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#-" title="拓展 - 猫树" class="md-nav__link">
+    拓展 - 猫树
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="原理" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="实现" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="堆式建树" class="md-nav__link">
+    堆式建树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="参考" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -3094,6 +3135,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#-" title="拓展 - 猫树" class="md-nav__link">
+    拓展 - 猫树
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="原理" class="md-nav__link">
+    原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="实现" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="堆式建树" class="md-nav__link">
+    堆式建树
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="参考" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -3123,8 +3205,8 @@
                 
                  <blockquote class="page-time"></blockquote>
                 <h2 id="1">1. 写在前面<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>线段树是个好东西啊QwQ</p>
-<p>OI 中最常用的数据结构之一，不学不行啊OvO</p>
+<p>线段树是个好东西啊 QwQ</p>
+<p>OI 中最常用的数据结构之一，不学不行啊 OvO</p>
 <h2 id="2">2. 线段树是什么<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <blockquote>
 <p>线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。使用线段树可以快速的查找某一个节点在若干条线段中出现的次数，时间复杂度为 <span><span class="MathJax_Preview">O(\log N)</span><script type="math/tex">O(\log N)</script></span>。而未优化的空间复杂度为 <span><span class="MathJax_Preview">2N</span><script type="math/tex">2N</script></span>，因此有时需要离散化让空间压缩。——From 度娘</p>
@@ -3140,12 +3222,12 @@
 <img alt="" src="../images/segt1.png" /></p>
 <p>图中 <span><span class="MathJax_Preview">d[1]</span><script type="math/tex">d[1]</script></span> 表示根节点，紫色方框是数组 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，红色方框是数组 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>，红色方框中的括号中的黄色数字表示它所在的那个红色方框表示的线段树节点所表示的区间，如 <span><span class="MathJax_Preview">d[1]</span><script type="math/tex">d[1]</script></span> 所表示的区间就是 <span><span class="MathJax_Preview">1\sim 5\ (a[1]\sim a[5])</span><script type="math/tex">1\sim 5\ (a[1]\sim a[5])</script></span>，即 <span><span class="MathJax_Preview">d[1]</span><script type="math/tex">d[1]</script></span> 所保存的值是 <span><span class="MathJax_Preview">a[1]+a[2]+ \cdots +a[5]</span><script type="math/tex">a[1]+a[2]+ \cdots +a[5]</script></span>，<span><span class="MathJax_Preview">d[1]=60</span><script type="math/tex">d[1]=60</script></span> 表示的是 <span><span class="MathJax_Preview">a[1]+a[2]+ \cdots +a[5]=60</span><script type="math/tex">a[1]+a[2]+ \cdots +a[5]=60</script></span>。</p>
 <p>通过观察我们不难发现，<span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 的左儿子节点就是 <span><span class="MathJax_Preview">d[2\times i]</span><script type="math/tex">d[2\times i]</script></span>，<span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 的右节点就是 <span><span class="MathJax_Preview">d[2\times i+1]</span><script type="math/tex">d[2\times i+1]</script></span>。进一步观察，可以看出如果 <span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 表示的是区间 <span><span class="MathJax_Preview">[s,t]</span><script type="math/tex">[s,t]</script></span>（即 <span><span class="MathJax_Preview">d[i]=a[s]+a[s+1]+ \cdots +a[t] <span><span class="MathJax_Preview">）的话，那么 <span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 的左儿子节点表示的是区间  的左儿子节点表示的是区间 <span><span class="MathJax_Preview">[s, \frac{s+t}{2} ]</span><script type="math/tex">[s, \frac{s+t}{2} ]</script></span>，，</span><script type="math/tex">）的话，那么 <span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 的左儿子节点表示的是区间  的左儿子节点表示的是区间 <span><span class="MathJax_Preview">[s, \frac{s+t}{2} ]</span><script type="math/tex">[s, \frac{s+t}{2} ]</script></span>，，</script></span>d[i]d[i]</span><script type="math/tex">d[i]=a[s]+a[s+1]+ \cdots +a[t] <span><span class="MathJax_Preview">）的话，那么 <span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 的左儿子节点表示的是区间  的左儿子节点表示的是区间 <span><span class="MathJax_Preview">[s, \frac{s+t}{2} ]</span><script type="math/tex">[s, \frac{s+t}{2} ]</script></span>，，</span><script type="math/tex">）的话，那么 <span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 的左儿子节点表示的是区间  的左儿子节点表示的是区间 <span><span class="MathJax_Preview">[s, \frac{s+t}{2} ]</span><script type="math/tex">[s, \frac{s+t}{2} ]</script></span>，，</script></span>d[i]d[i]</script></span> 的右儿子表示的是区间 <span><span class="MathJax_Preview">[ \frac{s+t}{2} +1,t]</span><script type="math/tex">[ \frac{s+t}{2} +1,t]</script></span>。</p>
-<p>为什么要这样表示呢？因为线段树利用了二分的思想，线段树实际上是个二叉树，这些不懂的话就无法理解线段树了，所以如果不明白二分或者二叉树的话……建议去问问度娘。</p>
+<p>为什么要这样表示呢？因为线段树利用了二分的思想，线段树实际上是个二叉树，这些不懂的话就无法理解线段树了，所以如果不明白二分或者二叉树的话…… 建议去问问度娘。</p>
 <p>具体要怎么用代码实现呢？</p>
 <p>我们继续观察，有没有发现如果 <span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 表示的区间大小等于 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>（区间大小指的是区间包含的元素的个数，即 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的个数）的话（设 <span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 表示区间 <span><span class="MathJax_Preview">[s,t]</span><script type="math/tex">[s,t]</script></span>，它的区间大小就是 <span><span class="MathJax_Preview">t-s+1</span><script type="math/tex">t-s+1</script></span>，不信你看上面的图），那么 <span><span class="MathJax_Preview">d[i]</span><script type="math/tex">d[i]</script></span> 所表示的区间 <span><span class="MathJax_Preview">[s,t]</span><script type="math/tex">[s,t]</script></span> 中 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 肯定等于 <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>（不信你还是看图），且 <span><span class="MathJax_Preview">d[i]=a[s]</span><script type="math/tex">d[i]=a[s]</script></span>（当然也等于 <span><span class="MathJax_Preview">a[t]</span><script type="math/tex">a[t]</script></span>）。
 为什么要讲这个东西呢？你没发现这个是个递归边界吗？</p>
-<p>O(∩_∩)O哈哈~</p>
-<p><strong>思路如下：</strong>
+<p>O(∩_∩)O 哈哈~</p>
+<p><strong> 思路如下：</strong>
 <img alt="" src="../images/segt2.png" />
 <img alt="" src="../images/segt3.png" />
 <img alt="" src="../images/segt4.png" /></p>
@@ -3196,12 +3278,12 @@
 </td></tr></table>
 
 <p>上面那短短 <span><span class="MathJax_Preview">7</span><script type="math/tex">7</script></span> 行代码就能建立一个线段树。</p>
-<p>其实还有一个比较严重的问题：数组 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 到底开多大？如果 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 数组中元素个数是 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，那 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 数组的元素个数应该定为多少？保险起见，为了防止你的 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 数组越界、程序爆炸的话，<span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 数组大小应该为 <span><span class="MathJax_Preview">n\times 4</span><script type="math/tex">n\times 4</script></span>，再保险一点的话定为<span><span class="MathJax_Preview">n\times 4+5</span><script type="math/tex">n\times 4+5</script></span>吧。为啥是 <span><span class="MathJax_Preview">n\times 4</span><script type="math/tex">n\times 4</script></span> 呢？这里我转载一下一篇博客，里面有详细的讲解，我就不讲了（我懒行了吧）……</p>
+<p>其实还有一个比较严重的问题：数组 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 到底开多大？如果 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 数组中元素个数是 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，那 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 数组的元素个数应该定为多少？保险起见，为了防止你的 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 数组越界、程序爆炸的话，<span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 数组大小应该为 <span><span class="MathJax_Preview">n\times 4</span><script type="math/tex">n\times 4</script></span>，再保险一点的话定为 <span><span class="MathJax_Preview">n\times 4+5</span><script type="math/tex">n\times 4+5</script></span> 吧。为啥是 <span><span class="MathJax_Preview">n\times 4</span><script type="math/tex">n\times 4</script></span> 呢？这里我转载一下一篇博客，里面有详细的讲解，我就不讲了（我懒行了吧）……</p>
 <p>传送门：<a href="http://scinart.github.io/acm/2014/03/19/acm-segment-tree-space-analysis/">http://scinart.github.io/acm/2014/03/19/acm-segment-tree-space-analysis/</a>
 （链接已失效）</p>
 <p><img alt="" src="../images/segt5.png" /></p>
 <h3 id="2_1">(2) 线段树的区间查询<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
-<p>区间查询，比如求区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的总和（即 <span><span class="MathJax_Preview">a[l]+a[l+1]+ \cdots +a[r]</span><script type="math/tex">a[l]+a[l+1]+ \cdots +a[r]</script></span>）、求区间最大值/最小值……还有很多很多……怎么做呢？</p>
+<p>区间查询，比如求区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的总和（即 <span><span class="MathJax_Preview">a[l]+a[l+1]+ \cdots +a[r]</span><script type="math/tex">a[l]+a[l+1]+ \cdots +a[r]</script></span>）、求区间最大值 / 最小值…… 还有很多很多…… 怎么做呢？</p>
 <p><img alt="" src="../images/segt6.png" /></p>
 <p>拿上面这张图举栗！</p>
 <p><img alt="" src="../images/segt7.png" /></p>
@@ -3231,22 +3313,22 @@
 17
 18
 19
-20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">求和（查询区间的左端点</span><span class="n">l</span><span class="p">,</span><span class="err">查询区间的右端点</span><span class="n">r</span><span class="p">,</span><span class="err">当前节点表示的区间左端点</span><span class="n">s</span><span class="p">,</span><span class="err">当前节点表示的区间</span><span class="n">t</span><span class="p">,</span><span class="err">当前访问的节点编号</span><span class="n">p</span><span class="err">）</span>
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">求和（查询区间的左端点</span> <span class="n">l</span><span class="p">,</span> <span class="err">查询区间的右端点</span> <span class="n">r</span><span class="p">,</span> <span class="err">当前节点表示的区间左端点</span> <span class="n">s</span><span class="p">,</span> <span class="err">当前节点表示的区间</span> <span class="n">t</span><span class="p">,</span> <span class="err">当前访问的节点编号</span> <span class="n">p</span><span class="err">）</span>
 <span class="p">{</span>
-    <span class="err">如果（</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">s</span><span class="o">&amp;&amp;</span><span class="n">t</span><span class="o">&lt;=</span><span class="n">r</span><span class="err">）</span><span class="c1">//当前访问的节点表示的区间包含在查询区间内</span>
+    <span class="err">如果（</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">s</span><span class="o">&amp;&amp;</span><span class="n">t</span><span class="o">&lt;=</span><span class="n">r</span><span class="err">）</span><span class="c1">// 当前访问的节点表示的区间包含在查询区间内</span>
     <span class="p">{</span>
         <span class="err">返回</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="err">；</span>
     <span class="p">}</span>
     <span class="err">否则</span>
     <span class="p">{</span>
-        <span class="err">令</span> <span class="err">返回值</span><span class="o">=</span><span class="mi">0</span>
-        <span class="err">如果（</span><span class="n">l</span><span class="o">&lt;=</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="err">）</span><span class="c1">//当前访问的节点的左儿子节点表示的区间包含在查 询区间内,(s+t)/2其实是左右儿子节点表示的区间的分割线且(s+t)/2包含在左儿子节点表示的区间中</span>
+        <span class="err">令</span> <span class="err">返回值</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="err">如果（</span><span class="n">l</span><span class="o">&lt;=</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="err">）</span><span class="c1">// 当前访问的节点的左儿子节点表示的区间包含在查 询区间内,(s+t)/2 其实是左右儿子节点表示的区间的分割线且(s+t)/2 包含在左儿子节点表示的区间中</span>
         <span class="p">{</span>
-         <span class="err">返回值</span><span class="o">+=</span><span class="err">求和（</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">s</span><span class="p">,(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="err">）</span><span class="p">;</span><span class="c1">//l和r是可以不用变的！不管你信不信我反正是信了。当前节点的左儿子节点编号是p2，之前讲过了，左儿子节点表示的区间左端点就是当前节点表示的区间的左端点，(s+t)/2是左儿子节点表示的区间的右短点</span>
+         <span class="err">返回值</span> <span class="o">+=</span> <span class="err">求和（</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">s</span><span class="p">,(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="err">）</span><span class="p">;</span><span class="c1">//l 和 r 是可以不用变的！不管你信不信我反正是信了。当前节点的左儿子节点编号是 p2，之前讲过了，左儿子节点表示的区间左端点就是当前节点表示的区间的左端点，(s+t)/2 是左儿子节点表示的区间的右短点</span>
         <span class="p">}</span>
-        <span class="err">如果</span><span class="p">(</span><span class="n">r</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="c1">//当前访问的节点的右儿子节点表示的区间包含在查 询区间内</span>
+        <span class="err">如果</span><span class="p">(</span><span class="n">r</span><span class="o">&gt;</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="c1">// 当前访问的节点的右儿子节点表示的区间包含在查 询区间内</span>
         <span class="p">{</span>
-          <span class="err">返回值</span><span class="o">+=</span><span class="err">求和（</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="err">）；</span><span class="c1">//(s+t)/2+1是当前访问节点的右儿子节点表示的区间的左端点</span>
+          <span class="err">返回值</span> <span class="o">+=</span> <span class="err">求和（</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="err">）；</span><span class="c1">//(s+t)/2+1 是当前访问节点的右儿子节点表示的区间的左端点</span>
         <span class="p">}</span>
         <span class="err">返回</span> <span class="err">返回值；</span>
     <span class="p">}</span>
@@ -3254,7 +3336,7 @@
 </pre></div>
 </td></tr></table>
 
-<p>怎么样，代码很丑吧？废话，用中文写的能不丑吗？现在搞个英(da)文(xin)的(wen)：</p>
+<p>怎么样，代码很丑吧？废话，用中文写的能不丑吗？现在搞个英 (da) 文(xin)的(wen)：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3275,18 +3357,18 @@
 
 <p>还是挺短的吧？这里用到的主要思路就是把一个区间拆成左右两个区间，再分别处理左右区间。也是二分的思想。</p>
 <h3 id="3_1">(3) 线段树的区间修改与懒惰标记<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
-<p>区间修改是个很有趣的东西o(╯□╰)o……你想啊，如果你要修改区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>，难道把所有包含在区间[l,r]中的节点都遍历一次、修改一次？那估计这时间复杂度估计会上天|(*′口`)。这怎么办呢？我们这里要引用一个叫做 <strong>「懒惰标记」</strong> 的东西。</p>
-<p>我们设一个数组 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>，<span><span class="MathJax_Preview">b[i]</span><script type="math/tex">b[i]</script></span> 表示编号为 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的节点的懒惰标记值。啥是懒惰标记、懒惰标记值呢？(O_O)?这里我再举个栗子（原创小故事我真有才哈哈哈(◡ᴗ◡✿)）：</p>
+<p>区间修改是个很有趣的东西 o(╯□╰)o…… 你想啊，如果你要修改区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>，难道把所有包含在区间 [l,r] 中的节点都遍历一次、修改一次？那估计这时间复杂度估计会上天 |(*′口 `)。这怎么办呢？我们这里要引用一个叫做 <strong>「懒惰标记」</strong> 的东西。</p>
+<p>我们设一个数组 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>，<span><span class="MathJax_Preview">b[i]</span><script type="math/tex">b[i]</script></span> 表示编号为 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的节点的懒惰标记值。啥是懒惰标记、懒惰标记值呢？(O_O)? 这里我再举个栗子（原创小故事我真有才哈哈哈(◡ᴗ◡✿)）：</p>
 <blockquote>
 <p>A 有两个儿子，一个是 B，一个是 C。</p>
-<p>有一天A要建一个新房子，没钱。刚好过年嘛，有人要给 B 和 C 红包，两个红包的钱数相同都是 <span><span class="MathJax_Preview">(1000000000000001\bmod 2)</span><script type="math/tex">(1000000000000001\bmod 2)</script></span> 圆（好多啊！……不就是 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 元吗……），然而因为 A 是父亲所以红包肯定是先塞给 A 咯~</p>
-<p>理论上来讲 A 应该把两个红包分别给 B 和 C，但是……缺钱嘛，A 就把红包偷偷收到自己口袋里了。</p>
+<p>有一天 A 要建一个新房子，没钱。刚好过年嘛，有人要给 B 和 C 红包，两个红包的钱数相同都是 <span><span class="MathJax_Preview">(1000000000000001\bmod 2)</span><script type="math/tex">(1000000000000001\bmod 2)</script></span> 圆（好多啊！…… 不就是 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 元吗……），然而因为 A 是父亲所以红包肯定是先塞给 A 咯~</p>
+<p>理论上来讲 A 应该把两个红包分别给 B 和 C，但是…… 缺钱嘛，A 就把红包偷偷收到自己口袋里了。</p>
 <p>A 高兴♂地说：「我现在有 <span><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span> 份红包了！我又多了 <span><span class="MathJax_Preview">2\times (1000000000000001\bmod 2)=2</span><script type="math/tex">2\times (1000000000000001\bmod 2)=2</script></span> 圆了！哈哈哈~」</p>
-<p>但是 A 知道，如果他不把红包给 B 和 C，那 B 和 C 肯定会不爽然后导致家庭矛盾最后崩溃，所以 A 对儿子 B 和 C 说：「我欠你们每人 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 份 <span><span class="MathJax_Preview">(1000000000000001\bmod 2)</span><script type="math/tex">(1000000000000001\bmod 2)</script></span> 圆的红包，下次有新红包给过来的时候再给你们！这里我先做下记录……嗯……我钱你们各 <span><span class="MathJax_Preview">(1000000000000001\bmod 2)</span><script type="math/tex">(1000000000000001\bmod 2)</script></span> 圆……」</p>
-<p>儿子 B、C 有点恼怒：「可是如果有同学问起我们我们收到了多少红包咋办？你把我们的红包都收了，我们还怎么装×？」</p>
+<p>但是 A 知道，如果他不把红包给 B 和 C，那 B 和 C 肯定会不爽然后导致家庭矛盾最后崩溃，所以 A 对儿子 B 和 C 说：「我欠你们每人 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 份 <span><span class="MathJax_Preview">(1000000000000001\bmod 2)</span><script type="math/tex">(1000000000000001\bmod 2)</script></span> 圆的红包，下次有新红包给过来的时候再给你们！这里我先做下记录…… 嗯…… 我钱你们各 <span><span class="MathJax_Preview">(1000000000000001\bmod 2)</span><script type="math/tex">(1000000000000001\bmod 2)</script></span> 圆……」</p>
+<p>儿子 B、C 有点恼怒：「可是如果有同学问起我们我们收到了多少红包咋办？你把我们的红包都收了，我们还怎么装 ×？」</p>
 <p>父亲 A 赶忙说：「有同学问起来我就会给你们的！我欠条都写好了不会不算话的！」</p>
 <p>这样 B、C 才放了心。</p>
-<p>注：<span><span class="MathJax_Preview">\bmod <span><span class="MathJax_Preview">是取余数的意思，</span><script type="math/tex">是取余数的意思，</script></span>a\bmod ba\bmod b</span><script type="math/tex">\bmod <span><span class="MathJax_Preview">是取余数的意思，</span><script type="math/tex">是取余数的意思，</script></span>a\bmod ba\bmod b</script></span> 就是 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 除以 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 的余数，所以……<span><span class="MathJax_Preview">1000000000000001\bmod 2=1</span><script type="math/tex">1000000000000001\bmod 2=1</script></span>。</p>
+<p>注：$\bmod $ 是取余数的意思，<span><span class="MathJax_Preview">a\bmod b</span><script type="math/tex">a\bmod b</script></span> 就是 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 除以 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 的余数，所以……<span><span class="MathJax_Preview">1000000000000001\bmod 2=1</span><script type="math/tex">1000000000000001\bmod 2=1</script></span>。</p>
 </blockquote>
 <p>在这个故事中我们不难看出，A 就是父亲节点，B 和 C 是 A 的儿子节点，而且 B 和 C 是叶子节点，分别对应一个数组中的值（就是之前讲的数组 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>），我们假设节点 A 表示区间 <span><span class="MathJax_Preview">[1,2]</span><script type="math/tex">[1,2]</script></span>（即 <span><span class="MathJax_Preview">a[1]+a[2]</span><script type="math/tex">a[1]+a[2]</script></span>），节点 B 表示区间 <span><span class="MathJax_Preview">[1,1]</span><script type="math/tex">[1,1]</script></span>（即 <span><span class="MathJax_Preview">a[1]</span><script type="math/tex">a[1]</script></span>），节点 C 表示区间 <span><span class="MathJax_Preview">[2,2]</span><script type="math/tex">[2,2]</script></span>（即 <span><span class="MathJax_Preview">a[2]</span><script type="math/tex">a[2]</script></span>），它们的初始值都为 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>（现在才刚开始呢，还没拿到红包，所以都没钱~）。</p>
 <p>如图：</p>
@@ -3297,14 +3379,14 @@
 <p><img alt="" src="../images/segt12.png" /></p>
 <p>注：这里 D 表示当前节点的值（即所表示区间的区间和）。
 为什么节点 A 的 D 是 <span><span class="MathJax_Preview">2\times (1000000000000001\bmod 2)</span><script type="math/tex">2\times (1000000000000001\bmod 2)</script></span> 呢？原因很简单。节点 A 表示的区间是 <span><span class="MathJax_Preview">[1,2]</span><script type="math/tex">[1,2]</script></span>，一共包含 <span><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span> 个元素。我们是让 <span><span class="MathJax_Preview">[1,2]</span><script type="math/tex">[1,2]</script></span> 这个区间的每个元素都加上 <span><span class="MathJax_Preview">1000000000000001\bmod 2</span><script type="math/tex">1000000000000001\bmod 2</script></span>，所以节点 A 的值就加上了 <span><span class="MathJax_Preview">2\times (1000000000000001\bmod 2)</span><script type="math/tex">2\times (1000000000000001\bmod 2)</script></span> 咯 =￣ω￣= 。</p>
-<p>如果这时候我们要查询区间 <span><span class="MathJax_Preview">[1,1]</span><script type="math/tex">[1,1]</script></span>（即节点B的值）怎么办呢？不是说了吗？如果 B 要用到的时候，A 就把它欠的还给 B！</p>
+<p>如果这时候我们要查询区间 <span><span class="MathJax_Preview">[1,1]</span><script type="math/tex">[1,1]</script></span>（即节点 B 的值）怎么办呢？不是说了吗？如果 B 要用到的时候，A 就把它欠的还给 B！</p>
 <p>具体是这样操作（如图）：</p>
 <p><img alt="" src="../images/segt13.png" /></p>
 <p><img alt="" src="../images/segt14.png" /></p>
 <p>注：为什么是加上 <span><span class="MathJax_Preview">1\times (1000000000000001\bmod 2)</span><script type="math/tex">1\times (1000000000000001\bmod 2)</script></span> 呢？</p>
 <p>原因和上面一样——B 和 C 表示的区间中只有 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 个元素啊！</p>
 <p><img alt="" src="../images/segt15.png" /></p>
-<p>由此我们可以得到，区间 <span><span class="MathJax_Preview">[1,1]</span><script type="math/tex">[1,1]</script></span> 的区间和就是 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 啦！O(∩_∩)O哈哈~！</p>
+<p>由此我们可以得到，区间 <span><span class="MathJax_Preview">[1,1]</span><script type="math/tex">[1,1]</script></span> 的区间和就是 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 啦！O(∩_∩)O 哈哈~！</p>
 <p>代码如下（下面代码不知道为什么显示出来很丑，建议复制到自己的 C++ 编辑器里看……）：</p>
 <p>区间修改（区间加上某个值）：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -3317,13 +3399,13 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="kt">int</span> <span class="n">r</span><span class="p">,</span><span class="kt">int</span> <span class="n">c</span><span class="p">,</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span><span class="kt">int</span> <span class="n">t</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span><span class="c1">//l是查询的区间左端点，r是右端点，c表示区间每个元素加上的值，s是当前节点所表示的区间的左端点，t是右端点，p是当前节点的编号(根节点标号为1)</span>
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">update</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="kt">int</span> <span class="n">r</span><span class="p">,</span><span class="kt">int</span> <span class="n">c</span><span class="p">,</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span><span class="kt">int</span> <span class="n">t</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span><span class="c1">//l 是查询的区间左端点，r 是右端点，c 表示区间每个元素加上的值，s 是当前节点所表示的区间的左端点，t 是右端点，p 是当前节点的编号(根节点标号为 1)</span>
 <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">s</span><span class="o">&amp;&amp;</span><span class="n">t</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">){</span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">+=</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">+=</span><span class="n">c</span><span class="p">;</span><span class="k">return</span><span class="p">;}</span><span class="c1">//如果当前节点表示的区间完全包含在查询区间内，直接修改当前节点的值，然后做上标记，结束修改</span>
-    <span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="c1">//计算左右节点表示区间的分割线</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">s</span><span class="o">!=</span><span class="n">t</span><span class="p">)</span><span class="c1">//如果当前节点不是叶子节点（叶子节点表示的区间的左右端点是相等的）且当前的懒惰标记值!=0，就更新当前节点的两个儿子节点的值和懒惰标记值</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">s</span><span class="o">&amp;&amp;</span><span class="n">t</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">){</span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">+=</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">c</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">+=</span><span class="n">c</span><span class="p">;</span><span class="k">return</span><span class="p">;}</span><span class="c1">// 如果当前节点表示的区间完全包含在查询区间内，直接修改当前节点的值，然后做上标记，结束修改</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="c1">// 计算左右节点表示区间的分割线</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">s</span><span class="o">!=</span><span class="n">t</span><span class="p">)</span><span class="c1">// 如果当前节点不是叶子节点（叶子节点表示的区间的左右端点是相等的）且当前的懒惰标记值!=0，就更新当前节点的两个儿子节点的值和懒惰标记值</span>
         <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span><span class="o">+=</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+=</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">m</span><span class="p">),</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span><span class="o">+=</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+=</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
-    <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="c1">//清空当前节点的懒惰标记值</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="c1">// 清空当前节点的懒惰标记值</span>
     <span class="k">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">)</span><span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
     <span class="k">if</span><span class="p">(</span><span class="n">r</span><span class="o">&gt;</span><span class="n">m</span><span class="p">)</span><span class="n">update</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
     <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span>
@@ -3342,13 +3424,13 @@
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">getsum</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="kt">int</span> <span class="n">r</span><span class="p">,</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span><span class="kt">int</span> <span class="n">t</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span><span class="c1">//l是查询的区间左端点，r是右端点，s是当前节点所表示的区间的左端点，t是右端点，p是当前节点的编号（根节点标号为1）</span>
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">getsum</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="kt">int</span> <span class="n">r</span><span class="p">,</span><span class="kt">int</span> <span class="n">s</span><span class="p">,</span><span class="kt">int</span> <span class="n">t</span><span class="p">,</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span><span class="c1">//l 是查询的区间左端点，r 是右端点，s 是当前节点所表示的区间的左端点，t 是右端点，p 是当前节点的编号（根节点标号为 1）</span>
 <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">s</span><span class="o">&amp;&amp;</span><span class="n">t</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">)</span><span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="c1">//如果当前节点表示的区间完全包含在查询区间内，返回当前节点的值</span>
-    <span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="c1">//计算左右节点表示区间的分割线</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">s</span><span class="o">!=</span><span class="n">t</span><span class="p">)</span><span class="c1">//如果当前节点不是叶子节点（叶子节点表示的区间的左右端点是相等的）且当前的懒惰标记值!=0，就更新当前节点的两个儿子节点的值和懒惰标记</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">s</span><span class="o">&amp;&amp;</span><span class="n">t</span><span class="o">&lt;=</span><span class="n">r</span><span class="p">)</span><span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="p">];</span><span class="c1">// 如果当前节点表示的区间完全包含在查询区间内，返回当前节点的值</span>
+    <span class="kt">int</span> <span class="n">m</span><span class="o">=</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="n">t</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="c1">// 计算左右节点表示区间的分割线</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">s</span><span class="o">!=</span><span class="n">t</span><span class="p">)</span><span class="c1">// 如果当前节点不是叶子节点（叶子节点表示的区间的左右端点是相等的）且当前的懒惰标记值!=0，就更新当前节点的两个儿子节点的值和懒惰标记</span>
         <span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span><span class="o">+=</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">s</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">d</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+=</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">m</span><span class="p">),</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span><span class="o">+=</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">+=</span><span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">];</span>
-    <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="c1">//清空当前节点的懒惰标记值</span>
+    <span class="n">b</span><span class="p">[</span><span class="n">p</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="kt">int</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="c1">// 清空当前节点的懒惰标记值</span>
     <span class="k">if</span><span class="p">(</span><span class="n">l</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">)</span><span class="n">sum</span><span class="o">=</span><span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
     <span class="k">if</span><span class="p">(</span><span class="n">r</span><span class="o">&gt;</span><span class="n">m</span><span class="p">)</span><span class="n">sum</span><span class="o">+=</span><span class="n">getsum</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">p</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
     <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
@@ -3357,7 +3439,7 @@
 </td></tr></table>
 
 <p>你有没有发现区间查询和区间修改很像吗？(...<sup>__</sup>...)</p>
-<p>嘻嘻……其实平时我打线段树区间修改和查询我都是打一份，另一份复制黏贴以后再稍作修改就行了。</p>
+<p>嘻嘻…… 其实平时我打线段树区间修改和查询我都是打一份，另一份复制黏贴以后再稍作修改就行了。</p>
 <p>如果你是要实现区间修改为某一个值而不是加上某一个值的话，很简单，把上面的代码中所有的 <code>+=</code> 替换成 <code>=</code> 即可（除了 <code>sum+=getsum(l,r,m+1,t,p*2+1)</code> 这一句）。代码如下：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3417,9 +3499,9 @@
 2
 3
 4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define LS(a) (a&lt;&lt;1)</span>
-<span class="c1">//a&lt;&lt;1等同于a*2</span>
+<span class="c1">//a&lt;&lt;1 等同于 a*2</span>
 <span class="cp">#define RS(a) (a&lt;&lt;1|1)</span>
-<span class="c1">//a&lt;&lt;1|1等同于a*2+1</span>
+<span class="c1">//a&lt;&lt;1|1 等同于 a*2+1</span>
 </pre></div>
 </td></tr></table>
 
@@ -3430,7 +3512,7 @@
 </ul>
 <h2 id="6">6. 线段树基础题推荐<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
 <h3 id="1-luogu-p3372-1">(1) LUOGU P3372 【模板】线段树 1<a class="headerlink" href="#1-luogu-p3372-1" title="Permanent link">&para;</a></h3>
-<p><a href="https://www.luogu.org/problem/show?pid=3372">传送门=￣ω￣=</a></p>
+<p><a href="https://www.luogu.org/problem/show?pid=3372">传送门 =￣ω￣=</a></p>
 <p>代码：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3531,7 +3613,7 @@
 </td></tr></table>
 
 <h3 id="2-luogu-p3373-2">(2) LUOGU P3373 【模板】线段树 2<a class="headerlink" href="#2-luogu-p3373-2" title="Permanent link">&para;</a></h3>
-<p><a href="https://www.luogu.org/problem/show?pid=3372">传送门=￣ω￣=</a></p>
+<p><a href="https://www.luogu.org/problem/show?pid=3372">传送门 =￣ω￣=</a></p>
 <p>代码：
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3729,11 +3811,11 @@
 </pre></div>
 </td></tr></table></p>
 <h3 id="3-codevs">(3) CODEVS 线段树练习 （这是一个系列）<a class="headerlink" href="#3-codevs" title="Permanent link">&para;</a></h3>
-<p><a href="http://codevs.cn/problem/?q=%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%83%E4%B9%A0">传送门=￣ω￣=</a></p>
+<p><a href="http://codevs.cn/problem/?q=%E7%BA%BF%E6%AE%B5%E6%A0%91%E7%BB%83%E4%B9%A0">传送门 =￣ω￣=</a></p>
 <p>具体题解去我的博客里搜索吧。</p>
 <p>不保证搜得到。</p>
 <h3 id="4-hihocoder-1078">(4) HihoCoder 1078 线段树的区间修改<a class="headerlink" href="#4-hihocoder-1078" title="Permanent link">&para;</a></h3>
-<p><a href="https://cn.vjudge.net/problem/HihoCoder-1078">传送门=￣ω￣=</a></p>
+<p><a href="https://cn.vjudge.net/problem/HihoCoder-1078">传送门 =￣ω￣=</a></p>
 <p>代码：
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3835,6 +3917,41 @@
 <h3 id="5-2018-multi-university-training-contest-5-problem-g-glad-you-came">(5) 2018 Multi-University Training Contest 5 Problem G. Glad You Came<a class="headerlink" href="#5-2018-multi-university-training-contest-5-problem-g-glad-you-came" title="Permanent link">&para;</a></h3>
 <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6356">传送门</a></p>
 <p>维护一下每个区间的永久标记就可以了，最后在线段树上跑一边 dfs 统计结果即可。注意打标记的时候加个剪枝优化，否则会 T。</p>
+<h2 id="-">拓展 - 猫树<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
+<p>众所周知线段树可以支持高速查询某一段区间的信息和，比如区间最大子段和，区间和，区间矩阵的连乘积等等</p>
+<p>但是有一个问题在于普通线段树的区间询问在某些毒瘤的眼里可能还是有些慢了</p>
+<p>简单来说就是线段树建树的时候需要做 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 次合并操作，而每一次区间询问需要做 <span><span class="MathJax_Preview">O(logn)</span><script type="math/tex">O(logn)</script></span> 次合并操作，询问区间和这种东西的时候还可以忍受，但是当我们需要询问区间线性基这种合并复杂度高达 <span><span class="MathJax_Preview">O(log^2n)</span><script type="math/tex">O(log^2n)</script></span> 的信息的话，此时就算是做 <span><span class="MathJax_Preview">O(logn)</span><script type="math/tex">O(logn)</script></span> 次合并有些时候在时间上也是不可接受的</p>
+<p>而所谓 "猫树" 就是一种不支持修改，仅仅支持快速区间询问的一种静态线段树</p>
+<p>构造一棵这样的静态线段树需要 <span><span class="MathJax_Preview">O(nlogn)</span><script type="math/tex">O(nlogn)</script></span> 次合并操作，但是此时的查询复杂度被加速至 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 次合并操作</p>
+<p>在处理线性基这样特殊的信息的时候甚至可以将复杂度降至 <span><span class="MathJax_Preview">O(nlog^2n)</span><script type="math/tex">O(nlog^2n)</script></span></p>
+<h3 id="_1">原理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>在查询 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 这段区间的信息和的时候，将线段树树上代表 <span><span class="MathJax_Preview">[l,l]</span><script type="math/tex">[l,l]</script></span> 的节点和代表 <span><span class="MathJax_Preview">[r,r]</span><script type="math/tex">[r,r]</script></span> 这段区间的节点在线段树上的 lca 求出来, 设这个节点 p 代表的区间为 <span><span class="MathJax_Preview">[L,R]</span><script type="math/tex">[L,R]</script></span>，我们会发现一些非常有趣的性质:</p>
+<p><strong>1.<span><span class="MathJax_Preview">[L,R]</span><script type="math/tex">[L,R]</script></span> 这个区间一定包含 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span></strong></p>
+<p>显然，因为它既是 l 的祖先又是 r 的祖先</p>
+<p><strong>2.<span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 这个区间一定跨越 [L,R] 的中点 </strong></p>
+<p>由于 p 是 l 和 r 的 lca，这意味着 p 的左儿子是 l 的祖先而不是 r 的祖先，p 的右儿子是 r 的祖先而不是 l 的祖先</p>
+<p>因此 l 一定在 <span><span class="MathJax_Preview">[L,MID]</span><script type="math/tex">[L,MID]</script></span> 这个区间内，r 一定在 <span><span class="MathJax_Preview">[MID,R]</span><script type="math/tex">[MID,R]</script></span> 这个区间内</p>
+<p>有了这两个性质，我们就可以将询问的复杂度降至 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 了</p>
+<h3 id="_2">实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>具体来讲我们建树的时候对于线段树树上的一个节点，设它代表的区间为 <span><span class="MathJax_Preview">(l,r]</span><script type="math/tex">(l,r]</script></span></p>
+<p>不同于传统线段树在这个节点里只保留 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的和，我们在这个节点里面额外保存 <span><span class="MathJax_Preview">（l,mid]</span><script type="math/tex">（l,mid]</script></span> 的后缀和数组和 <span><span class="MathJax_Preview">(mid,r]</span><script type="math/tex">(mid,r]</script></span> 的前缀和数组</p>
+<p>这样的话建树的复杂度为 <span><span class="MathJax_Preview">T(n)=2T(n/2)+O(n)=O(nlogn)</span><script type="math/tex">T(n)=2T(n/2)+O(n)=O(nlogn)</script></span> 同理空间复杂度也从原来的 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 变成了 <span><span class="MathJax_Preview">O(nlogn)</span><script type="math/tex">O(nlogn)</script></span></p>
+<p>下面是最关键的询问了~</p>
+<p>如果我们询问的区间是 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 那么我们把代表 <span><span class="MathJax_Preview">[l,l]</span><script type="math/tex">[l,l]</script></span> 的节点和代表 <span><span class="MathJax_Preview">[r,r]</span><script type="math/tex">[r,r]</script></span> 的节点的 lca 求出来，记为 p</p>
+<p>根据刚才的两个性质, l,r 在 p 所包含的区间之内并且一定跨越了 p 的中点</p>
+<p>这意味这一个非常关键的事实是我们可以使用 p 里面的前缀和数组和后缀和数组，将 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 拆成 <span><span class="MathJax_Preview">[l,mid]+(mid,r]</span><script type="math/tex">[l,mid]+(mid,r]</script></span> 从而拼出来 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 这个区间</p>
+<p>而这个过程仅仅需要 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 次合并操作！</p>
+<p>不过我们好像忽略了点什么？</p>
+<p>似乎求 lca 的复杂度似乎还不是 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>，暴力求是 <span><span class="MathJax_Preview">O(logn)</span><script type="math/tex">O(logn)</script></span> 的，倍增法则是 <span><span class="MathJax_Preview">O(loglogn)</span><script type="math/tex">O(loglogn)</script></span> 的，转 st 表的代价又太大……</p>
+<h3 id="_3">堆式建树<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>具体来将我们将这个序列补成 2 的整次幂，然后建线段树</p>
+<p>此时我们发现线段树上两个节点的 lca 编号，就是两个节点二进制编号的 lcp</p>
+<p>lcp 实在是不难求，x 和 y 的二进制下 <code>lcp=x&gt;&gt;log[x^y]</code></p>
+<p>所以我们预处理一个 log 数组即可轻松完成求 lca 的工作</p>
+<p>这样我们就完成了一个猫树</p>
+<p>由于建树的时候涉及到求前缀和和求后缀和，所以对于线性基这种虽然合并是 <span><span class="MathJax_Preview">O(log^2n)</span><script type="math/tex">O(log^2n)</script></span> 但是求前缀和却是 <span><span class="MathJax_Preview">O(nlogn)</span><script type="math/tex">O(nlogn)</script></span> 的信息，使用猫树可以将静态区间线性基从 <span><span class="MathJax_Preview">O(nlog^2n+mlog^3n)</span><script type="math/tex">O(nlog^2n+mlog^3n)</script></span> 优化至 <span><span class="MathJax_Preview">O(nlog^2n+mlog^2n)</span><script type="math/tex">O(nlog^2n+mlog^2n)</script></span> 的复杂度</p>
+<h3 id="_4">参考<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><a href="http://immortalco.blog.uoj.ac/blog/2102">immotalCO 大爷的博客</a></p>
                 
                   
                 
