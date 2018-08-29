@@ -2868,12 +2868,12 @@
 </blockquote>
 <hr />
 <h1 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>&emsp;&emsp;<span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 是一种二叉查找树，它通过不断将某个节点旋转到根节点，使得整棵树仍然满足二叉查找树的性质，并且保持平衡而不至于退化为链。</p>
+<p><span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 是一种二叉查找树，它通过不断将某个节点旋转到根节点，使得整棵树仍然满足二叉查找树的性质，并且保持平衡而不至于退化为链。</p>
 <hr />
 <h1 id="_2">结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
 <h3 id="_3">二叉查找树的性质<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;首先肯定是一棵二叉树！</p>
-<p>&emsp;&emsp;能够在这棵树上查找某个值的性质：左儿子的值 <span><span class="MathJax_Preview">&lt;</span><script type="math/tex"><</script></span> 根节点的值 <span><span class="MathJax_Preview">&lt;</span><script type="math/tex"><</script></span> 右儿子的值。</p>
+<p>首先肯定是一棵二叉树！</p>
+<p>能够在这棵树上查找某个值的性质：左儿子的值 <span><span class="MathJax_Preview">&lt;</span><script type="math/tex"><</script></span> 根节点的值 <span><span class="MathJax_Preview">&lt;</span><script type="math/tex"><</script></span> 右儿子的值。</p>
 <h3 id="_4">节点维护信息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -2927,16 +2927,16 @@
 </td></tr></table></li>
 </ul>
 <h3 id="_7">旋转操作<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;为了使 <span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 保持平衡而进行旋转操作，旋转的本质是将某个节点上移一个位置。</p>
-<p>&emsp;&emsp;<strong>旋转需要保证</strong>：</p>
+<p>为了使 <span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 保持平衡而进行旋转操作，旋转的本质是将某个节点上移一个位置。</p>
+<p><strong>旋转需要保证</strong>：</p>
 <ul>
 <li>整棵 <span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 的中序遍历不变（不能破坏二叉查找树的性质）。</li>
 <li>受影响的节点维护的信息依然正确有效。</li>
 <li><span><span class="MathJax_Preview">root</span><script type="math/tex">root</script></span> 必须指向旋转后的根节点。</li>
 </ul>
-<p>&emsp;&emsp;在 <span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 中旋转分为两种：左旋和右旋。</p>
+<p>在 <span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 中旋转分为两种：左旋和右旋。</p>
 <p><img alt="" src="https://s1.ax1x.com/2018/08/24/P7zcRA.png" /></p>
-<p>&emsp;&emsp;<strong>具体分析旋转步骤</strong>（假设需要旋转的节点为 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，其父亲为 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>，以右旋为例）</p>
+<p><strong>具体分析旋转步骤</strong>（假设需要旋转的节点为 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，其父亲为 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>，以右旋为例）</p>
 <ol>
 <li>将 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的左儿子指向 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的右儿子，且 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的右儿子的父亲指向 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span>。
 <code>ch[y][0]=ch[x][1]; fa[ch[x][1]]=y;</code></li>
@@ -2961,14 +2961,14 @@
 </td></tr></table></li>
 </ol>
 <h3 id="splay">Splay 操作<a class="headerlink" href="#splay" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;<span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 规定：每访问一个节点后都要强制将其旋转到根节点。此时旋转操作具体分为 <span><span class="MathJax_Preview">6</span><script type="math/tex">6</script></span> 种情况讨论（其中 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 为需要旋转到根的节点）</p>
+<p><span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 规定：每访问一个节点后都要强制将其旋转到根节点。此时旋转操作具体分为 <span><span class="MathJax_Preview">6</span><script type="math/tex">6</script></span> 种情况讨论（其中 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 为需要旋转到根的节点）</p>
 <p><img alt="" src="https://s1.ax1x.com/2018/08/24/PHpu7T.png" /></p>
 <ul>
 <li>如果 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的父亲是根节点，直接将 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 左旋或右旋（图 <span><span class="MathJax_Preview">1,2</span><script type="math/tex">1,2</script></span>）。</li>
 <li>如果 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的父亲不是根节点，且 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 和父亲的儿子类型相同，首先将其父亲左旋或右旋，然后将 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 右旋或左旋（图 <span><span class="MathJax_Preview">3,4</span><script type="math/tex">3,4</script></span>）。</li>
 <li>如果 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的父亲不是根节点，且 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 和父亲的儿子类型不同，将 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 左旋再右旋、或者右旋再左旋（图 <span><span class="MathJax_Preview">5,6</span><script type="math/tex">5,6</script></span>）。</li>
 </ul>
-<p>&emsp;&emsp;分析起来一大串，其实代码一小段。大家可以自己模拟一下 <span><span class="MathJax_Preview">6</span><script type="math/tex">6</script></span> 种旋转情况，就能理解 <span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 的基本思想了。
+<p>分析起来一大串，其实代码一小段。大家可以自己模拟一下 <span><span class="MathJax_Preview">6</span><script type="math/tex">6</script></span> 种旋转情况，就能理解 <span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 的基本思想了。
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -2981,7 +2981,7 @@
 </pre></div>
 </td></tr></table></p>
 <h3 id="_8">插入操作<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;插入操作是一个比较复杂的过程，具体步骤如下（插入的值为 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>）：</p>
+<p>插入操作是一个比较复杂的过程，具体步骤如下（插入的值为 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>）：</p>
 <ul>
 <li>如果树空了则直接插入根并退出。</li>
 <li>如果当前节点的权值等于 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 则增加当前节点的大小并更新节点和父亲的信息，将当前节点进行 <span><span class="MathJax_Preview">\text{Splay}</span><script type="math/tex">\text{Splay}</script></span> 操作。</li>
@@ -3047,7 +3047,7 @@
 </td></tr></table></li>
 </ul>
 <h3 id="x">查询 x 的排名<a class="headerlink" href="#x" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;根据二叉查找树的定义和性质，显然可以按照以下步骤查询 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的排名：</p>
+<p>根据二叉查找树的定义和性质，显然可以按照以下步骤查询 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的排名：</p>
 <ul>
 <li>如果 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 比当前节点的权值小，向其左子树查找。</li>
 <li>如果 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 比当前节点的权值大，将答案加上左子树（<span><span class="MathJax_Preview">size</span><script type="math/tex">size</script></span>）和当前节点（<span><span class="MathJax_Preview">cnt</span><script type="math/tex">cnt</script></span>）的大小，向其右子树查找。</li>
@@ -3088,7 +3088,7 @@
 </pre></div>
 </td></tr></table></p>
 <h3 id="x_1">查询排名 x 的数<a class="headerlink" href="#x_1" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;设 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 为剩余排名，具体步骤如下：</p>
+<p>设 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 为剩余排名，具体步骤如下：</p>
 <ul>
 <li>如果左子树非空且剩余排名 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 不大于左子树的大小 <span><span class="MathJax_Preview">size</span><script type="math/tex">size</script></span>，那么向左子树查找。</li>
 <li>否则将 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 减去左子树的和根的大小。如果此时 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 的值小于等于 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，则返回根节点的权值，否则继续向右子树查找。</li>
@@ -3120,7 +3120,7 @@
 </td></tr></table>
 
 <h3 id="_9">查询前驱<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;前驱定义为小于 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的最大的数，那么查询前驱可以转化为：将 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 插入（此时 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 已经在根的位置了），前驱即为 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的左子树中最右边的节点，最后将 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 删除即可。</p>
+<p>前驱定义为小于 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的最大的数，那么查询前驱可以转化为：将 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 插入（此时 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 已经在根的位置了），前驱即为 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的左子树中最右边的节点，最后将 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 删除即可。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3134,7 +3134,7 @@
 </td></tr></table>
 
 <h3 id="_10">查询后继<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;后继定义为大于 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的最小的数，查询方法和前驱类似：<span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的右子树中最左边的节点。</p>
+<p>后继定义为大于 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的最小的数，查询方法和前驱类似：<span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的右子树中最左边的节点。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3148,7 +3148,7 @@
 </td></tr></table>
 
 <h3 id="_11">删除操作<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;删除操作也是一个比较复杂的操作，具体步骤如下：</p>
+<p>删除操作也是一个比较复杂的操作，具体步骤如下：</p>
 <ul>
 <li>首先将 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 旋转到根的位置。</li>
 <li>
