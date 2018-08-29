@@ -441,12 +441,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://oi-wiki.org/ds/pb_ds/</loc>
+     <loc>https://oi-wiki.org/ds/pb-ds/</loc>
      <lastmod>2018-08-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://oi-wiki.org/ds/pb_ds/priority_queue/</loc>
+     <loc>https://oi-wiki.org/ds/pb-ds/priority-queue/</loc>
      <lastmod>2018-08-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -887,6 +887,11 @@
     </url>
     <url>
      <loc>https://oi-wiki.org/misc/discrete/</loc>
+     <lastmod>2018-08-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://oi-wiki.org/misc/dsu-on-tree/</loc>
      <lastmod>2018-08-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
