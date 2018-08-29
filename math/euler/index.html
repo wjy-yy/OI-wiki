@@ -2954,32 +2954,32 @@
                   <h1>欧拉函数</h1>
                 
                  <blockquote class="page-time"></blockquote>
-                <p>欧拉函数是什么？ <span><span class="MathJax_Preview">\phi(n)</span><script type="math/tex">\phi(n)</script></span> 表示的是小于等于 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 和 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 互质的数的个数。</p>
-<p>比如说 <span><span class="MathJax_Preview">\phi(1) = 1</span><script type="math/tex">\phi(1) = 1</script></span>。</p>
-<p>当 n 是质数的时候，显然有 <span><span class="MathJax_Preview">\phi(n) = n - 1</span><script type="math/tex">\phi(n) = n - 1</script></span></p>
+                <p>欧拉函数是什么？ <span><span class="MathJax_Preview">\varphi(n)</span><script type="math/tex">\varphi(n)</script></span> 表示的是小于等于 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 和 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 互质的数的个数。</p>
+<p>比如说 <span><span class="MathJax_Preview">\varphi(1) = 1</span><script type="math/tex">\varphi(1) = 1</script></span>。</p>
+<p>当 n 是质数的时候，显然有 <span><span class="MathJax_Preview">\varphi(n) = n - 1</span><script type="math/tex">\varphi(n) = n - 1</script></span>。</p>
 <p>利用唯一分解定理，我们可以把一个整数唯一地分解为质数幂次的乘积，</p>
-<p>设 <span><span class="MathJax_Preview">n = p_1^{k_1}p_2^{k_2} \cdots p_s^{k_s}</span><script type="math/tex">n = p_1^{k_1}p_2^{k_2} \cdots p_s^{k_s}</script></span>，其中 <span><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span> 是质数，那么定义 <span><span class="MathJax_Preview">\phi(n) = n \times \prod_{i = 1}^s{\frac{p_i - 1}{p_i}}</span><script type="math/tex">\phi(n) = n \times \prod_{i = 1}^s{\frac{p_i - 1}{p_i}}</script></span></p>
+<p>设 <span><span class="MathJax_Preview">n = p_1^{k_1}p_2^{k_2} \cdots p_s^{k_s}</span><script type="math/tex">n = p_1^{k_1}p_2^{k_2} \cdots p_s^{k_s}</script></span>，其中 <span><span class="MathJax_Preview">p_i</span><script type="math/tex">p_i</script></span> 是质数，那么定义 <span><span class="MathJax_Preview">\varphi(n) = n \times \prod_{i = 1}^s{\frac{p_i - 1}{p_i}}</span><script type="math/tex">\varphi(n) = n \times \prod_{i = 1}^s{\frac{p_i - 1}{p_i}}</script></span></p>
 <h3 id="_1">欧拉函数的一些神奇性质<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>欧拉函数是积性函数
-积性是什么意思呢？如果有 <span><span class="MathJax_Preview">\gcd(a, b) = 1</span><script type="math/tex">\gcd(a, b) = 1</script></span>，那么 <span><span class="MathJax_Preview">\phi(a \times b) = \phi(a) \times \phi(b)</span><script type="math/tex">\phi(a \times b) = \phi(a) \times \phi(b)</script></span>
-特别地，当 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 是奇数时 <span><span class="MathJax_Preview">\phi(2n) = 2 \times \phi(n)</span><script type="math/tex">\phi(2n) = 2 \times \phi(n)</script></span></p>
+<p>欧拉函数是积性函数。</p>
+<p>积性是什么意思呢？如果有 <span><span class="MathJax_Preview">\gcd(a, b) = 1</span><script type="math/tex">\gcd(a, b) = 1</script></span>，那么 <span><span class="MathJax_Preview">\varphi(a \times b) = \varphi(a) \times \varphi(b)</span><script type="math/tex">\varphi(a \times b) = \varphi(a) \times \varphi(b)</script></span>。</p>
+<p>特别地，当 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 是奇数时 <span><span class="MathJax_Preview">\varphi(2n) = 2 \times \varphi(n)</span><script type="math/tex">\varphi(2n) = 2 \times \varphi(n)</script></span>。</p>
 </li>
 <li>
-<p><span><span class="MathJax_Preview">n = \sum_{d | n}{\phi(d)}</span><script type="math/tex">n = \sum_{d | n}{\phi(d)}</script></span>
-利用 <a href="./mobius/">莫比乌斯反演</a> 相关知识可以得出
-也可以这样考虑：如果 <span><span class="MathJax_Preview">\gcd(k, n) = d</span><script type="math/tex">\gcd(k, n) = d</script></span>，那么 <span><span class="MathJax_Preview">\gcd(\frac{k}{d},\frac{n}{d}) = 1</span><script type="math/tex">\gcd(\frac{k}{d},\frac{n}{d}) = 1</script></span>。（<span><span class="MathJax_Preview">k &lt; n</span><script type="math/tex">k < n</script></span>）
-如果我们设 <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 表示 <span><span class="MathJax_Preview">\gcd(k, n) = x</span><script type="math/tex">\gcd(k, n) = x</script></span> 的数的个数，那么 <span><span class="MathJax_Preview">n = \sum_{i = 1}^n{f(x)}</span><script type="math/tex">n = \sum_{i = 1}^n{f(x)}</script></span>。
-根据上面的证明，我们发现，<span><span class="MathJax_Preview">f(x) = \phi(\frac{n}{x})</span><script type="math/tex">f(x) = \phi(\frac{n}{x})</script></span>，从而 <span><span class="MathJax_Preview">n = \sum_{d | n}\phi(\frac{n}{d})</span><script type="math/tex">n = \sum_{d | n}\phi(\frac{n}{d})</script></span>。注意到约数 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 和 <span><span class="MathJax_Preview">\frac{n}{d}</span><script type="math/tex">\frac{n}{d}</script></span> 具有对称性，所以上式化为 <span><span class="MathJax_Preview">n = \sum_{d | n}\phi(d)</span><script type="math/tex">n = \sum_{d | n}\phi(d)</script></span></p>
+<p><span><span class="MathJax_Preview">n = \sum_{d | n}{\varphi(d)}</span><script type="math/tex">n = \sum_{d | n}{\varphi(d)}</script></span></p>
+<p>利用 <a href="/math/mobius/">莫比乌斯反演</a> 相关知识可以得出。</p>
+<p>也可以这样考虑：如果 <span><span class="MathJax_Preview">\gcd(k, n) = d</span><script type="math/tex">\gcd(k, n) = d</script></span>，那么 <span><span class="MathJax_Preview">\gcd(\frac{k}{d},\frac{n}{d}) = 1</span><script type="math/tex">\gcd(\frac{k}{d},\frac{n}{d}) = 1</script></span>。（<span><span class="MathJax_Preview">k &lt; n</span><script type="math/tex">k < n</script></span>）</p>
+<p>如果我们设 <span><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 表示 <span><span class="MathJax_Preview">\gcd(k, n) = x</span><script type="math/tex">\gcd(k, n) = x</script></span> 的数的个数，那么 <span><span class="MathJax_Preview">n = \sum_{i = 1}^n{f(x)}</span><script type="math/tex">n = \sum_{i = 1}^n{f(x)}</script></span>。</p>
+<p>根据上面的证明，我们发现，<span><span class="MathJax_Preview">f(x) = \varphi(\frac{n}{x})</span><script type="math/tex">f(x) = \varphi(\frac{n}{x})</script></span>，从而 <span><span class="MathJax_Preview">n = \sum_{d | n}\varphi(\frac{n}{d})</span><script type="math/tex">n = \sum_{d | n}\varphi(\frac{n}{d})</script></span>。注意到约数 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 和 <span><span class="MathJax_Preview">\frac{n}{d}</span><script type="math/tex">\frac{n}{d}</script></span> 具有对称性，所以上式化为 <span><span class="MathJax_Preview">n = \sum_{d | n}\varphi(d)</span><script type="math/tex">n = \sum_{d | n}\varphi(d)</script></span>。</p>
 </li>
 <li>
-<p>若 <span><span class="MathJax_Preview">n = p^k</span><script type="math/tex">n = p^k</script></span>，其中 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 是质数，那么 <span><span class="MathJax_Preview">\phi(n) = p^k - p^{k - 1}</span><script type="math/tex">\phi(n) = p^k - p^{k - 1}</script></span>。
-（根据定义可知）</p>
+<p>若 <span><span class="MathJax_Preview">n = p^k</span><script type="math/tex">n = p^k</script></span>，其中 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 是质数，那么 <span><span class="MathJax_Preview">\varphi(n) = p^k - p^{k - 1}</span><script type="math/tex">\varphi(n) = p^k - p^{k - 1}</script></span>。</p>
+<p>（根据定义可知）</p>
 </li>
 </ul>
 <h3 id="_2">如何求欧拉函数值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>如果只要求一个数的欧拉函数值，那么直接根据定义质因数分解的同时求就好了</p>
+<p>如果只要求一个数的欧拉函数值，那么直接根据定义质因数分解的同时求就好了。</p>
 <p>如果是多个数的欧拉函数值，可以利用后面会提到的线性筛法来求得。</p>
                 
                   
