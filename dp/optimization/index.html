@@ -106,6 +106,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -894,9 +898,62 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        优化及其它
+      </label>
+    
     <a href="./" title="优化及其它" class="md-nav__link md-nav__link--active">
       优化及其它
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="单调队列优化" class="md-nav__link">
+    单调队列优化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cf372c-watching-fireworks-is-fun" title="例题 CF372C Watching Fireworks is Fun" class="md-nav__link">
+    例题 CF372C Watching Fireworks is Fun
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="斜率优化" class="md-nav__link">
+    斜率优化
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2857,6 +2914,61 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="单调队列优化" class="md-nav__link">
+    单调队列优化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cf372c-watching-fireworks-is-fun" title="例题 CF372C Watching Fireworks is Fun" class="md-nav__link">
+    例题 CF372C Watching Fireworks is Fun
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="斜率优化" class="md-nav__link">
+    斜率优化
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2868,7 +2980,30 @@
                   <h1>优化及其它</h1>
                 
                  <blockquote class="page-time"></blockquote>
-                
+                <p>By <a href="https://github.com/hsfzLZH1">hsfzLZH1</a></p>
+<p>本章主要讲解动态规划的几种基础 <strong> 优化 </strong> 方法。</p>
+<h2 id="_1">单调队列优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>学习本章前，请务必先学习 <a href="https://oi-wiki.org/ds/monotonous-queue/">单调队列</a>。</p>
+<h3 id="cf372c-watching-fireworks-is-fun">例题 <a href="http://codeforces.com/problemset/problem/372/C">CF372C Watching Fireworks is Fun</a><a class="headerlink" href="#cf372c-watching-fireworks-is-fun" title="Permanent link">&para;</a></h3>
+<p>题目大意：城镇中有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个位置，有 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 个烟花要放。第 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个烟花放出的时间记为 <span><span class="MathJax_Preview">t_i</span><script type="math/tex">t_i</script></span>，放出的位置记为 <span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span>。如果烟花放出的时候，你处在位置 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>，那么你将收获 <span><span class="MathJax_Preview">b_i-|a_i-x|</span><script type="math/tex">b_i-|a_i-x|</script></span> 点快乐值。
+初始你可在任意位置，你每个单位时间可以移动不大于 <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 个单位距离。现在你需要最大化你能获得的快乐值。</p>
+<p>设 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 表示在放第 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个烟花时，你的位置在 <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 所能获得的最大快乐值。</p>
+<p>写出 <strong> 状态转移方程 </strong>：<span><span class="MathJax_Preview">f_{i,j}=max\{f_{i-1,k}+b_i-|a_i-j|\}</span><script type="math/tex">f_{i,j}=max\{f_{i-1,k}+b_i-|a_i-j|\}</script></span></p>
+<p>这里的 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 是有范围的，<span><span class="MathJax_Preview">j-(t_{i+1}-t_i)\times d\le k\le j+(t_{i+1}-t_i)\times d</span><script type="math/tex">j-(t_{i+1}-t_i)\times d\le k\le j+(t_{i+1}-t_i)\times d</script></span>。</p>
+<p>我们尝试将状态转移方程进行变形：</p>
+<p>由于 <span><span class="MathJax_Preview">max</span><script type="math/tex">max</script></span> 里出现了一个确定的常量 <span><span class="MathJax_Preview">b_i</span><script type="math/tex">b_i</script></span>，我们可以将它提到外面去。</p>
+<p><span><span class="MathJax_Preview">f_{i,j}=max\{f_{i-1,k}+b_i+|a_i-j|\}=max\{f_{i-1,k}+|a_i-j|\}+b_i</span><script type="math/tex">f_{i,j}=max\{f_{i-1,k}+b_i+|a_i-j|\}=max\{f_{i-1,k}+|a_i-j|\}+b_i</script></span></p>
+<p>如果确定了 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 和 <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 的值，那么 <span><span class="MathJax_Preview">|a_i-j|</span><script type="math/tex">|a_i-j|</script></span> 的值也是确定的，也可以将这一部分提到外面去。</p>
+<p>最后，式子变成了这个样子：<span><span class="MathJax_Preview">f_{i,j}=max\{f_{i-1,k}+|a_i-j|\}+b_i=max\{f_{i-1,k}\}+|a_i-j|+b_i</span><script type="math/tex">f_{i,j}=max\{f_{i-1,k}+|a_i-j|\}+b_i=max\{f_{i-1,k}\}+|a_i-j|+b_i</script></span></p>
+<p>看到这一熟悉的形式，我们想到了什么？<strong> 单调队列优化 </strong>。由于最终式子中的 <span><span class="MathJax_Preview">max</span><script type="math/tex">max</script></span> 只和上一状态中连续的一段的最大值有关，所以我们在计算一个新的 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的状态值时候只需将原来的 <span><span class="MathJax_Preview">f_{i-1}</span><script type="math/tex">f_{i-1}</script></span> 构造成一个单调队列，并维护单调队列，使得其能在均摊 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的时间复杂度内计算出 <span><span class="MathJax_Preview">max\{f_{i-1,k}\}</span><script type="math/tex">max\{f_{i-1,k}\}</script></span> 的值，从而根据公式计算出 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 的值。</p>
+<p>总的时间复杂度为 <span><span class="MathJax_Preview">O(n\times m)</span><script type="math/tex">O(n\times m)</script></span>。</p>
+<p>讲完了，让我们归纳一下单调队列优化动态规划问题的基本形态：当前状态的所有值可以从上一个状态的某个连续的段的值得到，要对这个连续的段进行 RMQ 操作，相邻状态的段的左右区间满足非降的关系。</p>
+<p>几道练习题（按笔者所认为的难度排序，仅供参考）：</p>
+<p><a href="https://www.luogu.org/problemnew/show/P1886">luogu P1886 滑动窗口</a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P2254">luogu P2254 [NOI2005] 瑰丽华尔兹</a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P2569">luogu P2569 [SCOI2010] 股票交易</a></p>
+<h2 id="_2">斜率优化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>待填充...</p>
                 
                   
                 
