@@ -3283,10 +3283,14 @@ h(x)&=\sum_{d|x}f(d)g(\frac{x}{d})
 <hr />
 <h2 id="dirichlet">Dirichlet 卷积<a class="headerlink" href="#dirichlet" title="Permanent link">&para;</a></h2>
 <h3 id="_6">定义<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;定义两个数论函数 <span><span class="MathJax_Preview">f,g</span><script type="math/tex">f,g</script></span> 的 <span><span class="MathJax_Preview">\text{Dirichlet}</span><script type="math/tex">\text{Dirichlet}</script></span> 卷积为<span><span class="MathJax_Preview"><span><span class="MathJax_Preview">(f*g)(n)=\sum_{d|n}f(d)g(\frac{n}{d})</span><script type="math/tex">(f*g)(n)=\sum_{d|n}f(d)g(\frac{n}{d})</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">(f*g)(n)=\sum_{d|n}f(d)g(\frac{n}{d})</span><script type="math/tex">(f*g)(n)=\sum_{d|n}f(d)g(\frac{n}{d})</script></span></script></span></p>
+<p>&emsp;&emsp;定义两个数论函数 <span><span class="MathJax_Preview">f,g</span><script type="math/tex">f,g</script></span> 的 <span><span class="MathJax_Preview">\text{Dirichlet}</span><script type="math/tex">\text{Dirichlet}</script></span> 卷积为</p>
+<div>
+<div class="MathJax_Preview">(f*g)(n)=\sum_{d|n}f(d)g(\frac{n}{d})</div>
+<script type="math/tex; mode=display">(f*g)(n)=\sum_{d|n}f(d)g(\frac{n}{d})</script>
+</div>
 <h3 id="_7">性质<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>&emsp;&emsp;<span><span class="MathJax_Preview">\text{Dirichlet}</span><script type="math/tex">\text{Dirichlet}</script></span> 卷积满足交换律和结合律。
-&emsp;&emsp;其中 <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 为 <span><span class="MathJax_Preview">\text{Dirichlet}</span><script type="math/tex">\text{Dirichlet}</script></span> 卷积的单位元（任何函数卷 <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 都为其本身）</p>
+<p>&emsp;&emsp;<span><span class="MathJax_Preview">\text{Dirichlet}</span><script type="math/tex">\text{Dirichlet}</script></span> 卷积满足交换律和结合律。</p>
+<p>&emsp;&emsp;其中 <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 为 <span><span class="MathJax_Preview">\text{Dirichlet}</span><script type="math/tex">\text{Dirichlet}</script></span> 卷积的单位元（任何函数卷 <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 都为其本身）</p>
 <h3 id="_8">例子<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <div>
 <div class="MathJax_Preview">
@@ -3347,10 +3351,10 @@ d=1*1&\Leftrightarrow d(n)=\sum_{d|n}1\\
 \end{cases}
 </script>
 </div>
-<p>&emsp;&emsp;其中 <span><span class="MathJax_Preview">\displaystyle\epsilon(n)=\sum_{d|n}\mu(d)</span><script type="math/tex">\displaystyle\epsilon(n)=\sum_{d|n}\mu(d)</script></span> 即 <span><span class="MathJax_Preview">\epsilon=\mu*1</span><script type="math/tex">\epsilon=\mu*1</script></span>
-&emsp;&emsp;设 <span><span class="MathJax_Preview">\displaystyle n=\prod_{i=1}^k{p_i}^{c_i},n'=\prod_{i=1}^k p_i</span><script type="math/tex">\displaystyle n=\prod_{i=1}^k{p_i}^{c_i},n'=\prod_{i=1}^k p_i</script></span>
-&emsp;&emsp;那么 <span><span class="MathJax_Preview">\displaystyle\sum_{d|n}\mu(d)=\sum_{d|n'}\mu(d)=\sum_{i=0}^k C_k^i\cdot(-1)^k</span><script type="math/tex">\displaystyle\sum_{d|n}\mu(d)=\sum_{d|n'}\mu(d)=\sum_{i=0}^k C_k^i\cdot(-1)^k</script></span>
-&emsp;&emsp;根据二项式定理，易知该式子的值在 <span><span class="MathJax_Preview">k=0</span><script type="math/tex">k=0</script></span> 即 <span><span class="MathJax_Preview">n=1</span><script type="math/tex">n=1</script></span> 时值为 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 否则为 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，这也同时证明了 <span><span class="MathJax_Preview">\sum_{d|n}\mu(d)=[n=1]</span><script type="math/tex">\sum_{d|n}\mu(d)=[n=1]</script></span></p>
+<p>&emsp;&emsp;其中 <span><span class="MathJax_Preview">\displaystyle\epsilon(n)=\sum_{d|n}\mu(d)</span><script type="math/tex">\displaystyle\epsilon(n)=\sum_{d|n}\mu(d)</script></span> 即 <span><span class="MathJax_Preview">\epsilon=\mu*1</span><script type="math/tex">\epsilon=\mu*1</script></span></p>
+<p>&emsp;&emsp;设 <span><span class="MathJax_Preview">\displaystyle n=\prod_{i=1}^k{p_i}^{c_i},n'=\prod_{i=1}^k p_i</span><script type="math/tex">\displaystyle n=\prod_{i=1}^k{p_i}^{c_i},n'=\prod_{i=1}^k p_i</script></span></p>
+<p>&emsp;&emsp;那么 <span><span class="MathJax_Preview">\displaystyle\sum_{d|n}\mu(d)=\sum_{d|n'}\mu(d)=\sum_{i=0}^k C_k^i\cdot(-1)^k</span><script type="math/tex">\displaystyle\sum_{d|n}\mu(d)=\sum_{d|n'}\mu(d)=\sum_{i=0}^k C_k^i\cdot(-1)^k</script></span></p>
+<p>&emsp;&emsp;根据二项式定理，易知该式子的值在 <span><span class="MathJax_Preview">k=0</span><script type="math/tex">k=0</script></span> 即 <span><span class="MathJax_Preview">n=1</span><script type="math/tex">n=1</script></span> 时值为 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 否则为 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，这也同时证明了 <span><span class="MathJax_Preview">\sum_{d|n}\mu(d)=[n=1]</span><script type="math/tex">\sum_{d|n}\mu(d)=[n=1]</script></span></p>
 <h3 id="_13">线性筛<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>&emsp;&emsp;由于 <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> 函数为积性函数，因此可以线性筛莫比乌斯函数（线性筛基本可以求所有的积性函数，尽管方法不尽相同）。</p>
 <p>&emsp;&emsp;<strong>代码</strong>：
