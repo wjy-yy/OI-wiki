@@ -2717,8 +2717,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" title="例题&amp;代码" class="md-nav__link">
-    例题&amp;代码
+  <a href="#_8" title="例题 &amp; 代码" class="md-nav__link">
+    例题 &amp; 代码
   </a>
   
 </li>
@@ -2752,6 +2752,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="树上莫队" class="md-nav__link">
+    树上莫队
+  </a>
   
 </li>
       
@@ -3002,8 +3009,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" title="例题&amp;代码" class="md-nav__link">
-    例题&amp;代码
+  <a href="#_8" title="例题 &amp; 代码" class="md-nav__link">
+    例题 &amp; 代码
   </a>
   
 </li>
@@ -3040,6 +3047,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" title="树上莫队" class="md-nav__link">
+    树上莫队
+  </a>
+  
+</li>
+      
       
       
       
@@ -3069,39 +3083,54 @@
                 
                  <blockquote class="page-time"></blockquote>
                 <h2 id="_1">普通莫队算法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>这里内容有诸多是借鉴网上的（O(∩_∩)O谢谢啦！），主要借鉴了：<a href="https://blog.sengxian.com/algorithms/mo-s-algorithm"><a href="https://blog.sengxian.com/algorithms/mo-s-algorithm">https://blog.sengxian.com/algorithms/mo-s-algorithm</a></a></p>
+<p>这里内容有诸多是借鉴网上的（O(∩_∩)O 谢谢啦！），主要借鉴了：<a href="https://blog.sengxian.com/algorithms/mo-s-algorithm"><a href="https://blog.sengxian.com/algorithms/mo-s-algorithm">https://blog.sengxian.com/algorithms/mo-s-algorithm</a></a></p>
 <h3 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>莫队算法是由莫涛提出的算法，可以解决一类离线区间询问问题，适用性极为广泛。同时将其加以扩展，便能轻松处理树上路径询问以及支持修改操作。</p>
 <h3 id="_3">形式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>对于序列上的区间询问问题，如果从 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的答案能够 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 扩展到 <span><span class="MathJax_Preview">[l-1,r],[l+1,r],[l,r+1],[l,r-1]</span><script type="math/tex">[l-1,r],[l+1,r],[l,r+1],[l,r-1]</script></span>（即与 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 相邻的区间）的答案，那么可以在 <span><span class="MathJax_Preview">O(n\sqrt{n})</span><script type="math/tex">O(n\sqrt{n})</script></span> 的复杂度内求出所有询问的答案。</p>
+<p>假设 <span><span class="MathJax_Preview">n=m</span><script type="math/tex">n=m</script></span>，那么对于序列上的区间询问问题，如果从 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 的答案能够 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 扩展到 <span><span class="MathJax_Preview">[l-1,r],[l+1,r],[l,r+1],[l,r-1]</span><script type="math/tex">[l-1,r],[l+1,r],[l,r+1],[l,r-1]</script></span>（即与 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 相邻的区间）的答案，那么可以在 <span><span class="MathJax_Preview">O(n\sqrt{n})</span><script type="math/tex">O(n\sqrt{n})</script></span> 的复杂度内求出所有询问的答案。</p>
 <h3 id="_4">实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>离线后排序，顺序处理每个询问，暴力从上一个区间的答案转移到下一个区间答案（一步一步移动即可）。</p>
 <h3 id="_5">排序方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>对于区间<span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>,以 <span><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 所在块的编号为第一关键字，<span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 为第二关键字从小到大排序。</p>
+<p>对于区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>, 以 <span><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 所在块的编号为第一关键字，<span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 为第二关键字从小到大排序。</p>
 <h3 id="_6">模板<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<pre><code class="cpp">int l = 0, r = 0, nowAns = 0;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">move</span><span class="p">(</span><span class="kt">int</span> <span class="n">pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sign</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// update nowAns</span>
+<span class="p">}</span>
 
-inline void move(int pos, int sign) {
-    // update nowAns
-}
-
-void solve() {
-    BLOCK_SIZE = int(ceil(pow(n, 0.5)));
-      sort(querys, querys + m);
-    for (int i = 0; i < m; ++i) {
-        const query &q = querys[i];
-        while (l > q.l) move(--l, 1);
-        while (r < q.r) move(r++, 1);
-        while (l < q.l) move(l++, -1);
-        while (r > q.r) move(--r, -1);
-        ans[q.id] = nowAns;
-    }
-}
-</code></pre>
+<span class="kt">void</span> <span class="nf">solve</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">BLOCK_SIZE</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="n">ceil</span><span class="p">(</span><span class="n">pow</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)));</span>
+      <span class="n">sort</span><span class="p">(</span><span class="n">querys</span><span class="p">,</span> <span class="n">querys</span> <span class="o">+</span> <span class="n">m</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="n">query</span> <span class="o">&amp;</span><span class="n">q</span> <span class="o">=</span> <span class="n">querys</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&gt;</span> <span class="n">q</span><span class="p">.</span><span class="n">l</span><span class="p">)</span> <span class="n">move</span><span class="p">(</span><span class="o">--</span><span class="n">l</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="n">q</span><span class="p">.</span><span class="n">r</span><span class="p">)</span> <span class="n">move</span><span class="p">(</span><span class="n">r</span><span class="o">++</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&lt;</span> <span class="n">q</span><span class="p">.</span><span class="n">l</span><span class="p">)</span> <span class="n">move</span><span class="p">(</span><span class="n">l</span><span class="o">++</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;</span> <span class="n">q</span><span class="p">.</span><span class="n">r</span><span class="p">)</span> <span class="n">move</span><span class="p">(</span><span class="o">--</span><span class="n">r</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">ans</span><span class="p">[</span><span class="n">q</span><span class="p">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">nowAns</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
 
 <h3 id="_7">复杂度分析<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>以下的情况在 n 和 m 同阶的前提下讨论。</p>
 <p>首先是分块这一步，这一步的时间复杂度毫无疑问地是 <span><span class="MathJax_Preview">O(\sqrt{n}\sqrt{n}log\sqrt{n}+nlogn)=O(nlogn)</span><script type="math/tex">O(\sqrt{n}\sqrt{n}log\sqrt{n}+nlogn)=O(nlogn)</script></span>;</p>
-<p>接着就到了莫队算法的精髓了，下面我们用通俗易懂的初中方法来证明它的时间复杂度是<span><span class="MathJax_Preview">O(n\sqrt{n})</span><script type="math/tex">O(n\sqrt{n})</script></span>；</p>
+<p>接着就到了莫队算法的精髓了，下面我们用通俗易懂的初中方法来证明它的时间复杂度是 <span><span class="MathJax_Preview">O(n\sqrt{n})</span><script type="math/tex">O(n\sqrt{n})</script></span>；</p>
 <p>证：令每一块中 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 的最大值为 <span><span class="MathJax_Preview">max_1,max_2,max_3,..., max_{\operatorname{ceil}(\sqrt{n})}</span><script type="math/tex">max_1,max_2,max_3,..., max_{\operatorname{ceil}(\sqrt{n})}</script></span>。</p>
 <p>由第一次排序可知，<span><span class="MathJax_Preview">max_1 \le max_2 \le ... \le max_{\operatorname{ceil}(\sqrt{n})}</span><script type="math/tex">max_1 \le max_2 \le ... \le max_{\operatorname{ceil}(\sqrt{n})}</script></span>。</p>
 <p>显然，对于每一块暴力求出第一个询问的时间复杂度为 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
@@ -3128,26 +3157,29 @@ void solve() {
 <p>(裂项求和)</p>
 <p>由题可知 <span><span class="MathJax_Preview">max_{\operatorname{ceil}(\sqrt{n})}</span><script type="math/tex">max_{\operatorname{ceil}(\sqrt{n})}</script></span> 最大为 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，所以 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 的总时间复杂度最坏情况下为 <span><span class="MathJax_Preview">O(n\sqrt{n})</span><script type="math/tex">O(n\sqrt{n})</script></span>。</p>
 <p>综上所述，莫队算法的时间复杂度为 <span><span class="MathJax_Preview">O(n\sqrt{n})</span><script type="math/tex">O(n\sqrt{n})</script></span>；</p>
-<h3 id="_8">例题&amp;代码<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2038">小Z的袜子</a></p>
+<p>但是对于 m 的其他取值，如 m&lt;n，分块方式需要改变才能变的更优</p>
+<p>怎么分块呢？</p>
+<p>我们设块长度为 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>，那么对于任意多个在同一块内的询问，挪动的距离就是 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，一共 <span><span class="MathJax_Preview">\frac{n}{S}</span><script type="math/tex">\frac{n}{S}</script></span> 个块，移动的总次数就是 <span><span class="MathJax_Preview">\frac{n^2}{S}</span><script type="math/tex">\frac{n^2}{S}</script></span>，移动可能跨越块，所以还要加上一个 <span><span class="MathJax_Preview">mS</span><script type="math/tex">mS</script></span> 的复杂度，总复杂度为 <span><span class="MathJax_Preview">O(\frac{n^2}{S}+mS)</span><script type="math/tex">O(\frac{n^2}{S}+mS)</script></span>，我们要让这个值尽量小，那么就要将这两个项尽量相等，发现 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 取 <span><span class="MathJax_Preview">\frac{n}{\sqrt{m}}</span><script type="math/tex">\frac{n}{\sqrt{m}}</script></span> 是最优的，此时复杂度为 <span><span class="MathJax_Preview">O(\frac{n^2}{\frac{n}{\sqrt{m}}}+m(\frac{n}{\sqrt{m}}))=O(n\sqrt{m})</span><script type="math/tex">O(\frac{n^2}{\frac{n}{\sqrt{m}}}+m(\frac{n}{\sqrt{m}}))=O(n\sqrt{m})</script></span></p>
+<h3 id="_8">例题 &amp; 代码<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2038">小 Z 的袜子</a></p>
 <p>思路：莫队算法模板题。
 对于区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>，以 <span><span class="MathJax_Preview">l</span><script type="math/tex">l</script></span> 所在块的编号为第一关键字，<span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 为第二关键字从小到大排序。
 然后从序列的第一个询问开始计算答案，第一个询问通过直接暴力算出，复杂度为 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，后面的询问在前一个询问的基础上得到答案。</p>
 <p>具体做法：
 对于区间 <span><span class="MathJax_Preview">[i,i]</span><script type="math/tex">[i,i]</script></span> ，由于区间只有一个元素，我们很容易就能知道答案。
 然后一步一步从当前区间（已知答案）向下一个区间靠近。</p>
-<p>我们设 <span><span class="MathJax_Preview">col[i]</span><script type="math/tex">col[i]</script></span> 表示当前颜色i出现了多少次，<span><span class="MathJax_Preview">ans</span><script type="math/tex">ans</script></span>当前共有多少种可行的配对方案（有多少种可以选到一双颜色相同的袜子），表示然后每次移动的时候更新答案——设当前颜色为 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>，如果是增长区间就是 <span><span class="MathJax_Preview">ans</span><script type="math/tex">ans</script></span> 加上 <span><span class="MathJax_Preview">C(col[k]+1,2)-C(col[k],2)</span><script type="math/tex">C(col[k]+1,2)-C(col[k],2)</script></span>，如果是缩短就是 <span><span class="MathJax_Preview">ans</span><script type="math/tex">ans</script></span> 减去 <span><span class="MathJax_Preview">C(col[k],2)-C(col[k]-1,2)</span><script type="math/tex">C(col[k],2)-C(col[k]-1,2)</script></span>。这应该很好理解。
+<p>我们设 <span><span class="MathJax_Preview">col[i]</span><script type="math/tex">col[i]</script></span> 表示当前颜色 i 出现了多少次，<span><span class="MathJax_Preview">ans</span><script type="math/tex">ans</script></span> 当前共有多少种可行的配对方案（有多少种可以选到一双颜色相同的袜子），表示然后每次移动的时候更新答案——设当前颜色为 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>，如果是增长区间就是 <span><span class="MathJax_Preview">ans</span><script type="math/tex">ans</script></span> 加上 <span><span class="MathJax_Preview">C(col[k]+1,2)-C(col[k],2)</span><script type="math/tex">C(col[k]+1,2)-C(col[k],2)</script></span>，如果是缩短就是 <span><span class="MathJax_Preview">ans</span><script type="math/tex">ans</script></span> 减去 <span><span class="MathJax_Preview">C(col[k],2)-C(col[k]-1,2)</span><script type="math/tex">C(col[k],2)-C(col[k]-1,2)</script></span>。这应该很好理解。
 而这个询问的答案就是 <span><span class="MathJax_Preview">\frac{ans}{C(r-l+1,2)}</span><script type="math/tex">\frac{ans}{C(r-l+1,2)}</script></span></p>
 <p>这里有个优化：
 <span><span class="MathJax_Preview">C(a,2)=a\times (a-1)/2</span><script type="math/tex">C(a,2)=a\times (a-1)/2</script></span>
 所以 <span><span class="MathJax_Preview">C(a+1,2)-C(a,2)=(a+1)\times a/2-a\times (a-1)/2=a/2\times (a+1-a+1)=a/2\times 2=a</span><script type="math/tex">C(a+1,2)-C(a,2)=(a+1)\times a/2-a\times (a-1)/2=a/2\times (a+1-a+1)=a/2\times 2=a</script></span>
-所以<span><span class="MathJax_Preview">C(col[k]+1,2)-C(col[k],2)=col[k]</span><script type="math/tex">C(col[k]+1,2)-C(col[k],2)=col[k]</script></span></p>
+所以 <span><span class="MathJax_Preview">C(col[k]+1,2)-C(col[k],2)=col[k]</span><script type="math/tex">C(col[k]+1,2)-C(col[k],2)=col[k]</script></span></p>
 <p>这样我们少算了很多东西呢！
 至少我的代码在 BZOJ 上测快了一倍。</p>
-<p>还有，算 <span><span class="MathJax_Preview">C(a,2)</span><script type="math/tex">C(a,2)</script></span> 可以用位运算，<code>a/2</code>可以写成<code>a&gt;&gt;1</code>。</p>
+<p>还有，算 <span><span class="MathJax_Preview">C(a,2)</span><script type="math/tex">C(a,2)</script></span> 可以用位运算，<code>a/2</code> 可以写成 <code>a&gt;&gt;1</code>。</p>
 <p>算法总复杂度：<span><span class="MathJax_Preview">O(n\sqrt{n} )</span><script type="math/tex">O(n\sqrt{n} )</script></span></p>
-<p>下面的代码中 <code>mot</code> 表示答案的分母(mother)，<code>sub</code> 表示分子，<code>sqn</code> 表示块的大小：<span><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span>，<code>arr</code> 是输入的数组，<code>node</code>是存储询问的结构体，<code>tab</code> 是询问序列（排序后的），<code>col</code> 同上所述。
-<strong>注意：下面代码中的移动区间的 4 个 for 循环的位置很关键，不能改变它们之间的位置关系，不然会 WA（因为有那个 ++l 和 --r）。</strong>
+<p>下面的代码中 <code>mot</code> 表示答案的分母(mother)，<code>sub</code> 表示分子，<code>sqn</code> 表示块的大小：<span><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span>，<code>arr</code> 是输入的数组，<code>node</code> 是存储询问的结构体，<code>tab</code> 是询问序列（排序后的），<code>col</code> 同上所述。
+<strong > 注意：下面代码中的移动区间的 4 个 for 循环的位置很关键，不能改变它们之间的位置关系，不然会 WA（因为有那个 ++l 和 --r）。</strong>
 代码：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3223,52 +3255,43 @@ void solve() {
 <p>请确保您已经会普通莫队算法了。
 如果您还不会，请先阅读上面的“普通莫队算法”</p>
 <h3 id="_10">特点<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>普通莫队是不能带修改的</p>
+<p>我们可以强行让它可以修改，就像 DP 一样，可以强行加上一维 <strong> 时间维 </strong>, 表示这次操作的时间。</p>
+<p>时间维表示经历的修改次数。</p>
+<p>即把询问 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 变成 <span><span class="MathJax_Preview">[l,r,time]</span><script type="math/tex">[l,r,time]</script></span></p>
+<p>那么我们的坐标也可以在时间维上移动，即 <span><span class="MathJax_Preview">[l,r,time]</span><script type="math/tex">[l,r,time]</script></span> 多了一维可以移动的方向，可以变成：</p>
+<ul>
+<li><span><span class="MathJax_Preview">[l-1,r,time]</span><script type="math/tex">[l-1,r,time]</script></span></li>
+<li><span><span class="MathJax_Preview">[l+1,r,time]</span><script type="math/tex">[l+1,r,time]</script></span></li>
+<li><span><span class="MathJax_Preview">[l,r-1,time]</span><script type="math/tex">[l,r-1,time]</script></span></li>
+<li><span><span class="MathJax_Preview">[l,r+1,time]</span><script type="math/tex">[l,r+1,time]</script></span></li>
+<li><span><span class="MathJax_Preview">[l,r,time-1]</span><script type="math/tex">[l,r,time-1]</script></span></li>
+<li><span><span class="MathJax_Preview">[l,r,time+1]</span><script type="math/tex">[l,r,time+1]</script></span></li>
+</ul>
+<p>这样的转移也是 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的，但是我们排序又多了一个关键字，再搞搞就行了</p>
+<p>可以用和普通莫队类似的方法排序转移，做到 <span><span class="MathJax_Preview">O(n^{\frac{5}{3}})</span><script type="math/tex">O(n^{\frac{5}{3}})</script></span></p>
+<p>这一次我们排序的方式是以 <span><span class="MathJax_Preview">n^{\frac{2}{3}}</span><script type="math/tex">n^{\frac{2}{3}}</script></span> 为一块，分成了 <span><span class="MathJax_Preview">n^{\frac{1}{3}}</span><script type="math/tex">n^{\frac{1}{3}}</script></span> 块，第一关键字是左端点所在块，第二关键字是右端点所在块，第三关键字是时间。</p>
+<p>还是来证明一下时间复杂度（默认块大小为 <span><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span>）：</p>
 <ul>
 <li>
-<p>用于离线处理区间问题</p>
+<p>左右端点所在块不变，时间在排序后单调向右移，这样的复杂度是 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 </li>
 <li>
-<p>仅含单点修改</p>
+<p>若左右端点所在块改变，时间一次最多会移动 n 个格子，时间复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span></p>
 </li>
 <li>
-<p>能 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 转移区间（和普通莫队一样）</p>
-</li>
-<li>
-<p>分块的每一块的大小是 <span><span class="MathJax_Preview">n^\frac{2}{3}</span><script type="math/tex">n^\frac{2}{3}</script></span></p>
-</li>
-<li>
-<p>复杂度 <span><span class="MathJax_Preview">O(n^\frac{5}{3})</span><script type="math/tex">O(n^\frac{5}{3})</script></span></p>
+<p>左端点所在块一共有 <span><span class="MathJax_Preview">n^{\frac{1}{3}}</span><script type="math/tex">n^{\frac{1}{3}}</script></span> 中，右端点也是 <span><span class="MathJax_Preview">n^{\frac{1}{3}}</span><script type="math/tex">n^{\frac{1}{3}}</script></span> 种，一共 <span><span class="MathJax_Preview">{n^{\frac{1}{3}}}\times{n^{\frac{1}{3}}}=n^{\frac{2}{3}}</span><script type="math/tex">{n^{\frac{1}{3}}}\times{n^{\frac{1}{3}}}=n^{\frac{2}{3}}</script></span> 种，每种乘上移动的复杂度 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，总复杂度 <span><span class="MathJax_Preview">O(n^{\frac{5}{3}})</span><script type="math/tex">O(n^{\frac{5}{3}})</script></span></p>
 </li>
 </ul>
-<p>带修改的莫队的询问排序方法为：</p>
-<ul>
-<li>
-<p>第一关键字：左端点所在块编号，从小到大排序。</p>
-</li>
-<li>
-<p>第二关键字：右端点所在块编号，从小到大排序。</p>
-</li>
-<li>
-<p>第三关键字：<strong>经历的修改次数</strong>。也可以说是询问的先后，先询问的排前面。</p>
-</li>
-</ul>
-<p>对于前后两个区间的转移：</p>
-<p>设当前询问为 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，下一个询问为 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>，我们已知 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，要求 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>。</p>
-<p>首先我们像普通莫队一样转移左右端点。</p>
-<p>这时候我们可能会发现<strong><span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 和 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 的经历的修改次数不同</strong>！</p>
-<p>怎么办呢？</p>
-<p>然而，莫队就是个优雅的暴力。</p>
-<p>假如 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 较 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 少修改了 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 次，那我们就把这 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 次修改一个一个 <strong>从前往后</strong> 暴力地加上去。假如 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 较 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 多修改了 <span><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> 次，那我们就把这 <span><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> 次修改<strong>从后往前</strong>还原掉。</p>
-<p>具体怎么做呢？我们来看一道例题。</p>
 <h3 id="_11">例题<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2120">数颜色 BZOJ - 2120</a></p>
-<p>题目大意：给你一个序列，M个操作，有两种操作：</p>
+<p>题目大意：给你一个序列，M 个操作，有两种操作：</p>
 <ol>
 <li>修改序列上某一位的数字</li>
 <li>询问区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 中数字的种类数（多个相同的数字只算一个）</li>
 </ol>
-<p>我们不难发现，如果不带操作1（修改）的话，我们就能轻松用普通莫队解决。</p>
-<p>但是题目还带单点修改，所以用<strong>带修改的莫队</strong>。</p>
+<p>我们不难发现，如果不带操作 1（修改）的话，我们就能轻松用普通莫队解决。</p>
+<p>但是题目还带单点修改，所以用 <strong> 带修改的莫队 </strong>。</p>
 <p>先考虑普通莫队的做法：</p>
 <ul>
 <li>每次扩大区间时，每加入一个数字，则统计它已经出现的次数，如果加入前这种数字出现次数为 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，则说明这是一种新的数字，答案 <span><span class="MathJax_Preview">+1</span><script type="math/tex">+1</script></span>。然后这种数字的出现次数 <span><span class="MathJax_Preview">+1</span><script type="math/tex">+1</script></span>。</li>
@@ -3286,10 +3309,9 @@ void solve() {
 <p>怎么强行加上一个修改呢？假设一个修改是修改第 <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 个位置上的颜色，原本 <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 上的颜色为 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，修改后颜色为 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>，还假设当前莫队的区间扩展到了 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span>。</p>
 <ul>
 <li>加上这个修改：我们首先判断 <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 是否在区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 内。如果是的话，我们等于是从区间中删掉颜色 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>，加上颜色 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>，并且当前颜色序列的第 <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 项的颜色改成 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>。如果不在区间 <span><span class="MathJax_Preview">[l,r]</span><script type="math/tex">[l,r]</script></span> 内的话，我们就直接修改当前颜色序列的第 <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 项为 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>。</li>
-<li>还原这个修改：等于加上一个修改第<span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span>项、把颜色 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 改成颜色 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>的修改。</li>
+<li>还原这个修改：等于加上一个修改第 <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 项、把颜色 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 改成颜色 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的修改。</li>
 </ul>
 <p>因此这道题就这样用带修改莫队轻松解决啦！</p>
-<p>记得前面说的一些普通莫队与带修改莫队不同的地方就行了，比如分块的每一块的大小是 <span><span class="MathJax_Preview">n^\frac{2}{3}</span><script type="math/tex">n^\frac{2}{3}</script></span>。这个很重要。。。</p>
 <p>代码：
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3406,6 +3428,374 @@ void solve() {
         <span class="n">nal</span><span class="p">[</span><span class="n">Q</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">ans</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">c1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">nal</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+<h2 id="_12">树上莫队<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>莫队只能处理线性问题，我们要把树强行压成序列</p>
+<p>我们可以将树的括号序跑下来，把括号序分块，在括号序上跑莫队</p>
+<p>具体怎么做呢？</p>
+<p>dfs 一棵树，然后如果 dfs 到 x 点，就 push_back(x),dfs 完 x 点，就直接 push_back(-x)，然后我们在挪动指针的时候</p>
+<ul>
+<li>新加入的值是 x  ---&gt; add(x)</li>
+<li>新加入的值是 - x ---&gt; del(x)</li>
+<li>新删除的值是 x  ---&gt; del(x)</li>
+<li>新删除的值是 - x ---&gt; add(x)</li>
+</ul>
+<p>这样的话，我们就把一棵树处理成了序列。</p>
+<p>例题是 <a href="https://www.luogu.org/problemnew/show/P4074">[WC2013] 糖果公园</a>, 这题是带修改树上莫队</p>
+<p>题意是给你一棵树, 每个点有颜色, 每次询问</p>
+<p><span><span class="MathJax_Preview">\sum_{c}val_c\sum_{i=1}^{cnt_c}w_i</span><script type="math/tex">\sum_{c}val_c\sum_{i=1}^{cnt_c}w_i</script></span></p>
+<p>val 表示该颜色的价值</p>
+<p>cnt 表示颜色出现的次数</p>
+<p>w 表示该颜色出现 i 次后的价值</p>
+<p>先把树变成序列，然后每次添加 / 删除一个点，这个点的对答案的的贡献是可以在 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 时间内获得的，即 <span><span class="MathJax_Preview">val_c\times w_{cnt_{c+1}}</span><script type="math/tex">val_c\times w_{cnt_{c+1}}</script></span></p>
+<p>发现因为他会把起点的子树也扫了一遍，产生多余的贡献，怎么办呢？</p>
+<p>因为扫的过程中起点的子树里的点肯定会被扫两次，但贡献为 0</p>
+<p>所以可以开一个 vis 数组，每次扫到点 x，就把 <span><span class="MathJax_Preview">vis_x</span><script type="math/tex">vis_x</script></span> 异或上 1</p>
+<p>如果 <span><span class="MathJax_Preview">vis_x=0</span><script type="math/tex">vis_x=0</script></span>，那这个点的贡献就可以不计</p>
+<p>所以可以用树上莫队来求</p>
+<p>修改的话，加上一维时间维即可, 变成带修改树上莫队</p>
+<p>然后因为所包含的区间内可能没有 LCA，对于没有的情况要将多余的贡献删除，然后就完事了</p>
+<p>code：
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;cstdio&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+
+<span class="cp">#define DEBUG printf(&quot;line:%d func:%s\n&quot;,__LINE__,__FUNCTION__);</span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span><span class="o">=</span><span class="mi">200010</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="n">f</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">g</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">id</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">head</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">cnt</span><span class="p">,</span><span class="n">last</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">dep</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">fa</span><span class="p">[</span><span class="n">maxn</span><span class="p">][</span><span class="mi">22</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">block</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">q</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">pos</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">col</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">app</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="kt">bool</span> <span class="n">vis</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="kt">long</span> <span class="kt">long</span> <span class="n">ans</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">cur</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="n">edge</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">to</span><span class="p">,</span><span class="n">nxt</span><span class="p">;</span>
+<span class="p">}</span> <span class="n">e</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">cnt1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">cnt2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="c1">// 时间戳</span>
+
+<span class="k">struct</span> <span class="n">query</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">id</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="k">operator</span> <span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">query</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">)</span><span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">&lt;</span><span class="n">pos</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">l</span><span class="p">])</span><span class="o">||</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">==</span><span class="n">pos</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">l</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">pos</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">&lt;</span><span class="n">pos</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">r</span><span class="p">])</span><span class="o">||</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">==</span><span class="n">pos</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">l</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">pos</span><span class="p">[</span><span class="n">r</span><span class="p">]</span><span class="o">==</span><span class="n">pos</span><span class="p">[</span><span class="n">b</span><span class="p">.</span><span class="n">r</span><span class="p">]</span><span class="o">&amp;&amp;</span><span class="n">t</span><span class="o">&lt;</span><span class="n">b</span><span class="p">.</span><span class="n">t</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="n">a</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">b</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+
+<span class="kr">inline</span> <span class="kt">void</span> <span class="nf">addedge</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">e</span><span class="p">[</span><span class="o">++</span><span class="n">cnt</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">y</span><span class="p">,</span><span class="n">head</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+    <span class="p">};</span>
+    <span class="n">head</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">cnt</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">id</span><span class="p">[</span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=++</span><span class="n">index</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="n">head</span><span class="p">[</span><span class="n">x</span><span class="p">];</span> <span class="n">i</span><span class="p">;</span> <span class="n">i</span><span class="o">=</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">nxt</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">to</span><span class="o">!=</span><span class="n">fa</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+            <span class="n">fa</span><span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">to</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+            <span class="n">dep</span><span class="p">[</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">to</span><span class="p">]</span><span class="o">=</span><span class="n">dep</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">e</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">to</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">id</span><span class="p">[</span><span class="n">g</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=++</span><span class="n">index</span><span class="p">]</span><span class="o">=</span><span class="n">x</span><span class="p">;</span><span class="c1">// 括号序</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span> <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
+    <span class="n">t</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">y</span><span class="p">;</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">t</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span> <span class="kt">int</span> <span class="nf">lca</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">&lt;</span><span class="n">dep</span><span class="p">[</span><span class="n">y</span><span class="p">])</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">!=</span><span class="n">dep</span><span class="p">[</span><span class="n">y</span><span class="p">])</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">dis</span><span class="o">=</span><span class="n">dep</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">-</span><span class="n">dep</span><span class="p">[</span><span class="n">y</span><span class="p">];</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">dis</span><span class="o">&gt;=</span><span class="p">(</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">))</span>
+                <span class="n">dis</span><span class="o">-=</span><span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">fa</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span><span class="c1">// 爬到同一高度 </span>
+    <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">==</span><span class="n">y</span><span class="p">)</span> <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fa</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">fa</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">fa</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">fa</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">fa</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span> <span class="kt">void</span> <span class="nf">add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">vis</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+        <span class="n">cur</span><span class="o">-=</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="p">)</span><span class="n">v</span><span class="p">[</span><span class="n">col</span><span class="p">[</span><span class="n">x</span><span class="p">]]</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="n">app</span><span class="p">[</span><span class="n">col</span><span class="p">[</span><span class="n">x</span><span class="p">]]</span><span class="o">--</span><span class="p">];</span>
+    <span class="k">else</span>
+        <span class="n">cur</span><span class="o">+=</span><span class="p">(</span><span class="kt">long</span> <span class="kt">long</span> <span class="p">)</span><span class="n">v</span><span class="p">[</span><span class="n">col</span><span class="p">[</span><span class="n">x</span><span class="p">]]</span><span class="o">*</span><span class="n">w</span><span class="p">[</span><span class="o">++</span><span class="n">app</span><span class="p">[</span><span class="n">col</span><span class="p">[</span><span class="n">x</span><span class="p">]]];</span>
+    <span class="n">vis</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">^=</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span> <span class="kt">void</span> <span class="nf">modify</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">vis</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+        <span class="n">col</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">t</span><span class="p">;</span>
+        <span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="n">col</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">t</span><span class="p">;</span>
+<span class="p">}</span><span class="c1">// 在时间维上移动</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">,</span><span class="o">&amp;</span><span class="n">m</span><span class="p">,</span><span class="o">&amp;</span><span class="n">q</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+        <span class="n">addedge</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+        <span class="n">addedge</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">last</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">col</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">last</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="n">dfs</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;=</span><span class="mi">20</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">fa</span><span class="p">[</span><span class="n">fa</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span><span class="c1">// 预处理祖先 </span>
+    <span class="kt">int</span> <span class="n">block</span><span class="o">=</span><span class="n">pow</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="mf">2.0</span><span class="o">/</span><span class="mi">3</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">index</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">block</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">q</span><span class="o">--</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">opt</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">opt</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="o">&amp;</span><span class="n">y</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">opt</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">b</span><span class="p">[</span><span class="o">++</span><span class="n">cnt2</span><span class="p">].</span><span class="n">l</span><span class="o">=</span><span class="n">x</span><span class="p">;</span>
+            <span class="n">b</span><span class="p">[</span><span class="n">cnt2</span><span class="p">].</span><span class="n">r</span><span class="o">=</span><span class="n">last</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
+            <span class="n">last</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">b</span><span class="p">[</span><span class="n">cnt2</span><span class="p">].</span><span class="n">t</span><span class="o">=</span><span class="n">y</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">&gt;</span><span class="n">f</span><span class="p">[</span><span class="n">y</span><span class="p">])</span>
+                <span class="n">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+            <span class="n">a</span><span class="p">[</span><span class="o">++</span><span class="n">cnt1</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">lca</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">==</span><span class="n">x</span><span class="o">?</span><span class="n">f</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">:</span><span class="n">g</span><span class="p">[</span><span class="n">x</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="n">y</span><span class="p">],</span><span class="n">cnt2</span><span class="p">,</span><span class="n">cnt1</span>
+            <span class="p">};</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="n">cnt1</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">L</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">T</span><span class="p">;</span><span class="c1">// 指针坐标</span>
+    <span class="n">L</span><span class="o">=</span><span class="n">R</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">T</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">cnt1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">&lt;=</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">modify</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">T</span><span class="p">].</span><span class="n">l</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="n">T</span><span class="p">].</span><span class="n">t</span><span class="p">);</span>
+            <span class="n">T</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">T</span><span class="o">&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">t</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">modify</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">T</span><span class="p">].</span><span class="n">l</span><span class="p">,</span><span class="n">b</span><span class="p">[</span><span class="n">T</span><span class="p">].</span><span class="n">r</span><span class="p">);</span>
+            <span class="n">T</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">L</span><span class="o">&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">l</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">L</span><span class="o">--</span><span class="p">;</span>
+            <span class="n">add</span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">L</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">L</span><span class="o">&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">l</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">add</span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">L</span><span class="p">]);</span>
+            <span class="n">L</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">R</span><span class="o">&gt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">add</span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">R</span><span class="p">]);</span>
+            <span class="n">R</span><span class="o">--</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">R</span><span class="o">&lt;</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">R</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">add</span><span class="p">(</span><span class="n">id</span><span class="p">[</span><span class="n">R</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">x</span><span class="o">=</span><span class="n">id</span><span class="p">[</span><span class="n">L</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">id</span><span class="p">[</span><span class="n">R</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">llca</span><span class="o">=</span><span class="n">lca</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="o">!=</span><span class="n">llca</span><span class="o">&amp;&amp;</span><span class="n">y</span><span class="o">!=</span><span class="n">llca</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">add</span><span class="p">(</span><span class="n">llca</span><span class="p">);</span>
+            <span class="n">ans</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="p">]</span><span class="o">=</span><span class="n">cur</span><span class="p">;</span>
+            <span class="n">add</span><span class="p">(</span><span class="n">llca</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="n">ans</span><span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="p">]</span><span class="o">=</span><span class="n">cur</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;=</span><span class="n">cnt1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
