@@ -3107,9 +3107,22 @@
 <p>第二步：证明 <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 满足四边形不等式</p>
 <p>同样的，应有如下结论：对于所有满足 <span><span class="MathJax_Preview">i&lt;i+1\le j&lt;j+1</span><script type="math/tex">i<i+1\le j<j+1</script></span> 的 <span><span class="MathJax_Preview">i,j</span><script type="math/tex">i,j</script></span> ， 均有 <span><span class="MathJax_Preview">f_{i,j}+f_{i+1,j+1}\le f_{i+1,j}+f_{i,j+1}</span><script type="math/tex">f_{i,j}+f_{i+1,j+1}\le f_{i+1,j}+f_{i,j+1}</script></span></p>
 <p>我们假设 <span><span class="MathJax_Preview">x=idx_{i+1,j},y=idx_{i,j+1}</span><script type="math/tex">x=idx_{i+1,j},y=idx_{i,j+1}</script></span>。不妨设 <span><span class="MathJax_Preview">x&lt;=y</span><script type="math/tex">x<=y</script></span>。</p>
-<p>将 <span><span class="MathJax_Preview">x,y</span><script type="math/tex">x,y</script></span> 带入得， <span><span class="MathJax_Preview">f_{i,j}+f_{i+1,j+1}=f_{i,x}+f_{x+1,j}+cost_{i,j}+f_{i+1,y}+f_{y+1,j+1}+cost_{i+1,j+1}</span><script type="math/tex">f_{i,j}+f_{i+1,j+1}=f_{i,x}+f_{x+1,j}+cost_{i,j}+f_{i+1,y}+f_{y+1,j+1}+cost_{i+1,j+1}</script></span></p>
+<p>将 <span><span class="MathJax_Preview">x,y</span><script type="math/tex">x,y</script></span> 带入得，<span><span class="MathJax_Preview">f_{i,j}+f_{i+1,j+1}=f_{i,x}+f_{x+1,j}+cost_{i,j}+f_{i+1,y}+f_{y+1,j+1}+cost_{i+1,j+1}</span><script type="math/tex">f_{i,j}+f_{i+1,j+1}=f_{i,x}+f_{x+1,j}+cost_{i,j}+f_{i+1,y}+f_{y+1,j+1}+cost_{i+1,j+1}</script></span></p>
 <p>由于上一步已经证明出了<span><span class="MathJax_Preview">cost</span><script type="math/tex">cost</script></span>满足四边形不等式，而该不等式的左边在上式出现过，将其替换得</p>
-<p><span><span class="MathJax_Preview">f_{i,x}+f_{x+1,j}+cost_{i,j}+f_{i+1,y}+f_{y+1,j+1}+cost_{i+1,j+1}\le f_{i,x}+f_{x+1,j+1}+cost{i,j+1}+f_{i+1,y}+f_{y+1,j}+cost_{i+1,j}</span><script type="math/tex">f_{i,x}+f_{x+1,j}+cost_{i,j}+f_{i+1,y}+f_{y+1,j+1}+cost_{i+1,j+1}\le f_{i,x}+f_{x+1,j+1}+cost{i,j+1}+f_{i+1,y}+f_{y+1,j}+cost_{i+1,j}</script></span></p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+&amp;&amp;f_{i,\,x}+f_{x+1,\,j}+cost_{i,\,j}+f_{i+1,\,y}+f_{y+1,\,j+1}+cost_{i+1,\,j+1}\\
+&amp;\le&amp;f_{i,\,x}+f_{x+1,\,j+1}+cost_{i,\,j+1}+f_{i+1,\,y}+f_{y+1,\,j}+cost_{i+1,\,j}\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&&f_{i,\,x}+f_{x+1,\,j}+cost_{i,\,j}+f_{i+1,\,y}+f_{y+1,\,j+1}+cost_{i+1,\,j+1}\\
+&\le&f_{i,\,x}+f_{x+1,\,j+1}+cost_{i,\,j+1}+f_{i+1,\,y}+f_{y+1,\,j}+cost_{i+1,\,j}\\
+\end{aligned}
+</script>
+</div>
 <p>消去公共项可得 <span><span class="MathJax_Preview">f_{i,j}+f_{i+1,j+1}\le f_{i+1,j}+f_{i,j+1}</span><script type="math/tex">f_{i,j}+f_{i+1,j+1}\le f_{i+1,j}+f_{i,j+1}</script></span></p>
 <p>证毕。</p>
 <p>第三步：证明决策的单调性</p>
@@ -3118,7 +3131,7 @@
 <p>我们只证明式子的前半部分，后半部分可以有类似的方法推出。</p>
 <p>设 <span><span class="MathJax_Preview">y=idx_{i,j-1},x\le y</span><script type="math/tex">y=idx_{i,j-1},x\le y</script></span> ，因为 <span><span class="MathJax_Preview">x+1\le y+1\le j-1&lt;j</span><script type="math/tex">x+1\le y+1\le j-1<j</script></span>，由四边形不等式可得，</p>
 <p><span><span class="MathJax_Preview">f_{x+1,j-1}+f_{y+1,j}\le f_{y+1,j-1}+f_{x+1,j}</span><script type="math/tex">f_{x+1,j-1}+f_{y+1,j}\le f_{y+1,j-1}+f_{x+1,j}</script></span></p>
-<p>由于我们是令 <span><span class="MathJax_Preview">y=idx_{i,j-1},x\le y</span><script type="math/tex">y=idx_{i,j-1},x\le y</script></span> 时 <span><span class="MathJax_Preview">f_{i,j-1}</span><script type="math/tex">f_{i,j-1}</script></span> 取得最小值，那么 <span><span class="MathJax_Preview">f_{i,j-1}(idx_{i,j-1}=x)</span><script type="math/tex">f_{i,j-1}(idx_{i,j-1}=x)</script></span> 一定大于等于 <span><span class="MathJax_Preview">dp[i][j-1](idx_{i,j-1}=y)</span><script type="math/tex">dp[i][j-1](idx_{i,j-1}=y)</script></span> ，所以对于 <span><span class="MathJax_Preview">f_{i,j-1}</span><script type="math/tex">f_{i,j-1}</script></span> 可以取到最优值的 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> ，所有小于它的值，对于 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 来说，都没有 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 优，所以最优决策一定不是小于<span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的，那么一定有 
+<p>由于我们是令 <span><span class="MathJax_Preview">y=idx_{i,j-1},x\le y</span><script type="math/tex">y=idx_{i,j-1},x\le y</script></span> 时 <span><span class="MathJax_Preview">f_{i,j-1}</span><script type="math/tex">f_{i,j-1}</script></span> 取得最小值，那么 <span><span class="MathJax_Preview">f_{i,j-1}(idx_{i,j-1}=x)</span><script type="math/tex">f_{i,j-1}(idx_{i,j-1}=x)</script></span> 一定大于等于 <span><span class="MathJax_Preview">f_{i,j-1}(idx_{i,j-1}=y)</span><script type="math/tex">f_{i,j-1}(idx_{i,j-1}=y)</script></span> ，所以对于 <span><span class="MathJax_Preview">f_{i,j-1}</span><script type="math/tex">f_{i,j-1}</script></span> 可以取到最优值的 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> ，所有小于它的值，对于 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 来说，都没有 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 优，所以最优决策一定不是小于 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的，那么一定有 
 <span><span class="MathJax_Preview">idx_{i,j-1}\le idx_{i,j}</span><script type="math/tex">idx_{i,j-1}\le idx_{i,j}</script></span> </p>
 <p>证毕。</p>
 <h3 id="_4">说了这么多，怎么进行状态转移呢？<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -3155,10 +3168,10 @@
 </pre></div>
 </td></tr></table>
 
-<p>注意：由于在计算 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 的时候需要知道 <span><span class="MathJax_Preview">s_{i,j-1}</span><script type="math/tex">s_{i,j-1}</script></span> 和 <span><span class="MathJax_Preview">s_{i+1,j}</span><script type="math/tex">s_{i+1,j}</script></span> 的值，所以 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的循环逆序。</p>
+<p>注意：由于在计算 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 的时候需要知道 <span><span class="MathJax_Preview">idx_{i,j-1}</span><script type="math/tex">idx_{i,j-1}</script></span> 和 <span><span class="MathJax_Preview">idx_{i+1,j}</span><script type="math/tex">idx_{i+1,j}</script></span> 的值，所以 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的循环逆序。</p>
 <h3 id="_5">时间复杂度证明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>计算 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 时，我们要循环 <span><span class="MathJax_Preview">s_{i+1,j}-s_{i,j-1}</span><script type="math/tex">s_{i+1,j}-s_{i,j-1}</script></span> 次，那么一共加起来会循环多少次呢？</p>
-<p>因为 <span><span class="MathJax_Preview">\sum_{i=1}^{n-1}(idx_{i+1,i+1}-idx_{i,i})=idx{n,n}-idx{1,1}</span><script type="math/tex">\sum_{i=1}^{n-1}(idx_{i+1,i+1}-idx_{i,i})=idx{n,n}-idx{1,1}</script></span> 很显然和 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 同阶，那么它的 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 倍就和 <span><span class="MathJax_Preview">n^2</span><script type="math/tex">n^2</script></span> 同阶，时间复杂度是 <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>。</p>
+<p>计算 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 时，我们要循环 <span><span class="MathJax_Preview">idx_{i+1,j}-idx_{i,j-1}</span><script type="math/tex">idx_{i+1,j}-idx_{i,j-1}</script></span> 次，那么一共加起来会循环多少次呢？</p>
+<p>因为 <span><span class="MathJax_Preview">\sum_{i=1}^{n-1}(idx_{i+1,i+1}-idx_{i,i})=idx_{n,n}-idx_{1,1}</span><script type="math/tex">\sum_{i=1}^{n-1}(idx_{i+1,i+1}-idx_{i,i})=idx_{n,n}-idx_{1,1}</script></span> 很显然和 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 同阶，那么它的 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 倍就和 <span><span class="MathJax_Preview">n^2</span><script type="math/tex">n^2</script></span> 同阶，时间复杂度是 <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>。</p>
 <h3 id="_6">几道练习题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.luogu.org/problemnew/show/P4767">luogu P4767 [IOI2000]邮局</a></p>
 <h3 id="_7">参考资料<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
