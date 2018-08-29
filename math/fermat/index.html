@@ -1265,6 +1265,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" title="扩展欧拉定理" class="md-nav__link">
+    扩展欧拉定理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="证明" class="md-nav__link">
+    证明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -2952,6 +2972,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" title="扩展欧拉定理" class="md-nav__link">
+    扩展欧拉定理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="证明" class="md-nav__link">
+    证明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -2988,6 +3028,34 @@
 <h3 id="_3">证明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>设 <span><span class="MathJax_Preview">r_1, r_2, \cdots, r_{\phi(m)}</span><script type="math/tex">r_1, r_2, \cdots, r_{\phi(m)}</script></span> 为模 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 意义下的一个简化剩余系，则 <span><span class="MathJax_Preview">ar_1, ar_2, \cdots, ar_{\phi(m)}</span><script type="math/tex">ar_1, ar_2, \cdots, ar_{\phi(m)}</script></span> 也为模 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 意义下的一个简化剩余系。所以 <span><span class="MathJax_Preview">r_1r_2 \cdots r_{\phi(m)} \equiv ar_1 \cdot ar_2 \cdots ar_{\phi(m)} = a^{\phi(m)}r_1r_2 \cdots r_{\phi(m)} \pmod{m}</span><script type="math/tex">r_1r_2 \cdots r_{\phi(m)} \equiv ar_1 \cdot ar_2 \cdots ar_{\phi(m)} = a^{\phi(m)}r_1r_2 \cdots r_{\phi(m)} \pmod{m}</script></span>，可约去 <span><span class="MathJax_Preview">r_1r_2 \cdots r_{\phi(m)}</span><script type="math/tex">r_1r_2 \cdots r_{\phi(m)}</script></span>，即得 <span><span class="MathJax_Preview">a^{\phi(m)} \equiv 1 \pmod{m}</span><script type="math/tex">a^{\phi(m)} \equiv 1 \pmod{m}</script></span>。</p>
 <p>当 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 为素数时，由于 <span><span class="MathJax_Preview">\phi(m) = m - 1</span><script type="math/tex">\phi(m) = m - 1</script></span>，代入欧拉定理可立即得到费马小定理。</p>
+<h2 id="_4">扩展欧拉定理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><span><span class="MathJax_Preview">a^b \equiv a^{b \mod \phi(p)} \pmod p</span><script type="math/tex">a^b \equiv a^{b \mod \phi(p)} \pmod p</script></span>   <span><span class="MathJax_Preview">(\gcd(a,p)=1)</span><script type="math/tex">(\gcd(a,p)=1)</script></span></p>
+<p><span><span class="MathJax_Preview">a^b \equiv a^b \pmod p</span><script type="math/tex">a^b \equiv a^b \pmod p</script></span>   <span><span class="MathJax_Preview">(\gcd(a,p)\ne 1,b&lt;\varphi(p))</span><script type="math/tex">(\gcd(a,p)\ne 1,b<\varphi(p))</script></span></p>
+<p><span><span class="MathJax_Preview">a^b \equiv a^{b \mod \phi(p)+\phi(p)} \pmod p</span><script type="math/tex">a^b \equiv a^{b \mod \phi(p)+\phi(p)} \pmod p</script></span>  <span><span class="MathJax_Preview">(\gcd(a,p)\ne 1,b \ge  \varphi(p))</span><script type="math/tex">(\gcd(a,p)\ne 1,b \ge  \varphi(p))</script></span></p>
+<h3 id="_5">证明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>证明转载自 <a href="http://blog.csdn.net/synapse7/article/details/19610361">synapse7</a></p>
+<p>1. 在 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 次，<span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 次，...，<span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 次幂模 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的序列中，前 <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 个数（<span><span class="MathJax_Preview">a^0</span><script type="math/tex">a^0</script></span> 到 <span><span class="MathJax_Preview">a^{r-1}</span><script type="math/tex">a^{r-1}</script></span>)互不相同，从第 <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 个数开始，每 <span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 个数就循环一次。</p>
+<p>证明：由鸽巢定理易证。</p>
+<p>我们把 <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 称为 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 幂次模 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的循环起始点，<span><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> 称为循环长度。（注意：<span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 可以为 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>）</p>
+<p>用公式表述为：<span><span class="MathJax_Preview">a^r\equiv a^{r+s}\pmod{m}</span><script type="math/tex">a^r\equiv a^{r+s}\pmod{m}</script></span> </p>
+<p>2.  <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 为素数的情况</p>
+<p>令 <span><span class="MathJax_Preview">m=p^rm'</span><script type="math/tex">m=p^rm'</script></span>，则 <span><span class="MathJax_Preview">\gcd(p,m')=1</span><script type="math/tex">\gcd(p,m')=1</script></span>，所以 <span><span class="MathJax_Preview">p^{\phi(m')}\equiv 1\pmod{m'}</span><script type="math/tex">p^{\phi(m')}\equiv 1\pmod{m'}</script></span> </p>
+<p>又由于 <span><span class="MathJax_Preview">\gcd(p^r,m')=1</span><script type="math/tex">\gcd(p^r,m')=1</script></span>，所以 <span><span class="MathJax_Preview">\phi(m') \mid \varphi(m)</span><script type="math/tex">\phi(m') \mid \varphi(m)</script></span>，所以 <span><span class="MathJax_Preview">p^{\varphi(m)}\equiv 1 \pmod {m'}</span><script type="math/tex">p^{\varphi(m)}\equiv 1 \pmod {m'}</script></span>，即 <span><span class="MathJax_Preview">p^\phi(m)=km'+1</span><script type="math/tex">p^\phi(m)=km'+1</script></span>，两边同时乘以 <span><span class="MathJax_Preview">p^r</span><script type="math/tex">p^r</script></span>，得 <span><span class="MathJax_Preview">p^{r+\phi(m)}=km+p^r</span><script type="math/tex">p^{r+\phi(m)}=km+p^r</script></span>（因为 <span><span class="MathJax_Preview">m=p^rm'</span><script type="math/tex">m=p^rm'</script></span> ）</p>
+<p>所以 <span><span class="MathJax_Preview">p^r\equiv p^{r+s}\pmod m</span><script type="math/tex">p^r\equiv p^{r+s}\pmod m</script></span>，这里 <span><span class="MathJax_Preview">s=\phi(m)</span><script type="math/tex">s=\phi(m)</script></span></p>
+<p>3. 推论：<span><span class="MathJax_Preview">p^b\equiv p^{r+(b-r) \mod \phi(m)}\pmod m</span><script type="math/tex">p^b\equiv p^{r+(b-r) \mod \phi(m)}\pmod m</script></span> </p>
+<p>4. 又由于 <span><span class="MathJax_Preview">m=p^rm'</span><script type="math/tex">m=p^rm'</script></span>，所以 <span><span class="MathJax_Preview">\phi(m) \ge  \phi(p^r)=p^{r-1}(p-1) \ge r</span><script type="math/tex">\phi(m) \ge  \phi(p^r)=p^{r-1}(p-1) \ge r</script></span> </p>
+<p>所以 <span><span class="MathJax_Preview">p^r\equiv p^{r+\phi(m)}\equiv p^{r \mod \phi(m)+\phi(m)}\pmod m</span><script type="math/tex">p^r\equiv p^{r+\phi(m)}\equiv p^{r \mod \phi(m)+\phi(m)}\pmod m</script></span> </p>
+<p>所以 <span><span class="MathJax_Preview">p^b\equiv p^{r+(b-r) \mod \phi(m)}\equiv p^{r \mod \phi(m)+\phi(m)+(b-r) \mod \phi(m)}\equiv p^{\phi(m)+b \mod \phi(m)}\pmod m</span><script type="math/tex">p^b\equiv p^{r+(b-r) \mod \phi(m)}\equiv p^{r \mod \phi(m)+\phi(m)+(b-r) \mod \phi(m)}\equiv p^{\phi(m)+b \mod \phi(m)}\pmod m</script></span> </p>
+<p>即 <span><span class="MathJax_Preview">p^b\equiv p^{b \mod \phi(m)+\phi(m)}\pmod m</span><script type="math/tex">p^b\equiv p^{b \mod \phi(m)+\phi(m)}\pmod m</script></span> </p>
+<p>5.  <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 为素数的幂的情况</p>
+<p>是否依然有 <span><span class="MathJax_Preview">a^{r'}\equiv a^{r'+s'}\pmod m</span><script type="math/tex">a^{r'}\equiv a^{r'+s'}\pmod m</script></span>？(其中 <span><span class="MathJax_Preview">s'=\phi(m),a=p^k</span><script type="math/tex">s'=\phi(m),a=p^k</script></span>)</p>
+<p>答案是肯定的，由2知 <span><span class="MathJax_Preview">p^s\equiv 1 \pmod m'</span><script type="math/tex">p^s\equiv 1 \pmod m'</script></span>，所以 <span><span class="MathJax_Preview">p^{s \times \frac{k}{\gcd(s,k)}} \equiv 1\pmod {m'}</span><script type="math/tex">p^{s \times \frac{k}{\gcd(s,k)}} \equiv 1\pmod {m'}</script></span>，所以当 <span><span class="MathJax_Preview">s'=\frac{s}{\gcd(s,k)}</span><script type="math/tex">s'=\frac{s}{\gcd(s,k)}</script></span> 时才能有 <span><span class="MathJax_Preview">p^{s'k}\equiv 1\pmod {m'}</span><script type="math/tex">p^{s'k}\equiv 1\pmod {m'}</script></span> ，此时 <span><span class="MathJax_Preview">s' \mid s \mid \phi(m)</span><script type="math/tex">s' \mid s \mid \phi(m)</script></span> ，且 <span><span class="MathJax_Preview">r'= \lceil \frac{r}{k}\rceil \le r \le \phi(m)</span><script type="math/tex">r'= \lceil \frac{r}{k}\rceil \le r \le \phi(m)</script></span> ，由 <span><span class="MathJax_Preview">r',s'</span><script type="math/tex">r',s'</script></span> 与 <span><span class="MathJax_Preview">\phi(m)</span><script type="math/tex">\phi(m)</script></span> 的关系，依然可以得到 <span><span class="MathJax_Preview">a^b\equiv a^{b \mod \phi(m)+\phi(m)}\pmod m</span><script type="math/tex">a^b\equiv a^{b \mod \phi(m)+\phi(m)}\pmod m</script></span></p>
+<p>6.  <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 为合数的情况</p>
+<p>只证 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 拆成两个素数的幂的情况，大于两个的用数学归纳法可证。</p>
+<p>设 <span><span class="MathJax_Preview">a=a_1a_2,a_i=p_i^{k_i}</span><script type="math/tex">a=a_1a_2,a_i=p_i^{k_i}</script></span>，<span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span> 的循环长度为 <span><span class="MathJax_Preview">s_i</span><script type="math/tex">s_i</script></span>；</p>
+<p>则 <span><span class="MathJax_Preview">s \mid lcm(s_1,s_2)</span><script type="math/tex">s \mid lcm(s_1,s_2)</script></span>，由于 <span><span class="MathJax_Preview">s_1 \mid \phi(m),s_2 \mid \phi(m)</span><script type="math/tex">s_1 \mid \phi(m),s_2 \mid \phi(m)</script></span>，那么 <span><span class="MathJax_Preview">lcm(s_1,s_2) \mid \phi(m)</span><script type="math/tex">lcm(s_1,s_2) \mid \phi(m)</script></span>，所以 <span><span class="MathJax_Preview">s \mid \phi(m)</span><script type="math/tex">s \mid \phi(m)</script></span>， <span><span class="MathJax_Preview">r=\max(\lceil \frac{r_i}{k_i} \rceil) \le \max(r_i) \le \phi(m)</span><script type="math/tex">r=\max(\lceil \frac{r_i}{k_i} \rceil) \le \max(r_i) \le \phi(m)</script></span>；</p>
+<p>由 <span><span class="MathJax_Preview">r,s</span><script type="math/tex">r,s</script></span> 与 <span><span class="MathJax_Preview">\phi(m)</span><script type="math/tex">\phi(m)</script></span> 的关系，依然可以得到 <span><span class="MathJax_Preview">a^b\equiv a^{b \mod \phi(m)+\phi(m)}\pmod m</span><script type="math/tex">a^b\equiv a^{b \mod \phi(m)+\phi(m)}\pmod m</script></span>；</p>
+<p>证毕。</p>
                 
                   
                 
