@@ -3065,10 +3065,10 @@ match(char *a, char *b, int n, int m) {
 <p>先补充一些随机数学的知识（非严格地）</p>
 <p>现在考虑这 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次比较，如果看成独立的，总错误率 <span><span class="MathJax_Preview">1-(1-1/M)^n</span><script type="math/tex">1-(1-1/M)^n</script></span></p>
 <p>当 <span><span class="MathJax_Preview">M &gt;&gt; n</span><script type="math/tex">M >> n</script></span> 时，总错误率接近于<span><span class="MathJax_Preview">\frac{n}{M}</span><script type="math/tex">\frac{n}{M}</script></span></p>
-<p>当 <span><span class="MathJax_Preview">M = n</span><script type="math/tex">M = n</script></span> 时，接近于 <span><span class="MathJax_Preview">1-1/e (≈0.63)</span><script type="math/tex">1-1/e (≈0.63)</script></span></p>
+<p>当 <span><span class="MathJax_Preview">M = n</span><script type="math/tex">M = n</script></span> 时，接近于 <span><span class="MathJax_Preview">1-\frac{1}{e} (≈0.63)</span><script type="math/tex">1-\frac{1}{e} (≈0.63)</script></span></p>
 <p>如果不是独立的，最坏情况也就是全部加起来，等于 <span><span class="MathJax_Preview">\frac{n}{M}</span><script type="math/tex">\frac{n}{M}</script></span></p>
 <p>要改进错误率，可以增加 <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span></p>
-<p>选取一个大的M，或者两个互质的小的 <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span></p>
+<p>选取一个大的 <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span>，或者两个互质的小的 <span><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span></p>
 <p>时间复杂度不变，单次错误率平方</p>
 <h2 id="hash_3">Hash 的应用<a class="headerlink" href="#hash_3" title="Permanent link">&para;</a></h2>
 <p>不只是字符串中，在其他情况也可以用。</p>

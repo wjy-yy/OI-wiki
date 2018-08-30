@@ -3142,15 +3142,15 @@
                   <h1>读入和输出优化</h1>
                 
                  <blockquote class="page-time"></blockquote>
-                <p>在默认情况下，cin(cout)是极为迟缓的读入(输出)方式，而scanf(printf)比cin(cout)快得多。</p>
+                <p>在默认情况下，<code>cin(cout)</code> 是极为迟缓的读入（输出）方式，而 <code>scanf(printf)</code> 比 <code>cin(cout)</code> 快得多。</p>
 <p>可是为什么会这样呢？有没有什么办法解决读入输出缓慢的问题呢？</p>
 <h2 id="_1">关闭同步<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="sync_with_stdio">sync_with_stdio<a class="headerlink" href="#sync_with_stdio" title="Permanent link">&para;</a></h3>
-<p>这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。</p>
-<p>这其实是C++为了兼容而采取的保守措施。我们可以在IO之前将stdio解除绑定，这样做了之后要注意不要同时混用cout和printf之类</p>
+<p>这个函数是一个“是否兼容 stdio”的开关，C++ 为了兼容 C，保证程序在使用了 <code>std::printf</code> 和 <code>std::cout</code> 的时候不发生混乱，将输出流绑到了一起。</p>
+<p>这其实是 C++ 为了兼容而采取的保守措施。我们可以在 IO 之前将 stdio 解除绑定，这样做了之后要注意不要同时混用 <code>cout</code> 和 <code>printf</code> 之类</p>
 <h3 id="tie">tie<a class="headerlink" href="#tie" title="Permanent link">&para;</a></h3>
-<p>tie是将两个stream绑定的函数，空参数的话返回当前的输出流指针。</p>
-<p>在默认的情况下cin绑定的是cout，每次执行 &lt;&lt; 操作符的时候都要调用flush，这样会增加IO负担。可以通过tie(0)（0表示NULL）来解除cin与cout的绑定，进一步加快执行效率。</p>
+<p>tie 是将两个 stream 绑定的函数，空参数的话返回当前的输出流指针。</p>
+<p>在默认的情况下 <code>cin</code> 绑定的是 <code>cout</code>，每次执行 <code>&lt;&lt;</code> 操作符的时候都要调用 <code>flush</code>，这样会增加 IO 负担。可以通过<code>tie(0)</code>（0表示 NULL）来解除 <code>cin</code> 与 <code>cout</code> 的绑定，进一步加快执行效率。</p>
 <h3 id="_2">代码实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -3161,15 +3161,15 @@
 </td></tr></table>
 
 <h2 id="_3">读入优化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>scanf和printf依然有优化的空间，这就是本章所介绍的内容——读入和输出优化。</p>
+<p><code>scanf</code> 和 <code>printf</code> 依然有优化的空间，这就是本章所介绍的内容——读入和输出优化。</p>
 <ul>
 <li>注意，读入和输出优化均针对整数，不支持其他类型的数据</li>
 </ul>
 <h3 id="_4">原理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>众所周知，getchar()是用来读入char类型，且速度很快，用“读入字符——转换为整形”来代替缓慢的读入</p>
+<p>众所周知，<code>getchar</code> 是用来读入 char 类型，且速度很快，用“读入字符——转换为整形”来代替缓慢的读入</p>
 <p>每个整数由两部分组成——符号和数字</p>
-<p>整数的’+’通常是省略的，且不会对后面数字所代表的值产生影响，而’-’不可省略，因此要进行判定</p>
-<p>10进制整数中是不含空格或除0~9和正负号外的其他字符的，因此在读入不应存在于整数中的字符(通常为空格)时，就可以判定已经读入结束</p>
+<p>整数的 '+' 通常是省略的，且不会对后面数字所代表的值产生影响，而 '-' 不可省略，因此要进行判定</p>
+<p>10 进制整数中是不含空格或除 0~9 和正负号外的其他字符的，因此在读入不应存在于整数中的字符（通常为空格）时，就可以判定已经读入结束</p>
 <h3 id="_5">代码实现<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
@@ -3218,10 +3218,10 @@
 <ul>
 <li>举例 </li>
 </ul>
-<p>读入num 可写为 num=read();</p>
+<p>读入 num 可写为 <code>num=read();</code></p>
 <h2 id="_6">输出优化<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="_7">原理<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>同样是众所周知，putchar()是输出单个字符，其速度远快于其它输出方式 </p>
+<p>同样是众所周知，<code>putchar</code> 是输出单个字符，其速度远快于其它输出方式 </p>
 <p>因此将数字的每一位转化为字符输出以加速</p>
 <p>要注意的是，负号要单独判断输出，并且每次%（mod）取出的是数字末位，因此要倒序输出（递归加速）</p>
 <h3 id="_8">代码实现<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
@@ -3258,11 +3258,11 @@
 <ul>
 <li>举例</li>
 </ul>
-<p>输出num可写为write(num);</p>
+<p>输出 num 可写为 <code>write(num);</code></p>
 <p>也可以写成非递归的形式，来得到更好的效果。</p>
 <h2 id="_9">更快的读入/输出优化<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
-<p>通过<code>fread</code>或者<code>mmap</code>可以实现更快的读入和输出。其本质为一次性读入/输出一个巨大的缓存区，如此比一个一个字符读入输出要快的多(<code>getchar</code>,<code>putchar</code>）。</p>
-<p>更通用的是<code>fread</code>，因为<code>mmap</code>不能在Windows使用。</p>
+<p>通过 <code>fread</code> 或者 <code>mmap</code> 可以实现更快的读入和输出。其本质为一次性读入/输出一个巨大的缓存区，如此比一个一个字符读入输出要快的多(<code>getchar</code>,<code>putchar</code>）。</p>
+<p>更通用的是 <code>fread</code>，因为 <code>mmap</code> 不能在 Windows 使用。</p>
 <p><code>fread</code>类似于<code>scanf(&quot;%s&quot;)</code>，不过它更为快速，而且可以一次性读入若干个字符（包括空格换行等制表符），如果缓存区足够大，甚至可以一次性读入整个文件。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">fread</span><span class="p">(</span> <span class="kt">void</span><span class="o">*</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">size</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">size_t</span> <span class="n">count</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="kt">FILE</span><span class="o">*</span> <span class="n">stream</span> <span class="p">);</span>
@@ -3270,8 +3270,8 @@
 </pre></div>
 </td></tr></table>
 
-<p>使用示例：<code>fread(Buf, 1, MAXSIZE, stdin)</code>，如此从stdin文件流中读入MAXSIZE个字符到Buf中。</p>
-<p>读入之后的使用就跟普通的读入优化相似了，只需要重定义一下getchar。它原来是从文件中读入一个char，现在变成从Buf中读入一个char，也就是头指针向后移动一位。</p>
+<p>使用示例：<code>fread(Buf, 1, MAXSIZE, stdin)</code>，如此从 stdin 文件流中读入 MAXSIZE 个字符到 Buf 中。</p>
+<p>读入之后的使用就跟普通的读入优化相似了，只需要重定义一下 getchar。它原来是从文件中读入一个 char，现在变成从 Buf中读入一个 char，也就是头指针向后移动一位。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3282,8 +3282,8 @@
 </pre></div>
 </td></tr></table>
 
-<p><code>fwrite</code>也是类似的，先放入一个<code>OutBuf[MAXSIZE]</code> 中，最后通过<code>fwrite</code>一次性将<code>OutBuf</code>输出。</p>
-<p>注意<code>fread</code>必须使用文件读入，但是<code>fwrite</code>不需要。</p>
+<p><code>fwrite</code> 也是类似的，先放入一个 <code>OutBuf[MAXSIZE]</code> 中，最后通过 <code>fwrite</code> 一次性将 <code>OutBuf</code> 输出。</p>
+<p>注意 <code>fread</code> 必须使用文件读入，但是 <code>fwrite</code> 不需要。</p>
 <p>参考代码：
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2

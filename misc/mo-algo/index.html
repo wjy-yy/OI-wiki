@@ -3179,8 +3179,8 @@
 <p>以下的情况在 n 和 m 同阶的前提下讨论。</p>
 <p>首先是分块这一步，这一步的时间复杂度毫无疑问地是 <span><span class="MathJax_Preview">O(\sqrt{n}\sqrt{n}log\sqrt{n}+nlogn)=O(nlogn)</span><script type="math/tex">O(\sqrt{n}\sqrt{n}log\sqrt{n}+nlogn)=O(nlogn)</script></span>;</p>
 <p>接着就到了莫队算法的精髓了，下面我们用通俗易懂的初中方法来证明它的时间复杂度是 <span><span class="MathJax_Preview">O(n\sqrt{n})</span><script type="math/tex">O(n\sqrt{n})</script></span>；</p>
-<p>证：令每一块中 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 的最大值为 <span><span class="MathJax_Preview">max_1,max_2,max_3,..., max_{\operatorname{ceil}(\sqrt{n})}</span><script type="math/tex">max_1,max_2,max_3,..., max_{\operatorname{ceil}(\sqrt{n})}</script></span>。</p>
-<p>由第一次排序可知，<span><span class="MathJax_Preview">max_1 \le max_2 \le ... \le max_{\operatorname{ceil}(\sqrt{n})}</span><script type="math/tex">max_1 \le max_2 \le ... \le max_{\operatorname{ceil}(\sqrt{n})}</script></span>。</p>
+<p>证：令每一块中 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 的最大值为 <span><span class="MathJax_Preview">max_1,max_2,max_3, \cdots , max_{\operatorname{ceil}(\sqrt{n})}</span><script type="math/tex">max_1,max_2,max_3, \cdots , max_{\operatorname{ceil}(\sqrt{n})}</script></span>。</p>
+<p>由第一次排序可知，<span><span class="MathJax_Preview">max_1 \le max_2 \le \cdots \le max_{\operatorname{ceil}(\sqrt{n})}</span><script type="math/tex">max_1 \le max_2 \le \cdots \le max_{\operatorname{ceil}(\sqrt{n})}</script></span>。</p>
 <p>显然，对于每一块暴力求出第一个询问的时间复杂度为 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。</p>
 <p>考虑最坏的情况，在每一块中，<span><span class="MathJax_Preview">R</span><script type="math/tex">R</script></span> 的最大值均为 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，每次修改操作均要将 <span><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> 由 <span><span class="MathJax_Preview">max_{i - 1}</span><script type="math/tex">max_{i - 1}</script></span> 修改至 <span><span class="MathJax_Preview">max_i</span><script type="math/tex">max_i</script></span> 或由 <span><span class="MathJax_Preview">max_i</span><script type="math/tex">max_i</script></span> 修改至 <span><span class="MathJax_Preview">max_{i - 1}</span><script type="math/tex">max_{i - 1}</script></span>。</p>
 <p>考虑 <span><span class="MathJax_Preview">R</span><script type="math/tex">R</script></span>：因为 <span><span class="MathJax_Preview">R</span><script type="math/tex">R</script></span> 在块中已经排好序，所以在同一块修改完它的时间复杂度为 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>。对于所有块就是 <span><span class="MathJax_Preview">O(n\sqrt{n})</span><script type="math/tex">O(n\sqrt{n})</script></span>。</p>
@@ -3189,15 +3189,15 @@
 <div>
 <div class="MathJax_Preview">
 \begin{aligned}
-对于 L 的总时间复杂度为 &amp; = O(\sqrt{n}(max_1-1)+\sqrt{n}(max_2-max_1)+\sqrt{n}(max_3-max_2)+...+\sqrt{n}(max_{\operatorname{ceil}(\sqrt{n})}-max_{\operatorname{ceil}(\sqrt{n})-1))} \\\\
-&amp; = O(\sqrt{n}*(max_1-1+max_2-max_1+max_3-max_2+...+max_{\operatorname{ceil}(\sqrt{n})-1}-max_{\operatorname{ceil}(\sqrt{n})-2}+max_{\operatorname{ceil}(\sqrt{n})}-max_{\operatorname{ceil}(\sqrt{n})-1)}) \\\\
+对于 L 的总时间复杂度为 &amp; = O(\sqrt{n}(max_1-1)+\sqrt{n}(max_2-max_1)+\sqrt{n}(max_3-max_2)+\cdots+\sqrt{n}(max_{\operatorname{ceil}(\sqrt{n})}-max_{\operatorname{ceil}(\sqrt{n})-1))} \\\\
+&amp; = O(\sqrt{n}*(max_1-1+max_2-max_1+max_3-max_2+\cdots+max_{\operatorname{ceil}(\sqrt{n})-1}-max_{\operatorname{ceil}(\sqrt{n})-2}+max_{\operatorname{ceil}(\sqrt{n})}-max_{\operatorname{ceil}(\sqrt{n})-1)}) \\\\
 &amp; = O(\sqrt{n}*(max_{\operatorname{ceil}(\sqrt{n})-1}))
 \end{aligned}
 </div>
 <script type="math/tex; mode=display">
 \begin{aligned}
-对于 L 的总时间复杂度为 & = O(\sqrt{n}(max_1-1)+\sqrt{n}(max_2-max_1)+\sqrt{n}(max_3-max_2)+...+\sqrt{n}(max_{\operatorname{ceil}(\sqrt{n})}-max_{\operatorname{ceil}(\sqrt{n})-1))} \\\\
-& = O(\sqrt{n}*(max_1-1+max_2-max_1+max_3-max_2+...+max_{\operatorname{ceil}(\sqrt{n})-1}-max_{\operatorname{ceil}(\sqrt{n})-2}+max_{\operatorname{ceil}(\sqrt{n})}-max_{\operatorname{ceil}(\sqrt{n})-1)}) \\\\
+对于 L 的总时间复杂度为 & = O(\sqrt{n}(max_1-1)+\sqrt{n}(max_2-max_1)+\sqrt{n}(max_3-max_2)+\cdots+\sqrt{n}(max_{\operatorname{ceil}(\sqrt{n})}-max_{\operatorname{ceil}(\sqrt{n})-1))} \\\\
+& = O(\sqrt{n}*(max_1-1+max_2-max_1+max_3-max_2+\cdots+max_{\operatorname{ceil}(\sqrt{n})-1}-max_{\operatorname{ceil}(\sqrt{n})-2}+max_{\operatorname{ceil}(\sqrt{n})}-max_{\operatorname{ceil}(\sqrt{n})-1)}) \\\\
 & = O(\sqrt{n}*(max_{\operatorname{ceil}(\sqrt{n})-1}))
 \end{aligned}
 </script>

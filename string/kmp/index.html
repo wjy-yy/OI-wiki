@@ -2975,8 +2975,8 @@
 <p>主要思想是暴力的改进</p>
 <p>对于模式串 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>，定义 <span><span class="MathJax_Preview">next[]</span><script type="math/tex">next[]</script></span></p>
 <div>
-<div class="MathJax_Preview">next[i] = \max\{j\}\ s.t.\ 0 \leq j&lt;i\ \&amp;\&amp;\ b[0..j-1]=b[i-j..i-1]</div>
-<script type="math/tex; mode=display">next[i] = \max\{j\}\ s.t.\ 0 \leq j<i\ \&\&\ b[0..j-1]=b[i-j..i-1]</script>
+<div class="MathJax_Preview">next[i] = \max\{j\}\ s.t.\ 0 \leq j&lt;i\ \&amp;\&amp;\ b[0 \cdots j-1]=b[i-j \cdots i-1]</div>
+<script type="math/tex; mode=display">next[i] = \max\{j\}\ s.t.\ 0 \leq j<i\ \&\&\ b[0 \cdots j-1]=b[i-j \cdots i-1]</script>
 </div>
 <p>【注意下标从 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 开始】【需要画图】</p>
 <p>说好听点，<span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的第 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个前缀的最长的等于同长度的后缀的真前缀的长度</p>
@@ -2984,7 +2984,7 @@
 <p>暴力肯定是不行的，每个 <span><span class="MathJax_Preview">next</span><script type="math/tex">next</script></span> 都要枚举长度（这东西不能二分），再依次比较……</p>
 <p>我们换一个思路，从 <span><span class="MathJax_Preview">next[1]</span><script type="math/tex">next[1]</script></span> 开始，一个一个求</p>
 <p>基础：显然 <span><span class="MathJax_Preview">next[1]=0</span><script type="math/tex">next[1]=0</script></span></p>
-<p>归纳：如果已知 <span><span class="MathJax_Preview">next[0..i-1]</span><script type="math/tex">next[0..i-1]</script></span>，那么 <span><span class="MathJax_Preview">next[i]=next[i-1]+1</span><script type="math/tex">next[i]=next[i-1]+1</script></span> 或 <span><span class="MathJax_Preview">next[next[i-1]]+1</span><script type="math/tex">next[next[i-1]]+1</script></span> 或…</p>
+<p>归纳：如果已知 <span><span class="MathJax_Preview">next[0 \cdots i-1]</span><script type="math/tex">next[0 \cdots i-1]</script></span>，那么 <span><span class="MathJax_Preview">next[i]=next[i-1]+1</span><script type="math/tex">next[i]=next[i-1]+1</script></span> 或 <span><span class="MathJax_Preview">next[next[i-1]]+1</span><script type="math/tex">next[next[i-1]]+1</script></span> 或…</p>
 <p>这算法的复杂度是多少？</p>
 <p>考虑 <span><span class="MathJax_Preview">next[i]</span><script type="math/tex">next[i]</script></span> 这个非负值，每次循环最多 <span><span class="MathJax_Preview">+1</span><script type="math/tex">+1</script></span>，并且每次应用 <span><span class="MathJax_Preview">next[]</span><script type="math/tex">next[]</script></span> 的时候，至少 <span><span class="MathJax_Preview">-1</span><script type="math/tex">-1</script></span>，所以是 <span><span class="MathJax_Preview">O(m)</span><script type="math/tex">O(m)</script></span> 的</p>
 <p>定义势能为 <span><span class="MathJax_Preview">next[i]</span><script type="math/tex">next[i]</script></span>，每次循环势能 <span><span class="MathJax_Preview">+1</span><script type="math/tex">+1</script></span>，每次取 <span><span class="MathJax_Preview">next</span><script type="math/tex">next</script></span> 势能减少得比实际代价多</p>

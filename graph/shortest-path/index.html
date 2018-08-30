@@ -3157,10 +3157,10 @@
 <p>复杂度比较高，但是常数小，容易实现（我会说只有三个 for 吗？）</p>
 <p>适用于任何图，不管有向无向，边权正负，但是最短路必须存在（不能有个负环）</p>
 <h3 id="_3">实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>我们定义一个数组 <code>f[k][x][y]</code>，表示只允许经过结点 1~k，结点 x 到结点 y 的最短路长度</p>
-<p>很显然，<code>f[n][x][y]</code>就是结点 x 到结点 y 的最短路长度</p>
+<p>我们定义一个数组 <code>f[k][x][y]</code>，表示只允许经过结点 <span><span class="MathJax_Preview">1 \cdots k</span><script type="math/tex">1 \cdots k</script></span>，结点 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 到结点 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的最短路长度</p>
+<p>很显然，<code>f[n][x][y]</code>就是结点 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 到结点 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的最短路长度</p>
 <p>我们来考虑怎么求这个数组</p>
-<p><code>f[0][x][y]</code>：边权，或者 0，或者 <span><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span> 【<code>f[0][x][x]</code>什么时候应该是+inf？】</p>
+<p><code>f[0][x][y]</code>：边权，或者 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，或者 <span><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span> 【<code>f[0][x][x]</code>什么时候应该是+inf？】</p>
 <p><code>f[k][x][y] = min(f[k-1][x][y], f[k-1][x][k]+f[k-1][k][y])</code></p>
 <p>上面两行都显然是对的</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -3187,12 +3187,12 @@
 <p>能找到某个结点出发到所有结点的最短路，或者报告某些最短路不存在</p>
 <p>在国内 OI 界，你可能听说过的“SPFA”，就是 Bellman-Ford 算法的一种实现（优化）</p>
 <h3 id="_5">实现<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>假设结点为S</p>
-<p>先定义 dist(u) 为 S 到 u （当前）的最短路径长度</p>
+<p>假设结点为 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span></p>
+<p>先定义 <span><span class="MathJax_Preview">dist(u)</span><script type="math/tex">dist(u)</script></span> 为 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 到 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> （当前）的最短路径长度</p>
 <p>relax(u,v): <span><span class="MathJax_Preview">dist(v) = min(dist(v), dist(u) + edge_len(u, v))</span><script type="math/tex">dist(v) = min(dist(v), dist(u) + edge_len(u, v))</script></span></p>
 <p>relax是从哪里来的呢？</p>
 <p>三角形不等式: <span><span class="MathJax_Preview">dist(v) \leq dist(u) + edge_len(u, v)</span><script type="math/tex">dist(v) \leq dist(u) + edge_len(u, v)</script></span></p>
-<p>证明：反证法，如果不满足，那么可以用 relax 操作来更新 dist(v) 的值</p>
+<p>证明：反证法，如果不满足，那么可以用 relax 操作来更新 <span><span class="MathJax_Preview">dist(v)</span><script type="math/tex">dist(v)</script></span> 的值</p>
 <p>Bellman-Ford 算法如下</p>
 <blockquote>
 <p>while (1) for each edge(u, v) relax(u, v);</p>
@@ -3202,9 +3202,9 @@
 <p>答案是 <span><span class="MathJax_Preview">\infty</span><script type="math/tex">\infty</script></span>！（如果有一个S能走到的负环就会这样）</p>
 <p>但是此时某些结点的最短路不存在</p>
 <p>我们考虑最短路存在的时候</p>
-<p>由于一次 relax 会使（被 relax 的）最短路的边数至少 +1，而最短路的边数最多为 n-1</p>
-<p>所以最多（连续）relax n-1 次……（relax 一定是环环相扣的，不然之前就能被 relax 掉）</p>
-<p>所以最多循环 n-1 次</p>
+<p>由于一次 relax 会使（被 relax 的）最短路的边数至少 <span><span class="MathJax_Preview">+1</span><script type="math/tex">+1</script></span>，而最短路的边数最多为 <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span></p>
+<p>所以最多（连续）relax <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 次……（relax 一定是环环相扣的，不然之前就能被 relax 掉）</p>
+<p>所以最多循环 <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 次</p>
 <p>总时间复杂度 <span><span class="MathJax_Preview">O(nm)</span><script type="math/tex">O(nm)</script></span> <strong>【对于最短路存在的图】</strong></p>
 <p>（伪代码）</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -3231,11 +3231,11 @@ for (i = 1; i &lt; n; i++) {
 </pre></div>
 </td></tr></table>
 
-<p>注：这里的 edge_len(u, v) 表示边的权值，如果该边不存在则为 <span><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span>，u=v 则为 0</p>
+<p>注：这里的 <code>edge_len(u, v)</code> 表示边的权值，如果该边不存在则为 <span><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span>，<span><span class="MathJax_Preview">u=v</span><script type="math/tex">u=v</script></span> 则为 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span></p>
 <h3 id="_6">应用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>给一张有向图，问是否存在负权环</p>
-<p>做法很简单，跑 Bellman-Ford 算法，如果有个点被 relax 成功了 n 次，那么就一定存在</p>
-<p>如果 n-1 次之内算法结束了，就一定不存在</p>
+<p>做法很简单，跑 Bellman-Ford 算法，如果有个点被 relax 成功了 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次，那么就一定存在</p>
+<p>如果 <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 次之内算法结束了，就一定不存在</p>
 <h3 id="spfa">另一种实现（优化）（SPFA）<a class="headerlink" href="#spfa" title="Permanent link">&para;</a></h3>
 <p>很多时候我们并不需要那么多无用的 relax 操作</p>
 <p>很显然，只有上一次被 relax 的结点，所连接的边，才有可能引起下一次的 relax</p>
@@ -3276,12 +3276,12 @@ while (!q.empty()) {
 <p>也是用来求单源最短路径的算法</p>
 <h3 id="_7">实现<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>主要思想是，将结点分成两个集合：已确定最短路长度的，未确定的</p>
-<p>一开始第一个集合里只有 S</p>
+<p>一开始第一个集合里只有 <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span></p>
 <p>然后重复这些操作</p>
 <p>（1）relax 那些刚刚被加入第一个集合的结点的所有出边</p>
 <p>（2）从第二个集合中，选取一个最短路长度最小的结点，移到第一个集合中</p>
 <p>直到第二个集合为空，算法结束</p>
-<p>时间复杂度：只用分析集合操作，n 次 delete-min，m 次 decrease-key</p>
+<p>时间复杂度：只用分析集合操作，<span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次 delete-min，<span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次 decrease-key</p>
 <p>如果用暴力： <span><span class="MathJax_Preview">O(n^2 + m)</span><script type="math/tex">O(n^2 + m)</script></span></p>
 <p>如果用堆：<span><span class="MathJax_Preview">O((n+m) \log n)</span><script type="math/tex">O((n+m) \log n)</script></span></p>
 <p>如果用 Fib 堆： <span><span class="MathJax_Preview">O(n \log n + m)</span><script type="math/tex">O(n \log n + m)</script></span> （这就是为啥优秀了）</p>
