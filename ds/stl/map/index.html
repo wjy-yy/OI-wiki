@@ -42,7 +42,7 @@
     
     
       
-        <title>Map - OI Wiki</title>
+        <title>map - OI Wiki</title>
       
     
     
@@ -132,7 +132,7 @@
                 OI Wiki
               </span>
               <span class="md-header-nav__topic">
-                Map
+                map
               </span>
             
           
@@ -204,7 +204,9 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -291,7 +293,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../" title="数据结构" class="md-tabs__link">
+        <a href="../../" title="数据结构" class="md-tabs__link md-tabs__link--active">
           数据结构
         </a>
       
@@ -1563,10 +1565,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       数据结构
@@ -1594,10 +1598,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2" checked>
     
     <label class="md-nav__link" for="nav-7-2">
       STL
@@ -1642,6 +1648,79 @@
     <a href="../priority_queue/" title="priority_queue" class="md-nav__link">
       priority_queue
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        map
+      </label>
+    
+    <a href="./" title="map" class="md-nav__link md-nav__link--active">
+      map
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#map" title="map 是啥鬼？" class="md-nav__link">
+    map 是啥鬼？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#map_1" title="map  具体怎么使用？" class="md-nav__link">
+    map  具体怎么使用？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#map_2" title="map 常数靠得住吗？" class="md-nav__link">
+    map 常数靠得住吗？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hash-map" title="更快：基于 Hash 实现的 map！" class="md-nav__link">
+    更快：基于 Hash 实现的 map！
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -2926,7 +3005,7 @@
                   <a href="https://github.com/24OI/OI-wiki/blob/master/docs/ds/stl/map.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Map</h1>
+                  <h1>map</h1>
                 
                  <blockquote class="page-time"></blockquote>
                 <h3 id="map"><code>map</code> 是啥鬼？<a class="headerlink" href="#map" title="Permanent link">&para;</a></h3>
@@ -3000,7 +3079,7 @@
 </li>
 </ul>
 <h3 id="map_2"><code>map</code> 常数靠得住吗？<a class="headerlink" href="#map_2" title="Permanent link">&para;</a></h3>
-<p>一般情况下是可以的。无论查询，插入，删除的复杂度都是 <span><span class="MathJax_Preview">O(logN)</span><script type="math/tex">O(logN)</script></span>，遍历是 <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span>。</p>
+<p>一般情况下是可以的。无论查询，插入，删除的复杂度都是 <span><span class="MathJax_Preview">O(\log N)</span><script type="math/tex">O(\log N)</script></span>，遍历是 <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span>。</p>
 <p>不过有的时候不会满足啊！我只想查询元素，插入元素，但是时间不够咋办？请往下看！</p>
 <h3 id="hash-map">更快：基于 <code>Hash</code> 实现的 <code>map</code>！<a class="headerlink" href="#hash-map" title="Permanent link">&para;</a></h3>
 <p>这个 <code>map</code> 的名字就是 <code>unordered_map</code> 了，它的查询，插入，删除的复杂度几乎是 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 级别（不过最坏会达到 <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span>）的！所有的操作几乎和 <code>map</code>一样（注意 <code>unordered_map</code> 用迭代器遍历是无序的）。</p>
@@ -3047,7 +3126,7 @@
         }
       }
       const gitment = new Gitment({
-        id: 'Map',
+        id: 'map',
         theme: myTheme,
         owner: 'Ir1d',
         repo: 'gitment',
@@ -3119,6 +3198,55 @@ function topFunction() {
 <footer class="md-footer">
 
   <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../priority_queue/"
+              title="priority_queue"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                priority_queue
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../../pb-ds/"
+              title="pb_ds 简介"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                pb_ds 简介
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
 
   <!-- Further information -->

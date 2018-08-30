@@ -451,6 +451,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://oi-wiki.org/ds/stl/map/</loc>
+     <lastmod>2018-08-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://oi-wiki.org/ds/pb-ds/</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
