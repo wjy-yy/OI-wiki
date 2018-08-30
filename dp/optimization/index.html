@@ -958,8 +958,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" title="几道练习题" class="md-nav__link">
-    几道练习题
+  <a href="#_6" title="一道练习题：" class="md-nav__link">
+    一道练习题：
   </a>
   
 </li>
@@ -1007,6 +1007,26 @@
   <a href="#_10" title="斜率优化" class="md-nav__link">
     斜率优化
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#luogu-p3195-hnoi2008toy" title="例题 luogu P3195 [HNOI2008]玩具装箱TOY" class="md-nav__link">
+    例题 luogu P3195 [HNOI2008]玩具装箱TOY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="几道练习题：" class="md-nav__link">
+    几道练习题：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3062,8 +3082,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" title="几道练习题" class="md-nav__link">
-    几道练习题
+  <a href="#_6" title="一道练习题：" class="md-nav__link">
+    一道练习题：
   </a>
   
 </li>
@@ -3111,6 +3131,26 @@
   <a href="#_10" title="斜率优化" class="md-nav__link">
     斜率优化
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#luogu-p3195-hnoi2008toy" title="例题 luogu P3195 [HNOI2008]玩具装箱TOY" class="md-nav__link">
+    例题 luogu P3195 [HNOI2008]玩具装箱TOY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="几道练习题：" class="md-nav__link">
+    几道练习题：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3232,7 +3272,7 @@
 <h3 id="_5">时间复杂度证明<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>计算 <span><span class="MathJax_Preview">f_{i,j}</span><script type="math/tex">f_{i,j}</script></span> 时，我们要循环 <span><span class="MathJax_Preview">idx_{i+1,j}-idx_{i,j-1}</span><script type="math/tex">idx_{i+1,j}-idx_{i,j-1}</script></span> 次，那么一共加起来会循环多少次呢？</p>
 <p>因为 <span><span class="MathJax_Preview">\sum_{i=1}^{n-1}(idx_{i+1,i+1}-idx_{i,i})=idx_{n,n}-idx_{1,1}</span><script type="math/tex">\sum_{i=1}^{n-1}(idx_{i+1,i+1}-idx_{i,i})=idx_{n,n}-idx_{1,1}</script></span> 很显然和 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 同阶，那么它的 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 倍就和 <span><span class="MathJax_Preview">n^2</span><script type="math/tex">n^2</script></span> 同阶，时间复杂度是 <span><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span>。</p>
-<h3 id="_6">几道练习题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6">一道练习题：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.luogu.org/problemnew/show/P4767">luogu P4767 [IOI2000]邮局</a></p>
 <h3 id="_7">参考资料<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p><a href="https://blog.csdn.net/noiau/article/details/72514812">NOIAu 的CSDN 博客</a></p>
@@ -3257,7 +3297,23 @@
 <p><a href="https://www.luogu.org/problemnew/show/P2254">luogu P2254 [NOI2005] 瑰丽华尔兹</a></p>
 <p><a href="https://www.luogu.org/problemnew/show/P2569">luogu P2569 [SCOI2010] 股票交易</a></p>
 <h2 id="_10">斜率优化<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<p>待填充...</p>
+<h3 id="luogu-p3195-hnoi2008toy">例题 <a href="https://www.luogu.org/problemnew/show/P3195">luogu P3195 [HNOI2008]玩具装箱TOY</a><a class="headerlink" href="#luogu-p3195-hnoi2008toy" title="Permanent link">&para;</a></h3>
+<p>令 <span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span> 表示前 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个物品，随意分组装在任意多个容器里所能得到的最小费用。</p>
+<p>写出 <strong> 状态转移方程 </strong> ：<span><span class="MathJax_Preview">f_i=max\{f_j+(pre_i-pre_i+i-j-1-L)^2\}</span><script type="math/tex">f_i=max\{f_j+(pre_i-pre_i+i-j-1-L)^2\}</script></span> ，其中 <span><span class="MathJax_Preview">pre_i</span><script type="math/tex">pre_i</script></span> 表示前 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个数的前缀和。</p>
+<p>换元试图简化状态转移方程式： 令 <span><span class="MathJax_Preview">s_i=pre_i+i,L'=L+1</span><script type="math/tex">s_i=pre_i+i,L'=L+1</script></span>，则 <span><span class="MathJax_Preview">f_i=f_j+(s_i-s_j-L')^2</span><script type="math/tex">f_i=f_j+(s_i-s_j-L')^2</script></span>，展开，移项得</p>
+<p><span><span class="MathJax_Preview">f_i=f_j+(s_i-s_j-L')^2</span><script type="math/tex">f_i=f_j+(s_i-s_j-L')^2</script></span></p>
+<p><span><span class="MathJax_Preview">f_i+2\times s_i\times (s_j+L')=f_j+s_i^2+(s_j+L')^2</span><script type="math/tex">f_i+2\times s_i\times (s_j+L')=f_j+s_i^2+(s_j+L')^2</script></span></p>
+<p>我们观察到，式子的右端的所有项都只和 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 有关或只和 <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 有关，式子左端的第一项是我们要求的目标值，式子左端的其余项都同时和 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 和 <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 有关。我们将这个式子看作一条直线的函数解析式，形如 <span><span class="MathJax_Preview">b+k\times x=y</span><script type="math/tex">b+k\times x=y</script></span> ，和上式一一对应。我们发现如果我们要最小化 <span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span> ，也就是说要最小化这个直线的截距，而对于每个确定的 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>，这个直线的斜率 <span><span class="MathJax_Preview">s_i</span><script type="math/tex">s_i</script></span> 都是确定的。</p>
+<p><img alt="" src="https://cdn.luogu.org/upload/pic/13267.png" /></p>
+<p>如图，我们将这个斜率固定的直线从下往上平移，直到有一个点在这条直线上，然后将新的点加入点集，这样肯定能保证所有的直线的斜率都是单调递升的（因为如果新的直线斜率小于斜率最大的直线，那么其一定不成被选择成为新的决策），所以我们相当于维护了一个下凸包。（如果求的是 <span><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span> 那么就要维护一个 <strong> 上凸包 </strong> 。这种东西要具体情况具体分析，如果直线的斜率不满足单调性，那就要维护整个凸包/二分等奇技淫巧。）</p>
+<p>可以用单调队列维护下凸包。</p>
+<h3 id="_11">几道练习题：<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.luogu.org/problemnew/show/P4072">luogu P4072 [SDOI2016] 征途</a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P2120">luogu P2120 [ZJOI2007] 仓库建设</a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P3628">luogu P3628 [APIO2010] 特别行动队</a></p>
+<p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4709">bzoj 4709 [Jsoi2011] 柠檬</a></p>
+<p><a href="http://codeforces.com/problemset/problem/311/B">CF311B Cats Transport</a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P4027">luogu P4027 [NOI2007] 货币兑换</a></p>
                 
                   
                 
