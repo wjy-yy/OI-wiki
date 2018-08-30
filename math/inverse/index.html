@@ -106,6 +106,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -1290,9 +1294,83 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        乘法逆元
+      </label>
+    
     <a href="./" title="乘法逆元" class="md-nav__link md-nav__link--active">
       乘法逆元
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="逆元简介" class="md-nav__link">
+    逆元简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="如何求逆元" class="md-nav__link">
+    如何求逆元
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="扩展欧几里得法：" class="md-nav__link">
+    扩展欧几里得法：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="快速幂法：" class="md-nav__link">
+    快速幂法：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="线性求逆元" class="md-nav__link">
+    线性求逆元
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="逆元练习题" class="md-nav__link">
+    逆元练习题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2881,6 +2959,82 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="逆元简介" class="md-nav__link">
+    逆元简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="如何求逆元" class="md-nav__link">
+    如何求逆元
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="扩展欧几里得法：" class="md-nav__link">
+    扩展欧几里得法：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="快速幂法：" class="md-nav__link">
+    快速幂法：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="线性求逆元" class="md-nav__link">
+    线性求逆元
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" title="逆元练习题" class="md-nav__link">
+    逆元练习题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2892,7 +3046,96 @@
                   <h1>乘法逆元</h1>
                 
                  <blockquote class="page-time"></blockquote>
-                
+                <p><a href="https://www.luogu.org/problemnew/show/P3811">【模板】乘法逆元</a></p>
+<h2 id="_1">逆元简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>如果一个线性同余方程 <span><span class="MathJax_Preview">ax \equiv 1 \pmod b</span><script type="math/tex">ax \equiv 1 \pmod b</script></span>，则 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 称为 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的逆元，记作 <span><span class="MathJax_Preview">a^{-1}</span><script type="math/tex">a^{-1}</script></span>。</p>
+<h2 id="_2">如何求逆元<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">扩展欧几里得法：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">exgcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">,</span><span class="kt">int</span> <span class="n">c</span><span class="p">,</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="kt">int</span> <span class="n">tx</span><span class="p">,</span><span class="n">ty</span><span class="p">;</span>
+        <span class="n">exgcd</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">tx</span><span class="p">,</span><span class="n">ty</span><span class="p">);</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">ty</span><span class="o">-</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">tx</span><span class="p">;</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">tx</span><span class="p">;</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>扩展欧几里得法和求解线性同余方程是一个原理，在这里不做解释。</p>
+<h3 id="_4">快速幂法：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>这个要运用 <a href="https://oi-wiki.org/math/fermat/">费马小定理</a>：</p>
+<blockquote>
+<p>若 <span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 为质数，<span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 为正整数，且 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>、<span><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> 互质，则 <span><span class="MathJax_Preview">a^{p-1} \equiv 1 \pmod p</span><script type="math/tex">a^{p-1} \equiv 1 \pmod p</script></span>。</p>
+</blockquote>
+<p>因为 <span><span class="MathJax_Preview">ax \equiv 1 \pmod b</span><script type="math/tex">ax \equiv 1 \pmod b</script></span>；</p>
+<p>所以 <span><span class="MathJax_Preview">ax \equiv a^{b-1} \pmod b</span><script type="math/tex">ax \equiv a^{b-1} \pmod b</script></span>（根据费马小定理）；</p>
+<p>所以 <span><span class="MathJax_Preview">x \equiv a^{b-2} \pmod b</span><script type="math/tex">x \equiv a^{b-2} \pmod b</script></span>；</p>
+<p>然后我们就可以用快速幂来求了。</p>
+<p>代码：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define ll long long</span>
+<span class="kr">inline</span> <span class="n">ll</span> <span class="nf">poW</span><span class="p">(</span><span class="n">ll</span> <span class="n">a</span><span class="p">,</span><span class="n">ll</span> <span class="n">b</span><span class="p">){</span>
+    <span class="kt">long</span> <span class="kt">long</span> <span class="n">ans</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">a</span><span class="o">%=</span><span class="n">p</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">b</span><span class="p">){</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">&amp;</span><span class="mi">1</span><span class="p">)</span> <span class="n">ans</span><span class="o">=</span><span class="p">((</span><span class="n">ans</span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="o">%</span><span class="n">p</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span><span class="p">;</span>
+        <span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">a</span><span class="p">)</span><span class="o">%</span><span class="n">p</span><span class="p">;</span> <span class="n">b</span><span class="o">&gt;&gt;=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ans</span><span class="o">%</span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="_5">线性求逆元<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>但是如果要求的很多，以上两种方法就显得慢了，很有可能超时，所以下面来讲一下如何线性求逆元。</p>
+<p>首先，很显然的 <span><span class="MathJax_Preview">1^{-1} \equiv 1 \pmod p</span><script type="math/tex">1^{-1} \equiv 1 \pmod p</script></span>；</p>
+<p>然后，设 <span><span class="MathJax_Preview">p=ki+j,j&lt;i,1&lt;i&lt;p</span><script type="math/tex">p=ki+j,j<i,1<i<p</script></span>，再放到 <span><span class="MathJax_Preview">\mod p</span><script type="math/tex">\mod p</script></span> 意义下就会得到：<span><span class="MathJax_Preview">ki+j \equiv 0 \pmod p</span><script type="math/tex">ki+j \equiv 0 \pmod p</script></span>；</p>
+<p>两边同时乘 <span><span class="MathJax_Preview">i^{-1},j^{-1}</span><script type="math/tex">i^{-1},j^{-1}</script></span>：</p>
+<p><span><span class="MathJax_Preview">kj^{-1}+i^{-1} \equiv 0 \pmod p</span><script type="math/tex">kj^{-1}+i^{-1} \equiv 0 \pmod p</script></span>；</p>
+<p><span><span class="MathJax_Preview">i^{-1} \equiv -kj^{-1}+ \pmod p</span><script type="math/tex">i^{-1} \equiv -kj^{-1}+ \pmod p</script></span>；</p>
+<p><span><span class="MathJax_Preview">i^{-1} \equiv -(\frac{p}{i}) (p \mod i)^{-1}</span><script type="math/tex">i^{-1} \equiv -(\frac{p}{i}) (p \mod i)^{-1}</script></span>；</p>
+<p>然后我们就可以推出逆元了，代码只有一行：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=-</span><span class="p">(</span><span class="n">p</span><span class="o">/</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="o">%</span><span class="n">i</span><span class="p">];</span>
+</pre></div>
+</td></tr></table>
+
+<p>但是，有些情况下要避免出现负数，所以我们要改改代码，让它只求正整数：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="o">-</span><span class="n">p</span><span class="o">/</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">p</span><span class="o">%</span><span class="n">i</span><span class="p">]</span><span class="o">%</span><span class="n">p</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
+
+<p>这就是线性求逆元</p>
+<h2 id="_6">逆元练习题<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1965">[AHOI2005]洗牌</a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P4071">[SDOI2016]排列计数</a></p>
                 
                   
                 
