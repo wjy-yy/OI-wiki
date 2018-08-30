@@ -42,7 +42,7 @@
     
     
       
-        <title>std :: vector - OI Wiki</title>
+        <title>vector - OI Wiki</title>
       
     
     
@@ -132,7 +132,7 @@
                 OI Wiki
               </span>
               <span class="md-header-nav__topic">
-                std :: vector
+                vector
               </span>
             
           
@@ -204,7 +204,9 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
@@ -291,7 +293,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../" title="数据结构" class="md-tabs__link">
+        <a href="../../" title="数据结构" class="md-tabs__link md-tabs__link--active">
           数据结构
         </a>
       
@@ -1563,10 +1565,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       数据结构
@@ -1594,11 +1598,174 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2" checked>
+    
+    <label class="md-nav__link" for="nav-7-2">
+      STL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        STL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../" title="STL" class="md-nav__link">
-      STL
+    <a href="../" title="STL 简介" class="md-nav__link">
+      STL 简介
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        vector
+      </label>
+    
+    <a href="./" title="vector" class="md-nav__link md-nav__link--active">
+      vector
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vector" title="为什么要用 vector" class="md-nav__link">
+    为什么要用 vector
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector_1" title="vector 重写了比较运算符" class="md-nav__link">
+    vector 重写了比较运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector_2" title="vector 的内存是动态分配的" class="md-nav__link">
+    vector 的内存是动态分配的
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector_3" title="vector 可以用赋值运算符来进行初始化" class="md-nav__link">
+    vector 可以用赋值运算符来进行初始化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector_4" title="vector的构造函数" class="md-nav__link">
+    vector的构造函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector_5" title="vector元素访问" class="md-nav__link">
+    vector元素访问
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vecort" title="vecort 迭代器" class="md-nav__link">
+    vecort 迭代器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector_6" title="vector 容量" class="md-nav__link">
+    vector 容量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector_7" title="vector 修改器" class="md-nav__link">
+    vector 修改器
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vector-stdvectorbool" title="vector 特化 std::vector&lt;bool&gt;" class="md-nav__link">
+    vector 特化 std::vector&lt;bool&gt;
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../priority_queue/" title="priority_queue" class="md-nav__link">
+      priority_queue
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -3141,7 +3308,7 @@
         }
       }
       const gitment = new Gitment({
-        id: 'std :: vector',
+        id: 'vector',
         theme: myTheme,
         owner: 'Ir1d',
         repo: 'gitment',
@@ -3162,6 +3329,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="STL 简介" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                STL 简介
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../priority_queue/" title="priority_queue" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                priority_queue
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
