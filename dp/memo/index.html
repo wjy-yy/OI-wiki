@@ -850,22 +850,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" title="3. 记忆化搜索的优缺点" class="md-nav__link">
-    3. 记忆化搜索的优缺点
+  <a href="#3" title="3. 如何写记忆化搜索" class="md-nav__link">
+    3. 如何写记忆化搜索
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i" title="方法 I:" class="md-nav__link">
+    方法 I:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii" title="方法 II:" class="md-nav__link">
+    方法 II:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 记忆化搜索的优缺点" class="md-nav__link">
+    4. 记忆化搜索的优缺点
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" title="4. 记忆化搜索的注意事项:" class="md-nav__link">
-    4. 记忆化搜索的注意事项:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="如有疑问或质疑, 请留下评论或私信我" class="md-nav__link">
-    如有疑问或质疑, 请留下评论或私信我
+  <a href="#5" title="5. 记忆化搜索的注意事项" class="md-nav__link">
+    5. 记忆化搜索的注意事项
   </a>
   
 </li>
@@ -3004,22 +3024,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3" title="3. 记忆化搜索的优缺点" class="md-nav__link">
-    3. 记忆化搜索的优缺点
+  <a href="#3" title="3. 如何写记忆化搜索" class="md-nav__link">
+    3. 如何写记忆化搜索
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i" title="方法 I:" class="md-nav__link">
+    方法 I:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ii" title="方法 II:" class="md-nav__link">
+    方法 II:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" title="4. 记忆化搜索的优缺点" class="md-nav__link">
+    4. 记忆化搜索的优缺点
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4" title="4. 记忆化搜索的注意事项:" class="md-nav__link">
-    4. 记忆化搜索的注意事项:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="如有疑问或质疑, 请留下评论或私信我" class="md-nav__link">
-    如有疑问或质疑, 请留下评论或私信我
+  <a href="#5" title="5. 记忆化搜索的注意事项" class="md-nav__link">
+    5. 记忆化搜索的注意事项
   </a>
   
 </li>
@@ -3051,7 +3091,11 @@
                 
                  <blockquote class="page-time"></blockquote>
                 <h1 id="_1">聊聊动态规划与记忆化搜索<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>by <span><span class="MathJax_Preview">\color{Gray}InterestingLSY</span><script type="math/tex">\color{Gray}InterestingLSY</script></span> (菜到发灰)</p>
+<p>by <span><span class="MathJax_Preview">\color{Gray}{InterestingLSY}</span><script type="math/tex">\color{Gray}{InterestingLSY}</script></span> (菜到发灰)</p>
+<blockquote>
+<p>想体验把暴搜改改就是正解的快感吗? 想体验状压 dp 看似状态多到爆炸实际一跑却嗷嗷快 (实际有效的状态数很少) 的荣耀吗? 记忆化搜索, 符合您的需求! 只要 998 , 记忆化搜索带回家! 记忆化搜索, 记忆化搜索, 再说一遍, 记忆化搜索!</p>
+</blockquote>
+<hr />
 <h2 id="1">1. 记忆化搜索是啥<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>好，就以 <a href="https://www.luogu.org/problemnew/show/P1048">这道题</a> 为例，我不会动态规划，只会搜索，我就会直接写一个粗暴的 <a href="/search/dfs">DFS</a> :</p>
 <ul>
@@ -3098,8 +3142,8 @@
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
-这就是个十分智障的大暴搜是吧......</p>
-<p>emmmmmm....... <span><span class="MathJax_Preview">\color{Red}30</span><script type="math/tex">\color{Red}30</script></span> 分</p>
+这就是个十分智障的大暴搜是吧 ......</p>
+<p>emmmmmm....... <span><span class="MathJax_Preview">\color{Red}{30}</span><script type="math/tex">\color{Red}{30}</script></span> 分</p>
 <p>然后我心血来潮, 想不借助任何 "外部变量"(就是 dfs 函数外且 <strong> 值随 dfs 运行而改变的变量 </strong>), 比如 ans</p>
 <p>把 ans 删了之后就有一个问题: 我们拿什么来记录答案?</p>
 <p>答案很简单:</p>
@@ -3144,7 +3188,7 @@
 </pre></div>
 </td></tr></table>
 
-<p><del>emmmmmm....... 还是 <span><span class="MathJax_Preview">\color{Red}30</span><script type="math/tex">\color{Red}30</script></span> 分</del></p>
+<p><del>emmmmmm....... 还是 <span><span class="MathJax_Preview">\color{Red}{30}</span><script type="math/tex">\color{Red}{30}</script></span> 分</del></p>
 <p>但这个时候, 我们的程序已经不依赖任何外部变量了.</p>
 <p>然后我非常无聊, 将所有 dfs 的返回值都记录下来, 竟然发现......</p>
 <p><strong> 震惊, 对于相同的 pos 和 tleft,dfs 的返回值总是相同的!</strong></p>
@@ -3198,9 +3242,9 @@
 </td></tr></table>
 此时 <span><span class="MathJax_Preview">mem</span><script type="math/tex">mem</script></span> 的意义与 dfs 相同:</p>
 <blockquote>
-<p>在时间 <span><span class="MathJax_Preview">tleft</span><script type="math/tex">tleft</script></span> 内采集 <strong>后</strong> <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 个草药, 能获得的最大收益</p>
+<p>在时间 <span><span class="MathJax_Preview">tleft</span><script type="math/tex">tleft</script></span> 内采集 <strong> 后 </strong> <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 个草药, 能获得的最大收益</p>
 </blockquote>
-<p>这能 ac?</p>
+<p>这能 ac ?</p>
 <p>能.<strong> 这就是 "采药" 那题的 AC 代码 </strong></p>
 <p>好我们 yy 出了记忆化搜索</p>
 <h4 id="_2">总结一下记忆化搜索是啥:<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
@@ -3209,19 +3253,31 @@
 <p>不依赖任何 <strong> 外部变量 </strong></p>
 </li>
 <li>
-<p>答案以返回值的形式存在, 而不能以参数的形式存在(就是不能将 dfs 定义成 <span><span class="MathJax_Preview">dfs(pos ,tleft , nowans )</span><script type="math/tex">dfs(pos ,tleft , nowans )</script></span>, 这里面的 nowans 不符合要求.</p>
+<p>答案以返回值的形式存在, 而不能以参数的形式存在(就是不能将 dfs 定义成 <span><span class="MathJax_Preview">dfs(pos ,tleft , nowans )</span><script type="math/tex">dfs(pos ,tleft , nowans )</script></span>, 这里面的 nowans 不符合要求).</p>
 </li>
 <li>
 <p>对于相同一组参数, dfs 返回值总是相同的</p>
 </li>
 </ul>
+<hr />
 <h2 id="2">2. 记忆化搜索与动态规划的关系:<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>~~ 基本是朋 (ji) 友关系~~</p>
-<p>时间复杂度 / 空间复杂度与 <strong> 不加优化的 dp</strong> 完全相同</p>
-<p>不管定义咋扯, 反正我觉得</p>
+<p>有人会问: 记忆化搜索难道不是搜索?</p>
+<p>是搜索. 但个人认为她更像 dp :</p>
+<p>不信你看 <span><span class="MathJax_Preview">mem</span><script type="math/tex">mem</script></span> 的意义:</p>
 <blockquote>
-<p>记忆化搜索就是动态规划,<strong>(印象中)任何一个 dp 方程都能转为记忆化搜索 </strong></p>
+<p>在时间 <span><span class="MathJax_Preview">tleft</span><script type="math/tex">tleft</script></span> 内采集 <strong> 后 </strong> <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 个草药, 能获得的最大收益</p>
 </blockquote>
+<p>这不就是 dp 的状态?</p>
+<p>由上面的代码中可以看出:</p>
+<blockquote>
+<p><span><span class="MathJax_Preview">mem[pos][tleft] = max(mem[pos+1][tleft-tcost[pos]]+mget[pos]\ ,\ mem[pos+1][tleft])</span><script type="math/tex">mem[pos][tleft] = max(mem[pos+1][tleft-tcost[pos]]+mget[pos]\ ,\ mem[pos+1][tleft])</script></span></p>
+</blockquote>
+<p>这不就是 dp 的状态转移?</p>
+<p>个人认为:</p>
+<blockquote>
+<p>记忆化搜索约等于动态规划,<strong>(印象中)任何一个 dp 方程都能转为记忆化搜索 </strong></p>
+</blockquote>
+<p>大部分记忆化搜索的状态 / 转移方程与 dp 都一样, 时间复杂度 / 空间复杂度与 <strong> 不加优化的 </strong> dp 完全相同</p>
 <p>比如:</p>
 <p><span><span class="MathJax_Preview">dp[i][j][k] = dp[i+1][j+1][k-a[j]] + dp[i+1][j][k]</span><script type="math/tex">dp[i][j][k] = dp[i+1][j+1][k-a[j]] + dp[i+1][j][k]</script></span></p>
 <p>转为</p>
@@ -3247,6 +3303,15 @@
 </pre></div>
 </td></tr></table>
 
+<hr />
+<h2 id="3">3. 如何写记忆化搜索<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="i">方法 I:<a class="headerlink" href="#i" title="Permanent link">&para;</a></h3>
+<ol>
+<li>把这道题的 dp 状态和方程写出来</li>
+<li>根据他们写出 dfs 函数</li>
+<li>添加记忆化数组</li>
+</ol>
+<p>举例:</p>
 <p><span><span class="MathJax_Preview">dp[i] = max\{dp[j]+1\}\quad 1 \leq j &lt; i \text{且}a[j]&lt;a[i]</span><script type="math/tex">dp[i] = max\{dp[j]+1\}\quad 1 \leq j < i \text{且}a[j]<a[i]</script></span>  (最长上升子序列)</p>
 <p>转为</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -3277,43 +3342,53 @@
 </pre></div>
 </td></tr></table>
 
-<p><strong>当然, 以我的经验更多情况下记忆化搜索是写完暴力 dfs(本来想骗分)后突然发现能改成记忆化搜索</strong></p>
-<p>~~ 然后 AC 了一道全场没几个人会的超难 dp~~</p>
-<p>感受以下那种发现自己写的暴力改改就是正解的快感吧!</p>
-<p>啊哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈!</p>
-<h2 id="3">3. 记忆化搜索的优缺点<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p>咳咳, 说正事</p>
+<h3 id="ii">方法 II:<a class="headerlink" href="#ii" title="Permanent link">&para;</a></h3>
+<ol>
+<li>写出这道题的暴搜程序(最好是 <a href="/search/dfs">dfs</a> )</li>
+<li>将这个 dfs 改成 "无需外部变量" 的 dfs</li>
+<li>添加记忆化数组</li>
+</ol>
+<p>举例: 本文最开始介绍 "什么是记忆化搜索" 时举的 "采药" 那题的例子</p>
+<hr />
+<h2 id="4">4. 记忆化搜索的优缺点<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <p>优点:</p>
 <ul>
-<li>
-<p>记忆化搜索可以避免搜到无用状态, 特别是在有状态压缩时</p>
-</li>
+<li>记忆化搜索可以避免搜到无用状态, 特别是在有状态压缩时</li>
+</ul>
+<p>举例: 给你一个有向图(注意不是完全图), 经过每条边都有花费, 求从点 1 出发, 经过每个点 <strong> 恰好一次 </strong> 后的最小花费(最后不用回到起点), 保证路径存在.</p>
+<p>dp 状态很显然:</p>
+<p>设 <span><span class="MathJax_Preview">dp[pos][mask]</span><script type="math/tex">dp[pos][mask]</script></span> 表示身处在 <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 处, 走过 <span><span class="MathJax_Preview">mask</span><script type="math/tex">mask</script></span> ( mask 为一个二进制数) 中的顶点后的最小花费</p>
+<p>常规 <span><span class="MathJax_Preview">dp</span><script type="math/tex">dp</script></span> 的状态为 <span><span class="MathJax_Preview">O(n\cdot 2^n)</span><script type="math/tex">O(n\cdot 2^n)</script></span> , 转移复杂度 (所有的加在一起) 为 <span><span class="MathJax_Preview">O(m)</span><script type="math/tex">O(m)</script></span></p>
+<p>但是! 如果我们用记忆化搜索, 就可以避免到很多无用的状态, 比如 <span><span class="MathJax_Preview">pos</span><script type="math/tex">pos</script></span> 为起点却已经经过了 <span><span class="MathJax_Preview">&gt;1</span><script type="math/tex">>1</script></span> 个点的情况.</p>
+<ul>
+<li>不需要注意转移顺序(这里的 "转移顺序" 指正常 dp 中 for 循环的嵌套顺序以及循环变量是递增还是递减)</li>
+</ul>
+<p>举例: 用常规 dp 写 "合并石子" 需要先枚举区间长度然后枚举起点, 但记忆化搜索直接枚举断点 (就是枚举当前区间由哪两个区间合并而成) 然后递归下去就行</p>
+<ul>
 <li>
 <p>边界情况非常好处理, 且能有效防止数组访问越界</p>
 </li>
 <li>
-<p>~~ 写起来简单易懂~~ 至少我镇么认为 qwq</p>
+<p>有些 dp ( 如区间 dp )用记忆化搜索写很简单但正常 dp 很难</p>
 </li>
 <li>
-<p>有些 dp(如区间 dp)用记忆化搜索写很简单但正常 dp 很难</p>
+<p>记忆化搜索天生携带搜索天赋, 可以使用技能 "剪枝"!</p>
 </li>
 </ul>
 <p>缺点:</p>
 <ul>
 <li>
-<p>致命伤: 不能滚动数组!(哪位 dalao 会记搜 + 滚动的请在评论区留名)</p>
+<p>致命伤: 不能滚动数组!</p>
 </li>
 <li>
 <p>有些优化比较难加</p>
 </li>
 <li>
-<p>由于递归, 有时效率较低但不至于 TLE</p>
-</li>
-<li>
-<p>代码有点长~~ 其实也不算太长~~</p>
+<p>由于递归, 有时效率较低但不至于 TLE (状压 dp 除外)</p>
 </li>
 </ul>
-<h2 id="4">4. 记忆化搜索的注意事项:<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="5">5. 记忆化搜索的注意事项<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>千万别忘了加记忆化! (别笑, 认真的</p>
@@ -3325,7 +3400,8 @@
 <p>数组不要开小了(逃</p>
 </li>
 </ul>
-<h2 id="_3">如有疑问或质疑, 请留下评论或私信我<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<hr />
+<p><strong> 如有疑问或质疑, 请留下评论或私信我 </strong></p>
 <p><strong> questions are welcome </strong></p>
                 
                   
