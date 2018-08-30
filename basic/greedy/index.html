@@ -592,6 +592,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="排序法" class="md-nav__link">
+    排序法
+  </a>
+  
+</li>
+      
       
       
       
@@ -2950,6 +2957,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="排序法" class="md-nav__link">
+    排序法
+  </a>
+  
+</li>
+      
       
       
       
@@ -2994,6 +3008,69 @@
 <li>运用反证法，如果交换方案中任意两个元素/相邻的两个元素后，答案不会变得更好，那么可以发现目前的解已经是最优解了。</li>
 <li>运用归纳法，先手算得出边界情况（例如 <span><span class="MathJax_Preview">n = 1</span><script type="math/tex">n = 1</script></span>）的最优解 <span><span class="MathJax_Preview">F_1</span><script type="math/tex">F_1</script></span>，然后再证明：对于每个 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，<span><span class="MathJax_Preview">F_{n+1}</span><script type="math/tex">F_{n+1}</script></span> 都可以由 <span><span class="MathJax_Preview">F_{n}</span><script type="math/tex">F_{n}</script></span> 推导出结果。</li>
 </ol>
+<h2 id="_3"><a href="https://goldimax.github.io/atricle.html?5b82a0a49f54540031c06bd8">排序法</a><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>用排序法常见的情况是输入一个包含几个（一般一到两个）权值的数组，通过排序然后遍历模拟计算的方法求出最优值。</p>
+<p>有些题的排序方法非常显然，如 <a href="https://www.luogu.org/problemnew/show/P1209">LG1209</a> 就是将输入数组差分后排序模拟求值。</p>
+<p>然而有些时候很难直接一下子看出排序方法，比如 <a href="https://www.luogu.org/problemnew/show/P1080">LG1080</a> 就很容易凭直觉而错误地以 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 或 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 为关键字排序，过样例之后提交就发现 WA 了 QAQ。一个 <del>众所周知的</del> 常见办法就是尝试交换数组相邻的两个元素来<strong>推导</strong>出正确的排序方法。我们假设这题输入的俩个数用一个结构体来保存</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="p">{</span> 
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span> 
+<span class="p">}</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+</pre></div>
+</td></tr></table>
+
+<p>用 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 表示 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 前面所有的 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 的乘积，那么第 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个大臣得到的奖赏就是 </p>
+<div>
+<div class="MathJax_Preview">\frac{m} {v[i].b}</div>
+<script type="math/tex; mode=display">\frac{m} {v[i].b}</script>
+</div>
+<p>第 <span><span class="MathJax_Preview">i + 1</span><script type="math/tex">i + 1</script></span> 个大臣得到的奖赏就是 </p>
+<div>
+<div class="MathJax_Preview">\frac{m \cdot v[i].a} {v[i + 1].b}</div>
+<script type="math/tex; mode=display">\frac{m \cdot v[i].a} {v[i + 1].b}</script>
+</div>
+<p>如果我们交换第 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个大臣与第 <span><span class="MathJax_Preview">i + 1</span><script type="math/tex">i + 1</script></span> 个大臣的位置，那么第 <span><span class="MathJax_Preview">i + 1</span><script type="math/tex">i + 1</script></span> 个大臣得到的奖赏就是 </p>
+<div>
+<div class="MathJax_Preview">\frac{m} {v[i + 1].b}</div>
+<script type="math/tex; mode=display">\frac{m} {v[i + 1].b}</script>
+</div>
+<p>第 <span><span class="MathJax_Preview">i + 1</span><script type="math/tex">i + 1</script></span> 个大臣得到的奖励就是 </p>
+<div>
+<div class="MathJax_Preview">\frac{m \cdot v[i + 1].a} {v[i].b}</div>
+<script type="math/tex; mode=display">\frac{m \cdot v[i + 1].a} {v[i].b}</script>
+</div>
+<p>如果交前更优当且仅当 </p>
+<div>
+<div class="MathJax_Preview">\max (\frac{m} {v[i].b}, \frac{m \times v[i].a} {v[i + 1].b})  &lt; \max (\frac{m} {v[i + 1].b}, \frac{m \times v[i + 1].a} {v[i].b})</div>
+<script type="math/tex; mode=display">\max (\frac{m} {v[i].b}, \frac{m \times v[i].a} {v[i + 1].b})  < \max (\frac{m} {v[i + 1].b}, \frac{m \times v[i + 1].a} {v[i].b})</script>
+</div>
+<p>提取出相同的 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 并约分得到 </p>
+<div>
+<div class="MathJax_Preview">\max(\frac{1} {v[i].b}, \frac{v[i].a} {v[i + 1].b}) &lt; \max(\frac{1} {v[i + 1].b}, \frac{v[i + 1].a} {v[i].b})</div>
+<script type="math/tex; mode=display">\max(\frac{1} {v[i].b}, \frac{v[i].a} {v[i + 1].b}) < \max(\frac{1} {v[i + 1].b}, \frac{v[i + 1].a} {v[i].b})</script>
+</div>
+<p>然后分式化成整式得到 </p>
+<div>
+<div class="MathJax_Preview">\max(v[i + 1].b, v[i].a \times v[i].b) &lt; \max(v[i].b, v[i + 1].a \times v[i + 1].b)</div>
+<script type="math/tex; mode=display">\max(v[i + 1].b, v[i].a \times v[i].b) < \max(v[i].b, v[i + 1].a \times v[i + 1].b)</script>
+</div>
+<p>于是我们就成功得到排序函数了！</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">uv</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+    <span class="kt">bool</span> <span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">uv</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">max</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">x</span><span class="p">.</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">.</span><span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p><del>看上去是不是很简单呢（这题高精度卡常……）</del> ，如果看懂了就可以尝试下一道类似的题 <a href="https://www.luogu.org/problemnew/show/P2123">LG2123</a>（请不要翻题解……。</p>
                 
                   
                 
