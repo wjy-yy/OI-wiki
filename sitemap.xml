@@ -731,11 +731,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://oi-wiki.org/graph/euler/</loc>
-     <lastmod>2018-08-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://oi-wiki.org/graph/flow/</loc>
      <lastmod>2018-08-30</lastmod>
      <changefreq>daily</changefreq>
