@@ -2994,7 +2994,42 @@
         <span class="n">dp</span><span class="p">[</span><span class="n">l</span><span class="o">+</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">+</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">dp</span><span class="p">[</span><span class="n">l</span><span class="o">+</span><span class="n">i</span><span class="p">]);</span>
 </pre></div>
 </td></tr></table></p>
-<p><a href="https://www.luogu.org/paste/2mb5d46q">例题代码</a></p>
+<p>例题代码
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">maxn</span><span class="o">=</span><span class="mi">13010</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">c</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">w</span><span class="p">[</span><span class="n">maxn</span><span class="p">],</span><span class="n">most</span><span class="p">[</span><span class="n">maxn</span><span class="p">];</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">v</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="o">=</span><span class="n">v</span><span class="p">;</span><span class="n">l</span><span class="o">&gt;=</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="n">l</span><span class="o">--</span><span class="p">){</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">most</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">+</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;</span><span class="n">most</span><span class="p">[</span><span class="n">l</span><span class="p">])</span>
+                <span class="n">most</span><span class="p">[</span><span class="n">l</span><span class="p">]</span><span class="o">=</span><span class="n">most</span><span class="p">[</span><span class="n">l</span><span class="o">-</span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">+</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">most</span><span class="p">[</span><span class="n">v</span><span class="p">];</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
 <p>Ps.事实上，由小到大穷举是另一种背包问题的解法，稍后会提到</p>
 <h4 id="_2">完全背包<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <h4 id="_3">多重背包<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
