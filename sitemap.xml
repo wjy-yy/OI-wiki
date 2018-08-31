@@ -16,7 +16,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://oi-wiki.org/intro/softwares/</loc>
+     <loc>https://oi-wiki.org/intro/judgers/</loc>
+     <lastmod>2018-08-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://oi-wiki.org/intro/editors/</loc>
      <lastmod>2018-08-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
