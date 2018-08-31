@@ -1311,8 +1311,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="与，或，异或" class="md-nav__link">
-    与，或，异或
+  <a href="#_1" title="与、或、异或" class="md-nav__link">
+    与、或、异或
   </a>
   
     <nav class="md-nav">
@@ -1342,11 +1342,18 @@
     位运算的应用
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="位运算的常用方法" class="md-nav__link">
+    位运算的常用方法
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" title="题目推荐" class="md-nav__link">
+  <a href="#_6" title="题目推荐" class="md-nav__link">
     题目推荐
   </a>
   
@@ -2982,8 +2989,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="与，或，异或" class="md-nav__link">
-    与，或，异或
+  <a href="#_1" title="与、或、异或" class="md-nav__link">
+    与、或、异或
   </a>
   
     <nav class="md-nav">
@@ -3013,11 +3020,18 @@
     位运算的应用
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="位运算的常用方法" class="md-nav__link">
+    位运算的常用方法
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" title="题目推荐" class="md-nav__link">
+  <a href="#_6" title="题目推荐" class="md-nav__link">
     题目推荐
   </a>
   
@@ -3057,75 +3071,280 @@
                 
                  <blockquote class="page-time"></blockquote>
                 <p>位运算就是把整数转换为二进制后，每位进行相应的运算得到结果。</p>
-<p>常用的运算符共6 种</p>
-<p>分别为 与（&amp;），或（|），异或（^），取反（~），左移(&lt;&lt;) 和 右移(&gt;&gt;)。</p>
-<h2 id="_1">与，或，异或<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>与（&amp;）或（|）和异或（^）这三者都是两者间的运算，因此在这里一起讲解</p>
-<p>表示把2个整数分别转换为二进制后各位逐一比较</p>
-<p>&amp;  只有在两个（对应位数中）都为1时才为1</p>
-<p>|    只要在两个（对应位数中）有一个1时就为1</p>
-<p>^    只有两个（对应位数）不同时才为1</p>
+<p>常用的运算符共 6 种</p>
+<p>分别为与（<code>&amp;</code>）、或（<code>|</code>）、异或（<code>^</code>）、取反（<code>~</code>）、左移（<code>&lt;&lt;</code>） 和右移（<code>&gt;&gt;</code>）。</p>
+<h2 id="_1">与、或、异或<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>与（<code>&amp;</code>）或（<code>|</code>）和异或（<code>^</code>）这三者都是两者间的运算，因此在这里一起讲解</p>
+<p>表示把两个整数分别转换为二进制后各位逐一比较</p>
+<table><tr>
+<td style="text-align:center;">`&`</td><td>只有在两个（对应位数中）都为 1 时才为 1</td>
+</tr><tr>
+<td style="text-align:center;">`|`</td><td>只要在两个（对应位数中）有一个 1 时就为 1</td>
+</tr><tr>
+<td style="text-align:center;">`^`</td><td>只有两个（对应位数）不同时才为 1</td>
+</tr></table>
+
 <ul>
-<li>^运算的逆运算是它本身，也就是说两次异或同一个数最后结果不变，即(a ^ b) ^ b = a。</li>
+<li><code>^</code> 运算的逆运算是它本身，也就是说两次异或同一个数最后结果不变，即 <code>(a ^ b) ^ b = a</code>。</li>
 </ul>
 <blockquote>
 <p>举例</p>
 </blockquote>
-<p><img alt="TIM截图20180817234032.png" src="https://i.loli.net/2018/08/17/5b76eca93d3b7.png" /></p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+&amp;5&amp;=&amp;&amp;(101)_2\\
+&amp;6&amp;=&amp;&amp;(110)_2\\
+&amp;5\text{\tt\,\&amp;\,}6&amp;=&amp;&amp;(100)_2&amp;=\ 4\\
+&amp;5\text{\tt\,|\,}6&amp;=&amp;&amp;(111)_2&amp;=\ 7\\
+&amp;5\texttt{\ \!\^{}\ }6&amp;=&amp;&amp;(011)_2&amp;=\ 3\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&5&=&&(101)_2\\
+&6&=&&(110)_2\\
+&5\text{\tt\,\&\,}6&=&&(100)_2&=\ 4\\
+&5\text{\tt\,|\,}6&=&&(111)_2&=\ 7\\
+&5\texttt{\ \!\^{}\ }6&=&&(011)_2&=\ 3\\
+\end{aligned}
+</script>
+</div>
 <h4 id="_2">取反<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>取反是对1个数num进行的计算</p>
-<p>~  把num的补码中的0和1全部取反（0变为1，1变为0）</p>
+<p>取反是对 1 个数 num 进行的计算</p>
+<p><code>~</code>  把 num 的补码中的 0 和 1 全部取反（ 0 变为 1，1 变为 0）</p>
 <ul>
-<li>补码——正数的补码为其（二进制）本身，负数的补码是其（二进制）取反后+1</li>
+<li>补码——正数的补码为其（二进制）本身，负数的补码是其（二进制）取反后加一。</li>
 </ul>
 <blockquote>
 <p>举例</p>
 </blockquote>
-<p><img alt="搜狗截图20180818104346.png" src="https://i.loli.net/2018/08/18/5b7788ecdb792.png" /></p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+5=(0000\ 0101)_2\\
+5\ 的补码=(1111\ 1010)_2\\
+\text{\tiny{～}\ }5=(1111\ 1010)_2
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+5=(0000\ 0101)_2\\
+5\ 的补码=(1111\ 1010)_2\\
+\text{\tiny{～}\ }5=(1111\ 1010)_2
+\end{aligned}
+</script>
+</div>
 <h2 id="_3">左移和右移<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>与前面的4种运算相似，这两种运算仍是把整数转换为二进制后进行操作</p>
-<p>左移（&lt;&lt;） 将转化为二进制后的数字整体向左移动</p>
+<p>左移（<code>&lt;&lt;</code>） 将转化为二进制后的数字整体向左移动</p>
 <blockquote>
-<p>num&lt;&lt;i  //表示将num转换为二进制后向左移动i位（所得的值）</p>
+<p><code>num&lt;&lt;i</code>  //表示将 num 转换为二进制后向左移动 i 位（所得的值）</p>
 </blockquote>
-<p>右移（&gt;&gt;） 将转化为二进制后的数字整体向右移动</p>
+<p>右移（<code>&gt;&gt;</code>） 将转化为二进制后的数字整体向右移动</p>
 <blockquote>
-<p>num&gt;&gt;i  //表示将num转换为二进制后向左移动i位（所得的值）</p>
+<p><code>num&gt;&gt;i</code>  //表示将 num 转换为二进制后向左移动 i 位（所得的值）</p>
 <p>举例</p>
 </blockquote>
-<p><img alt="TIM截图20180817235452.png" src="https://i.loli.net/2018/08/17/5b76efdd216fe.png" /></p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+&amp;5&amp;&amp;=&amp;&amp;(101)_2\\
+&amp;5\text{\tt\,&lt;&lt;\,}2&amp;&amp;=&amp;&amp;(10100)_2\!\!\!&amp;=&amp;&amp;\!\!\!20\\
+&amp;5\text{\tt\,&gt;&gt;\,}1&amp;&amp;=&amp;&amp;(10)_2&amp;=&amp;&amp;2
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&5&&=&&(101)_2\\
+&5\text{\tt\,<<\,}2&&=&&(10100)_2\!\!\!&=&&\!\!\!20\\
+&5\text{\tt\,>>\,}1&&=&&(10)_2&=&&2
+\end{aligned}
+</script>
+</div>
 <ul>
 <li>
 <p>如上图，右移操作中末尾多余的“1”将会被舍弃</p>
 </li>
 <li>
-<p>注意，左移和右移是有返回值的，并非对num本身进行操作</p>
+<p>注意，左移和右移是有返回值的，并非对 num 本身进行操作</p>
 </li>
 </ul>
 <hr />
 <h2 id="_4">位运算的应用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p>num&lt;&lt;<seperator style="font-size:0;margin:0;padding:0;"></seperator>i相当于num乘以2的i次方，而num&gt;&gt;i相当于num/2 的i次方(位运算比"%"和"/"操作快得多
+<p>num&lt;&lt;<seperator style="font-size:0;margin:0;padding:0;"></seperator> i 相当于 num 乘以 2 的 i 次方，而 num&gt;&gt;i 相当于 num/2 的 i 次方(位运算比"%"和"/"操作快得多
 (据说效率可以提高60%)(据2018JSOI夏令营课件)</p>
 <p>num*10=(num&lt;&lt;1)+(num&lt;&lt;3)</p>
-<p>num&amp;1相当于取num二进制的最末位，可用于判断num的奇偶性，二进制的最末位为0表示该数为偶数，最末位为1表示该数为奇数。</p>
+<p><code>num&amp;1</code>相当于取 num 二进制的最末位，可用于判断 num 的奇偶性，二进制的最末位为 0 表示该数为偶数，最末位为 1 表示该数为奇数。</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//利用位运算的快捷的swap代码</span>
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//利用位运算的快捷的 swap 代码</span>
 <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
-    <span class="n">a</span><span class="o">=</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>   
-    <span class="n">b</span><span class="o">=</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>  
-    <span class="n">a</span><span class="o">=</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>   
+    <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>  
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
 </blockquote>
 <hr />
-<h4 id="_5">题目推荐<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<h2 id="_5">位运算的常用方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>乘以 2 运算
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">mulTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span><span class="c1">//计算n*2</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>除以 2 运算
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">divTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span><span class="c1">//负奇数的运算不可用</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span><span class="c1">//除以2</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>乘以 2 的 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次方
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">mulTwoPower</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="kt">int</span> <span class="n">m</span><span class="p">){</span><span class="c1">//计算n*(2^m)</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">m</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>除以 2 的 <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次方
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">divTwoPower</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span><span class="kt">int</span> <span class="n">m</span><span class="p">){</span><span class="c1">//计算n/(2^m)</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="n">m</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>判断一个数的奇偶性
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">boolean</span> <span class="nf">isOddNumber</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>取绝对值（某些机器上，效率比 <code>n&gt;0 ? n:-n</code> 高）
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">abs</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+<span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">^</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">);</span>
+<span class="cm">/* n&gt;&gt;31 取得n的符号，若n为正数，n&gt;&gt;31等于0，若n为负数，n&gt;&gt;31等于-1</span>
+<span class="cm">若n为正数 n^0=0,数不变，若n为负数有n^-1 需要计算n和-1的补码，然后进行异或运算，</span>
+<span class="cm">结果n变号并且为n的绝对值减1，再减去-1就是绝对值 */</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>取两个数的最大值（某些机器上，效率比 <code>a&gt;b ? a:b</code> 高）
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">)</span> <span class="o">|</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">);</span>
+    <span class="cm">/*如果a&gt;=b,(a-b)&gt;&gt;31为0，否则为-1*/</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>取两个数的最小值（某些机器上，效率比 <code>a&gt;b ? b:a</code> 高）
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">min</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">)</span> <span class="o">|</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">31</span><span class="p">);</span>
+    <span class="cm">/*如果a&gt;=b,(a-b)&gt;&gt;31为0，否则为-1*/</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>判断符号是否相同
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">boolean</span> <span class="nf">isSameSign</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">){</span> <span class="c1">//有0的情况例外</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">^</span> <span class="n">y</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// true 表示 x和y有相同的符号， false表示x，y有相反的符号。</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>计算 2 的 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次方
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">getFactorialofTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span><span class="c1">//n &gt; 0</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span><span class="c1">//2的n次方</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>判断一个数是不是 2 的幂
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">boolean</span> <span class="nf">isFactorialofTwo</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">:</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="cm">/*如果是2的幂，n一定是100... n-1就是1111....</span>
+<span class="cm">       所以做与运算结果为0*/</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>对 2 的 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次方取余
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">quyu</span><span class="p">(</span><span class="kt">int</span> <span class="n">m</span><span class="p">,</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span><span class="c1">//n为2的次方</span>
+    <span class="k">return</span> <span class="n">m</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="cm">/*如果是2的幂，n一定是100... n-1就是1111....</span>
+<span class="cm">     所以做与运算结果保留m在n范围的非0的位*/</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+<li>
+<p>求两个整数的平均值
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">getAverage</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">){</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">;</span>
+<span class="err">｝</span>
+</pre></div>
+</td></tr></table></p>
+</li>
+</ul>
+<h4 id="_6">题目推荐<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p><a href="http://codevs.cn/problem/2743/">CODE[VS] 2743 黑白棋游戏 </a></p>
                 
                   
