@@ -3192,17 +3192,17 @@
 </pre></div>
 </td></tr></table>
 
-<p>可以利用上述的方法构造一个vector， 足够我们使用了。</p>
+<p>可以利用上述的方法构造一个 vector， 足够我们使用了。</p>
 <h2 id="vector_5">vector元素访问<a class="headerlink" href="#vector_5" title="Permanent link">&para;</a></h2>
-<p>vector提供了如下几种方法进行访问元素</p>
+<p>vector 提供了如下几种方法进行访问元素</p>
 <ol>
 <li>
 <p><code>at()</code></p>
-<p>使用方法 ：<code>v.at(pos)</code> 返回vector中下标为 <code>pos</code> 的引用。如果数组越界 抛出 <code>std::out_of_range</code> 类型的异常。</p>
+<p>使用方法 ：<code>v.at(pos)</code> 返回 vector 中下标为 <code>pos</code> 的引用。如果数组越界抛出 <code>std::out_of_range</code> 类型的异常。</p>
 </li>
 <li>
 <p><code>operator[]</code></p>
-<p>使用方法 ：<code>v[pos]</code> 返回vector中下标为 <code>pos</code> 的引用。如果数组越界就显示 <code>SIGSEGV</code> 错误。</p>
+<p>使用方法 ：<code>v[pos]</code> 返回 vector 中下标为 <code>pos</code> 的引用。不执行越界检查。</p>
 </li>
 <li>
 <p><code>front()</code></p>
@@ -3238,7 +3238,7 @@
 </li>
 </ol>
 <h2 id="vector_6">vector 容量<a class="headerlink" href="#vector_6" title="Permanent link">&para;</a></h2>
-<p>vector有如下几种返回容量的函数</p>
+<p>vector 有如下几种返回容量的函数</p>
 <ol>
 <li>
 <p><code>empty()</code></p>
@@ -3249,7 +3249,7 @@
 <p>返回一个元素数量，即 <code>(std :: distance(v.begin(), v.end()))</code></p>
 </li>
 <li>
-<p><code>shrink_to_fit()</code></p>
+<p><code>shrink_to_fit()</code> （C++11）</p>
 <p>释放未使用的内存来减少内存使用</p>
 </li>
 </ol>
@@ -3259,7 +3259,7 @@
 <li><code>clear()</code> 清除所有元素</li>
 <li><code>insert()</code> 支持在某个迭代器位置插入元素、可以插入多个<strong>此操作是与 <code>pos</code> 距离末尾长度成线性而非常数的</strong></li>
 <li><code>erase()</code> 删除某个迭代器或者区间的元素，返回最后被删除的迭代器。</li>
-<li><code>push_back()</code> 在末尾插入一个元素。 </li>
+<li><code>push_back()</code> 在末尾插入一个元素。</li>
 <li><code>pop_back()</code> 删除末尾元素。</li>
 <li><code>swap()</code> 与另一个容器进行交换，此操作是<strong>常数复杂度</strong>而非线性的。</li>
 </ul>
