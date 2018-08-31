@@ -3586,9 +3586,12 @@ S=\frac{1}{2}\sum_{i=1}^n |\vec {v_i}\times \overrightarrow{v_{i\bmod n+1}}|
 <p>我们先将一圆圆心与交点相连，求出两圆心连线与该连线所成角。这样，将两圆心连线的方向向量旋转这个角度，就是圆心与交点相连形成的半径的方向向量了。</p>
 <p>最后还是老套路——沿方向向量方向将圆心平移半径长度。</p>
 <h3 id="37">3.7. 极角序<a class="headerlink" href="#37" title="Permanent link">&para;</a></h3>
-<p>!!! 例题：「JOI Spring Camp 2014 Day4」两个人的星座
-    平面内有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个点，每个点有三种颜色，求不相交的三色三角形对数。<span><span class="MathJax_Preview">6\le n\le 3000</span><script type="math/tex">6\le n\le 3000</script></span>。</p>
-<p>如果两个三角形不相交，则一定可以做出两条内公切线，如果相交或内含是做不出公切线的。三角形的公切线可以类比圆的公切线。</p>
+<div class="admonition 例题">
+<p class="admonition-title">例题</p>
+<p><a href="https://www.ioi-jp.org/camp/2014/2014-sp-tasks/2014-sp-d4.pdf">「JOI Spring Camp 2014 Day4」两个人的星座</a><br>
+平面内有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个点，有三种颜色，每个点的颜色是三种中的一种。求不相交的三色三角形对数。<span><span class="MathJax_Preview">6\le n\le 3000</span><script type="math/tex">6\le n\le 3000</script></span>。</p>
+</div>
+<p>如果两个三角形不相交，则一定可以做出两条内公切线，如果相交或内含是做不出内公切线的。三角形的公切线可以类比圆的公切线。</p>
 <p>先枚举一个原点，记为 <span><span class="MathJax_Preview">O</span><script type="math/tex">O</script></span>，以这个点为极点，过这个点且与 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 轴平行的直线作为极轴，建立极坐标系，把剩余点按极角由小到大排序。然后统计出在极轴上方和下方的每种点的个数。</p>
 <p>然后根据点枚举公切线，记枚举到的点为 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>，初始时公切线为极轴。开始统计。那么一定存在一条公切线过点 <span><span class="MathJax_Preview">O</span><script type="math/tex">O</script></span> 和点 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span>。因为公切线与三角形不相交，所以一方选择公切线上方的点，另一方一定选择下方的点。然后利用乘法原理统计方案数即可。</p>
 <p>统计完后转公切线，那么点 <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 一定改变了相对于公切线的上下位置，而其他点不动，应该只将它的位置信息改变。</p>
@@ -3598,6 +3601,7 @@ S=\frac{1}{2}\sum_{i=1}^n |\vec {v_i}\times \overrightarrow{v_{i\bmod n+1}}|
 <p>由于计算几何经常进行 <code>double</code> 类型的浮点数计算，因此带来了精度问题和时间问题。</p>
 <p>有些问题，例如求点坐标均为整数的三角形面积，可以利用其特殊性进行纯整数计算，避免用浮点数影响精度。</p>
 <p>由于浮点数计算比整数计算慢，所以需要注意程序的常数因子给时间带来的影响。</p>
+<p>Author: <a href="https://github.com/HeRaNO">@HeRaNO</a></p>
                 
                   
                 
