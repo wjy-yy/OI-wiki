@@ -271,6 +271,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://oi-wiki.org/math/bezouts/</loc>
+     <lastmod>2018-08-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://oi-wiki.org/math/euler/</loc>
      <lastmod>2018-08-31</lastmod>
      <changefreq>daily</changefreq>
