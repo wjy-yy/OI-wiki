@@ -3065,7 +3065,7 @@
                 
                  <blockquote class="page-time"></blockquote>
                 <h3 id="map"><code>map</code> 是啥鬼？<a class="headerlink" href="#map" title="Permanent link">&para;</a></h3>
-<p><code>map</code> 的数据结构为一颗红黑树。</p>
+<p><code>map</code> 是利用红黑树实现的。</p>
 <p>当你在写程序的时候，可能需要存储一些信息，例如存储学生姓名对应的分数，例如：<code>Tom 0</code>，<code>Bob 100</code>，<code>Alan 100</code>。
 但是由于数组下标只能为非负整数，所以无法用姓名来存储，这个时候最简单的办法就是使用 STL 的 <code>map</code> 了！</p>
 <p><code>map</code> 可任意类型为下标（在 <code>map</code> 中叫做 <code>key</code>，也就是索引），下面是 <code>map</code> 的模型：</p>
@@ -3084,7 +3084,7 @@
 </ul>
 <p>1.直接存，例如 <code>mp[&quot;Tom&quot;]=0</code></p>
 <p>2.通过插入，例如 <code>mp.insert(pair&lt;string,int&gt;(&quot;Alan&quot;,100));</code></p>
-<p>3.初始化（至少 C++11）和数组差不多：
+<p>3.初始化（ C++11 及以上）和数组差不多：
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -3099,19 +3099,30 @@
 </ul>
 <p>1.在你知道查找元素是啥的时候直接来就可以了，例如：<code>int grade=mp[&quot;Tom&quot;]</code></p>
 <p>2.如果你知道了元素的下标，但是想知道这个元素是否已经存在 <code>map</code> 中，可以使用 <code>find</code> 函数。</p>
-<p>格式：<code>if(mp.find()==mp.end())</code>，意思是如果返回的是 <code>map</code> 的末尾，因为 <code>map</code> 如果没有查找到元素，迭代器会返回末尾。</p>
-<p>其中 <code>mp.end()</code> 返回指向map尾部的迭代器</p>
+<p>格式：<code>if(mp.find()==mp.end())</code>，意思是是否返回的是 <code>map</code> 的末尾，因为 <code>map</code> 如果没有查找到元素，迭代器会返回末尾。</p>
+<p>其中 <code>mp.end()</code> 返回指向map尾部的迭代器， 另外 也可以用 <code>mp.count(__key) != 0</code> 来判断</p>
 <p>3.如果你想知道map里全部的元素，那么最正确的做法使用迭代器了，如果你还不会，请查阅之前文章中的迭代器。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">iter</span><span class="o">=</span><span class="n">mp</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span><span class="n">iter</span><span class="o">!=</span><span class="n">mp</span><span class="p">.</span><span class="n">end</span><span class="p">();</span><span class="n">iter</span><span class="o">++</span><span class="p">)</span>
         <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">&lt;&lt;</span><span class="s">&quot; &quot;</span><span class="o">&lt;&lt;</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">second</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 </pre></div>
 </td></tr></table>
-
-<p>其中 <code>mp.begin()</code> 返回指向map头部的迭代器</p>
+其中 <code>mp.begin()</code> 返回指向 <code>map</code> 头部的迭代器
+当然，如果使用 C++11 （及以上）你还可以使用 C++11 的新特性 ，如下
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="nl">i</span> <span class="p">:</span> <span class="n">mp</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Key : %d, Value : %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">first</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">second</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+</td></tr></table></p>
 <p><code>iter-&gt;first</code> 是 <code>key</code> 索引，例如 <code>Tom</code>，而 <code>iter-&gt;second</code> 是 <code>value</code>。</p>
-<p>当然，如果你想删除 <code>Tom</code> 这个元素，那么就可以在循环里加入：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">==</span><span class="s">&quot;Tom&quot;</span><span class="p">)</span> <span class="n">mp</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">iter</span><span class="p">);</span><span class="c1">//这里的iter是迭代器，</span>
+<p>如果你想删除 <code>Tom</code> 这个元素，则可以利用 <code>find</code> 函数找到 <code>Tom</code> ，然后再 <code>erase</code> 如下</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">map</span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="o">::</span> <span class="n">iterator</span> <span class="n">it</span><span class="p">;</span>
+<span class="n">it</span> <span class="o">=</span> <span class="n">mp</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">&quot;Tom&quot;</span><span class="p">);</span>
+<span class="n">mp</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
@@ -3137,6 +3148,9 @@
 <h3 id="map_2"><code>map</code> 常数靠得住吗？<a class="headerlink" href="#map_2" title="Permanent link">&para;</a></h3>
 <p>一般情况下是可以的。无论查询，插入，删除的复杂度都是 <span><span class="MathJax_Preview">O(\log N)</span><script type="math/tex">O(\log N)</script></span>，遍历是 <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span>。</p>
 <p>不过有的时候不会满足啊！我只想查询元素，插入元素，但是时间不够咋办？请往下看！</p>
+<ul>
+<li>由于 NOIP 不资瓷吸氧（开启 O2 优化），所以 NOIP 要注意是否会被卡</li>
+</ul>
 <h3 id="hash-map">更快：基于 <code>Hash</code> 实现的 <code>map</code>！<a class="headerlink" href="#hash-map" title="Permanent link">&para;</a></h3>
 <p>这个 <code>map</code> 的名字就是 <code>unordered_map</code> 了，它的查询，插入，删除的复杂度几乎是 <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 级别（不过最坏会达到 <span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span>）的！所有的操作几乎和 <code>map</code>一样（注意 <code>unordered_map</code> 用迭代器遍历是无序的）。</p>
 <p>不过它的遍历速度会很慢，而且空间占用的会更大。</p>
