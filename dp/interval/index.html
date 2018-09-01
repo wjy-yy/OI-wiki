@@ -114,6 +114,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="../../#dp" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -866,9 +870,77 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        区间 DP
+      </label>
+    
     <a href="./" title="区间 DP" class="md-nav__link md-nav__link--active">
       区间 DP
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dp" title="什么是区间DP？" class="md-nav__link">
+    什么是区间DP？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#luogu-p1880-noi1995" title="例题luogu P1880 [NOI1995]石子合并" class="md-nav__link">
+    例题luogu P1880 [NOI1995]石子合并
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="怎样进行状态转移" class="md-nav__link">
+    怎样进行状态转移
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="怎样处理环" class="md-nav__link">
+    怎样处理环
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="核心代码" class="md-nav__link">
+    核心代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="几道练习题" class="md-nav__link">
+    几道练习题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -2937,6 +3009,76 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dp" title="什么是区间DP？" class="md-nav__link">
+    什么是区间DP？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#luogu-p1880-noi1995" title="例题luogu P1880 [NOI1995]石子合并" class="md-nav__link">
+    例题luogu P1880 [NOI1995]石子合并
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="怎样进行状态转移" class="md-nav__link">
+    怎样进行状态转移
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="怎样处理环" class="md-nav__link">
+    怎样处理环
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="核心代码" class="md-nav__link">
+    核心代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="几道练习题" class="md-nav__link">
+    几道练习题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+        <li class="md-nav__item">
+          <a href="#__comments" title="评论" class="md-nav__link md-nav__link--active">
+            评论
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2948,7 +3090,45 @@
                   <h1>区间 DP</h1>
                 
                  <blockquote class="page-time"></blockquote>
-                
+                <p>By (hsfzLZH1)[<a href="https://github.com/hsfzLZH1">https://github.com/hsfzLZH1</a>]</p>
+<h2 id="dp">什么是区间DP？<a class="headerlink" href="#dp" title="Permanent link">&para;</a></h2>
+<p>区间类动态规划是线性动态规划的扩展，它在分阶段地划分问题时，与阶段中元素出现的顺序和由前一阶段的哪些元素合并而来由很大的关系。令状态 <span><span class="MathJax_Preview">f(i,j)</span><script type="math/tex">f(i,j)</script></span> 表示将下标位置 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 到 <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 的所有元素合并能获得的价值的最大值，那么 <span><span class="MathJax_Preview">f(i,j)=\max\{f(i,k)+f(k+1,j)+cost\}</span><script type="math/tex">f(i,j)=\max\{f(i,k)+f(k+1,j)+cost\}</script></span>， <span><span class="MathJax_Preview">cost</span><script type="math/tex">cost</script></span> 为将这两组元素合并起来的代价。</p>
+<p>区间DP的特点：</p>
+<p><strong> 合并 </strong> ：即将两个或多个部分进行整合，当然也可以反过来；</p>
+<p><strong> 特征 </strong> ：能将问题分解为能两两合并的形式；</p>
+<p><strong> 求解 </strong> ：对整个问题设最优值，枚举合并点，将问题分解为左右两个部分，最后合并两个部分的最优值得到原问题的最优值。</p>
+<h2 id="luogu-p1880-noi1995">例题<a href="https://www.luogu.org/problemnew/show/P1880">luogu P1880 [NOI1995]石子合并</a><a class="headerlink" href="#luogu-p1880-noi1995" title="Permanent link">&para;</a></h2>
+<p>题目大意：在一个环上有 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个数 <span><span class="MathJax_Preview">a_1,a_2,...,a_n</span><script type="math/tex">a_1,a_2,...,a_n</script></span>，进行 <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 次合并操作，每次操作将相邻的两堆合并成一堆，能获得新的一堆中的石子数量的和的得分。你需要最大化你的得分。</p>
+<p>考虑不在环上，而在一条链上的情况。</p>
+<p>令 <span><span class="MathJax_Preview">f(i,j)</span><script type="math/tex">f(i,j)</script></span> 表示将区间 <span><span class="MathJax_Preview">[i,j]</span><script type="math/tex">[i,j]</script></span> 内的所有石子合并到一起的最大得分。</p>
+<p>写出 <strong> 状态转移方程 </strong> ： <span><span class="MathJax_Preview">f(i,j)=max\{f(i,k)+f(k+1,j)+\sum_{t=i}^{j} a_t \}~(i\le k&lt;j)</span><script type="math/tex">f(i,j)=max\{f(i,k)+f(k+1,j)+\sum_{t=i}^{j} a_t \}~(i\le k<j)</script></span></p>
+<p>令 <span><span class="MathJax_Preview">sum_i</span><script type="math/tex">sum_i</script></span> 表示 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 数组的前缀和，状态转移方程变形为 <span><span class="MathJax_Preview">f(i,j)=max\{f(i,k)+f(k+1,j)+sum_j-sum_{i-1} \}</span><script type="math/tex">f(i,j)=max\{f(i,k)+f(k+1,j)+sum_j-sum_{i-1} \}</script></span>。</p>
+<h2 id="_1">怎样进行状态转移<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>由于计算 <span><span class="MathJax_Preview">f(i,j)</span><script type="math/tex">f(i,j)</script></span> 的值时需要知道所有 <span><span class="MathJax_Preview">f(i,k)</span><script type="math/tex">f(i,k)</script></span> 和 <span><span class="MathJax_Preview">f(k+1,j)</span><script type="math/tex">f(k+1,j)</script></span>的值，而这两个中包含的元素的数量都小于 <span><span class="MathJax_Preview">f(i,j)</span><script type="math/tex">f(i,j)</script></span>，所以我们以 <span><span class="MathJax_Preview">len=j-i+1</span><script type="math/tex">len=j-i+1</script></span> 作为DP的阶段。首先从小到大枚举 <span><span class="MathJax_Preview">len</span><script type="math/tex">len</script></span>，然后枚举 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 的值，根据 <span><span class="MathJax_Preview">len</span><script type="math/tex">len</script></span> 和 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 用公式计算出 <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 的值，然后枚举 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>，时间复杂度为 <span><span class="MathJax_Preview">O(n^3)</span><script type="math/tex">O(n^3)</script></span></p>
+<h2 id="_2">怎样处理环<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>题目中石子围成一个环，而不是一条链，怎么办呢？</p>
+<p><strong> 方法一 </strong> ：由于石子围成一个环，我们可以枚举分开的位置，将这个环转化成一个链，由于要枚举 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次，最终的时间复杂度为 <span><span class="MathJax_Preview">O(n^4)</span><script type="math/tex">O(n^4)</script></span>。</p>
+<p><strong> 方法二 </strong> ：我们将这条链延长两倍，变成 <span><span class="MathJax_Preview">2\times n</span><script type="math/tex">2\times n</script></span> 堆，其中第 <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 堆与第 <span><span class="MathJax_Preview">n+i</span><script type="math/tex">n+i</script></span> 堆相同，用动态规划求解后，取 <span><span class="MathJax_Preview">f(1,n),f(2,n+1),...,f(i,n+i-1)</span><script type="math/tex">f(1,n),f(2,n+1),...,f(i,n+i-1)</script></span> 中的最优值，即为最后的答案。时间复杂度 <span><span class="MathJax_Preview">O(n^3)</span><script type="math/tex">O(n^3)</script></span>。</p>
+<h2 id="_3">核心代码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">len</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">len</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">len</span><span class="o">++</span><span class="p">)</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="n">len</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span> 
+        <span class="k">for</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">i</span><span class="p">;</span><span class="n">k</span><span class="o">&lt;=</span><span class="n">j</span><span class="o">&amp;&amp;</span><span class="n">k</span><span class="o">&lt;=</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+            <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">+</span><span class="n">sum</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">sum</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="_4">几道练习题<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.luogu.org/problemnew/show/P1063">luogu P1063 能量项链</a></p>
+<p><a href="https://www.luogu.org/problemnew/show/P1005#sub">luogu P1005 矩阵取数游戏</a></p>
                 
                   
                 
