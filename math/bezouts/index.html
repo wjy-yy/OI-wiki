@@ -3063,24 +3063,9 @@
 <p>不妨设 <span><span class="MathJax_Preview">a,b</span><script type="math/tex">a,b</script></span> 都大于 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>, <span><span class="MathJax_Preview">a\geq b,\gcd(a,b)=d</span><script type="math/tex">a\geq b,\gcd(a,b)=d</script></span>.</p>
 <p>对 <span><span class="MathJax_Preview">ax+by=d</span><script type="math/tex">ax+by=d</script></span>, 两边同时除以<span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>, 可得 <span><span class="MathJax_Preview">a_1x+b_1y=1</span><script type="math/tex">a_1x+b_1y=1</script></span>, 其中 <span><span class="MathJax_Preview">(a_1,b_1)=1</span><script type="math/tex">(a_1,b_1)=1</script></span>.</p>
 <p>转证 <span><span class="MathJax_Preview">a_1x+b_1y=1</span><script type="math/tex">a_1x+b_1y=1</script></span>. 由带余除法:</p>
-<p><span><span class="MathJax_Preview">a_1=q_1b+r_1</span><script type="math/tex">a_1=q_1b+r_1</script></span>, 其中 <span><span class="MathJax_Preview">0\leq r_1&lt;b_1</span><script type="math/tex">0\leq r_1<b_1</script></span>.</p>
-<p><span><span class="MathJax_Preview">b_1=q_2r_1+r_2</span><script type="math/tex">b_1=q_2r_1+r_2</script></span>, 其中 <span><span class="MathJax_Preview">0\leq r_2&lt;r_1</span><script type="math/tex">0\leq r_2<r_1</script></span>.</p>
-<p><span><span class="MathJax_Preview">r_1=q_3r_2+r_3</span><script type="math/tex">r_1=q_3r_2+r_3</script></span>, 其中 <span><span class="MathJax_Preview">0\leq r_3&lt;r_2</span><script type="math/tex">0\leq r_3<r_2</script></span>.</p>
 <div>
-<div class="MathJax_Preview">\cdots</div>
-<script type="math/tex; mode=display">\cdots</script>
-</div>
-<div>
-<div class="MathJax_Preview">r_{n-3}=q_{n-1}r_{n-2}+r_{n-1}</div>
-<script type="math/tex; mode=display">r_{n-3}=q_{n-1}r_{n-2}+r_{n-1}</script>
-</div>
-<div>
-<div class="MathJax_Preview">r_{n-2}=q_nr_{n-1}+r_n</div>
-<script type="math/tex; mode=display">r_{n-2}=q_nr_{n-1}+r_n</script>
-</div>
-<div>
-<div class="MathJax_Preview">r_{n-1}=q_{n+1}r_n</div>
-<script type="math/tex; mode=display">r_{n-1}=q_{n+1}r_n</script>
+<div class="MathJax_Preview">\begin{align*}a_1 &amp;= q_1b+r_1 &amp;(0\leq r_1&lt;b_1) \\ b_1 &amp;= q_2r_1+r_2 &amp;(0\leq r_2&lt;r_1) \\ r_1 &amp;= q_3r_2+r_3 &amp;(0\leq r_3&lt;r_2) \\ &amp;\cdots \\ r_{n-3} &amp;= q_{n-1}r_{n-2}+r_{n-1} \\ r_{n-2} &amp;= q_nr_{n-1}+r_n \\ r_{n-1} &amp;= q_{n+1}r_n\end{align*}</div>
+<script type="math/tex; mode=display">\begin{align*}a_1 &= q_1b+r_1 &(0\leq r_1<b_1) \\ b_1 &= q_2r_1+r_2 &(0\leq r_2<r_1) \\ r_1 &= q_3r_2+r_3 &(0\leq r_3<r_2) \\ &\cdots \\ r_{n-3} &= q_{n-1}r_{n-2}+r_{n-1} \\ r_{n-2} &= q_nr_{n-1}+r_n \\ r_{n-1} &= q_{n+1}r_n\end{align*}</script>
 </div>
 <p>于是, 有</p>
 <div>
