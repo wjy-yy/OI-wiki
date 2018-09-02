@@ -2406,28 +2406,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tarjan" title="Tarjan 算法" class="md-nav__link">
-    Tarjan 算法
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_2" title="定义" class="md-nav__link">
     定义
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#dfs" title="DFS" class="md-nav__link">
+    DFS
+  </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="应用" class="md-nav__link">
-    应用
+  <a href="#dfs_1" title="DFS 找桥并判断边双联通" class="md-nav__link">
+    DFS 找桥并判断边双联通
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dfs_2" title="DFS 找割点并判断点双联通" class="md-nav__link">
+    DFS 找割点并判断点双联通
   </a>
   
 </li>
@@ -3020,28 +3021,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tarjan" title="Tarjan 算法" class="md-nav__link">
-    Tarjan 算法
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#_2" title="定义" class="md-nav__link">
     定义
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#dfs" title="DFS" class="md-nav__link">
+    DFS
+  </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="应用" class="md-nav__link">
-    应用
+  <a href="#dfs_1" title="DFS 找桥并判断边双联通" class="md-nav__link">
+    DFS 找桥并判断边双联通
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dfs_2" title="DFS 找割点并判断点双联通" class="md-nav__link">
+    DFS 找割点并判断点双联通
   </a>
   
 </li>
@@ -3076,72 +3078,48 @@
                  <blockquote class="page-time"></blockquote>
                 <h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在阅读下列内容之前，请务必了解 <a href="/graph/basic">图论基础</a> 部分。</p>
-<h2 id="tarjan">Tarjan 算法<a class="headerlink" href="#tarjan" title="Permanent link">&para;</a></h2>
-<p>割点（连通无向图）：删掉这个结点后，原图不连通。</p>
-<p>桥（连通无向图）：删掉这条边后，原图不连通。</p>
-<p>点双连通（无向图）：任意两个结点之间存在两条结点不相交的路径。</p>
-<p>边双连通（无向图）：任意两个结点之间存在两条边不相交的路径。</p>
-<p>求出割点和桥，是我们的主要任务。</p>
-<h3 id="_2">定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>方便起见，我们先定义一些东西。</p>
-<p>dfn(x)：节点 x 第一次被访问的时间戳 (dfs number)。</p>
-<p>low(x)：节点 x 所能访问到的点的 dfn 值的最小值。</p>
-<p>AP：Articulation Point，割点 【也叫 Cut Vertex】。</p>
-<p>（伪代码）</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>dfs(u, fa) {
-    dfn[u] = low[u] = ++index;
-    int n_childs = 0;
-    for each edge(u, v) {
-        if (!dfn[v]) {
-            dfs(v, u);
-            low[u] = min(low[u], low[v]);
-            if (low[v] == dfn[v]) {
-                report_bridge(u, v);
-            }
-            if (low[v] &gt;= dfn[u]) {
-                is_AP[u] = true;
-            }
-            ++n_childs;
-        } else if (v != fa) {
-            low[u] = min(low[u], dfn[v]);
-        }
-    }
-    if (fa == NULL &amp;&amp; n_childs &gt; 1) {
-        is_AP[u] = true;
-    }
-}
+<h2 id="_2">定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在一张联通的无向图中，如果将一条边删去后，原图变成不联通的两部分，我们就说这条边是<strong>桥</strong>。</p>
+<p>在一张联通的无向图中，如果将一个点删去后，原图变成不联通的两部分，我们就说这个点是<strong>割点</strong>。</p>
+<p>在一张联通的无向图中，对于两个点 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 和 <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>，如果无论删去哪条边（只能删去一条）都不能使它们不联通，我们就说 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 和 <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> <strong>边双联通</strong>。</p>
+<p>在一张联通的无向图中，对于两个点 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 和 <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>，如果无论删去哪个点（只能删去一个，且不能删 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 和 <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> 自己）都不能使它们不联通，我们就说 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 和 <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> <strong>点双联通</strong>。</p>
+<p>边双联通具有传递性，即，若 <span><span class="MathJax_Preview">x,y</span><script type="math/tex">x,y</script></span> 边双联通，<span><span class="MathJax_Preview">y,z</span><script type="math/tex">y,z</script></span> 边双联通，则 <span><span class="MathJax_Preview">x,z</span><script type="math/tex">x,z</script></span> 边双联通。</p>
+<p>点双联通<strong>不</strong>具有传递性，反例如下图，<span><span class="MathJax_Preview">A,B</span><script type="math/tex">A,B</script></span> 点双联通，<span><span class="MathJax_Preview">B,C</span><script type="math/tex">B,C</script></span> 点双联通，而 <span><span class="MathJax_Preview">A,C</span><script type="math/tex">A,C</script></span> <strong>不</strong>点双联通。</p>
+<p><img alt="bcc-counterexample.png" src="../images/bcc-counterexample.png" /></p>
+<h2 id="dfs">DFS<a class="headerlink" href="#dfs" title="Permanent link">&para;</a></h2>
+<p>对于一张联通的无向图，我们可以从任意一点开始 DFS，得到原图的一棵生成树（以开始 DFS 的那个点为根），这棵生成树上的边称作<strong>树边</strong>，不在生成树上的边称作<strong>非树边</strong>。</p>
+<p>由于 DFS 的性质，我们可以保证所有非树边连接的两个点在生成树上都满足其中一个是另一个的祖先。</p>
+<p>DFS 的代码如下：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">DFS</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">to</span> <span class="p">:</span> <span class="n">edge</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">visited</span><span class="p">[</span><span class="n">to</span><span class="p">])</span>
+            <span class="n">DFS</span><span class="p">(</span><span class="n">to</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
-<p>使劲脑补一下，应该就能知道为啥是对的了。</p>
-<h2 id="_3">应用<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>注意到，一张图可以分为很多个点双连通 / 边双连通分量。</p>
-<p>它们之间恰好是用割点和桥来分隔的。</p>
-<p>同时，点双 / 边双之间的拓扑关系，正好也构成了一棵树。</p>
-<p>我们可以把点双 / 边双缩起来，也能干很多事情。</p>
-<p>举个简单的例子，一个无向图，问 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 到 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 的所有路径中，必然经过哪些点。</p>
-<p>再举个简单例子，有向图，问 <span><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 到 <span><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span> 的所有路径中，必然经过恰好一次的是哪些点。</p>
+<h2 id="dfs_1">DFS 找桥并判断边双联通<a class="headerlink" href="#dfs_1" title="Permanent link">&para;</a></h2>
+<p>首先，对原图进行 DFS。</p>
+<p><img alt="bcc-1.png" src="../images/bcc-1.png" /></p>
+<p>如上图所示，黑色与绿色边为树边，红色边为非树边。每一条非树边连接的两个点都对应了树上的一条简单路径，我们说这条非树边<strong>覆盖</strong>了这条树上路径上所有的边。绿色的树边<strong>至少</strong>被一条非树边覆盖，黑色的树边不被<strong>任何</strong>非树边覆盖。</p>
+<p>我们如何判断一条边是不是桥呢？显然，非树边和绿色的树边一定不是桥，黑色的树边一定是桥。</p>
+<p>如何用算法去实现以上过程呢？首先有一个比较暴力的做法，对于每一条非树边，都逐个地将它覆盖的每一条树边置成绿色，这样的时间复杂度为 <span><span class="MathJax_Preview">O(nm)</span><script type="math/tex">O(nm)</script></span>。</p>
+<p>怎么优化呢？可以用差分。对于每一条非树边，在其树上深度较小的点处打上 <code>-1</code> 标记，在其树上深度较大的点处打上 <code>+1</code> 标记。然后 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 求出每个点的子树内部的标记之和。对于一个点 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span>，其子树内部的标记之和等于覆盖了 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 和 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 的父亲之间的树边的非树边数量。若这个值非 <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，则 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 和 <span><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 的父亲之间的树边不是桥，否则是桥。</p>
+<p>用以上的方法 <span><span class="MathJax_Preview">O(n+m)</span><script type="math/tex">O(n+m)</script></span> 求出每条边分别是否是桥后，两个点是边双联通的，当且仅当它们的树上路径中<strong>不</strong>包含桥。</p>
+<h2 id="dfs_2">DFS 找割点并判断点双联通<a class="headerlink" href="#dfs_2" title="Permanent link">&para;</a></h2>
+<p><img alt="bcc-2.png" src="../images/bcc-2.png" /></p>
+<p>如上图所示，黑色边为树边，红色边为非树边。每一条非树边连接的两个点都对应了树上的一条简单路径。</p>
+<p>考虑一张新图，新图中的每一个点对应原图中的每一条树边（在上图中用蓝色点表示）。对于原图中的每一条非树边，将这条非树边对应的树上简单路径中的所有边在新图中对应的蓝点连成一个联通块（这在上图中也用蓝色的边体现出来了）。</p>
+<p>这样，一个点不是桥，当且仅当与其相连的所有边在新图中对应的蓝点都属于同一个联通块。两个点点双联通，当且仅当它们在原图的树上路径中的所有边在新图中对应的蓝点都属于同一个联通块。</p>
+<p>蓝点间的连通关系可以用与求边双联通时用到的差分类似的方法维护，时间复杂度 <span><span class="MathJax_Preview">O(n+m)</span><script type="math/tex">O(n+m)</script></span>。</p>
                 
                   
                 
