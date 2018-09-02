@@ -2398,6 +2398,19 @@
     Kosaraju 算法
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="实现" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2409,7 +2422,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="定义" class="md-nav__link">
+  <a href="#_3" title="定义" class="md-nav__link">
     定义
   </a>
   
@@ -2423,7 +2436,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" title="实现" class="md-nav__link">
+  <a href="#_4" title="实现" class="md-nav__link">
     实现
   </a>
   
@@ -2435,21 +2448,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#garbow" title="Garbow算法" class="md-nav__link">
-    Garbow算法
+  <a href="#garbow" title="Garbow 算法" class="md-nav__link">
+    Garbow 算法
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="应用" class="md-nav__link">
+  <a href="#_5" title="应用" class="md-nav__link">
     应用
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="推荐题目" class="md-nav__link">
+  <a href="#_6" title="推荐题目" class="md-nav__link">
     推荐题目
   </a>
   
@@ -3059,6 +3072,19 @@
     Kosaraju 算法
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="实现" class="md-nav__link">
+    实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3070,7 +3096,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="定义" class="md-nav__link">
+  <a href="#_3" title="定义" class="md-nav__link">
     定义
   </a>
   
@@ -3084,7 +3110,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" title="实现" class="md-nav__link">
+  <a href="#_4" title="实现" class="md-nav__link">
     实现
   </a>
   
@@ -3096,21 +3122,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#garbow" title="Garbow算法" class="md-nav__link">
-    Garbow算法
+  <a href="#garbow" title="Garbow 算法" class="md-nav__link">
+    Garbow 算法
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="应用" class="md-nav__link">
+  <a href="#_5" title="应用" class="md-nav__link">
     应用
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="推荐题目" class="md-nav__link">
+  <a href="#_6" title="推荐题目" class="md-nav__link">
     推荐题目
   </a>
   
@@ -3146,32 +3172,15 @@
                  <blockquote class="page-time"></blockquote>
                 <h2 id="_1">简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在阅读下列内容之前，请务必了解 <a href="/graph/basic">图论基础</a> 部分。</p>
-<p>强连通的定义是：有向图 G 强连通是指，G 中任意两个节点连通。</p>
-<p>强连通分量的定义是：极大的强连通子图。</p>
-<p>这里想要介绍的是如何来求这个强连通分量。</p>
+<p>强连通的定义是：有向图 G 强连通是指，G 中任意两个结点连通。</p>
+<p>强连通分量（Strongly Connected Components，SCC）的定义是：极大的强连通子图。</p>
+<p>这里想要介绍的是如何来求强连通分量。</p>
 <h2 id="kosaraju">Kosaraju 算法<a class="headerlink" href="#kosaraju" title="Permanent link">&para;</a></h2>
-<h2 id="tarjan">Tarjan 算法<a class="headerlink" href="#tarjan" title="Permanent link">&para;</a></h2>
-<p>Robert E. Tarjan (1948~) 美国人。</p>
-<p>这是你们第一次在本课程中听说此人，但不会是最后一次。</p>
-<p>Tarjan 发明了很多很有用的东西，下到 NOIP 上到 CTSC 难度的都有。</p>
-<p>【举例子：Tarjan算法，并查集，Splay 树，Tarjan离线求lca（Lowest Common Ancestor，最近公共祖先）等等】</p>
-<p>我们这里要介绍的是图论中的 Tarjan 算法，用来处理各种连通性相关的问题。</p>
-<h3 id="_2">定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>方便起见，我们先定义一些东西。</p>
-<p>dfn(x)：节点 x 第一次被访问的时间戳(dfs number)</p>
-<p>low(x)：节点 x 所能访问到的点的 dfn 值的最小值</p>
-<p>这里的树指的是 DFS 树</p>
-<p>所有结点按 dfn 排序即可得 dfs 序列</p>
-<h3 id="dfs">DFS 树的性质<a class="headerlink" href="#dfs" title="Permanent link">&para;</a></h3>
-<p>一个结点的子树内结点的 dfn 都大于该结点的 dfn。 </p>
-<p>从根开始的一条路径上的 dfn 严格递增。</p>
-<p>一棵 DFS 树被构造出来后，考虑图中的非树边。</p>
-<p>前向边(forward edge)：祖先→儿子</p>
-<p>后向边(backward edge)：儿子→祖先</p>
-<p>横叉边(cross edge)：没有祖先—儿子关系的</p>
-<p>注意：横叉边只会往 dfn 减小的方向连接</p>
-<p>注意：在无向图中，没有横叉边（为什么？）</p>
-<h3 id="_3">实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Kosaraju 算法依靠两次简单的 dfs 实现。</p>
+<p>第一次 dfs，选取任意顶点作为起点，遍历所有为访问过的顶点，并在回溯之前给顶点编号，也就是后序遍历。</p>
+<p>第二次 dfs，对于反向后的图，以标号最大的顶点作为起点开始 dfs。这样遍历到的顶点集合就是一个强连通分量。对于所有未访问过的结点，选取标号最大的，重复上述过程。</p>
+<p>两次 dfs 结束后，强连通分量就找出来了，Kosaraju 算法的时间复杂度为 <span><span class="MathJax_Preview">O(n+m)</span><script type="math/tex">O(n+m)</script></span></p>
+<h3 id="_2">实现<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -3191,38 +3200,112 @@
 17
 18
 19
-20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>dfs(x) {
-    dfn[x] = low[x] = ++index;
-    S.push(x);
-    instack[x] = true;
-    for each edge(x, y) {
-        if (!dfn[y]) {
-            dfs(y);
-            low[x] = min(low[x], low[y]);
-        } else if (instack[y]) {
-            low[x] = min(low[x], dfn[y]);
-        }
-    }
-    if (dfn[x] == low[x]) {
-        while (1) {
-            t = S.pop();
-            instack[t] = false;
-            if (t == x) break;
-        }
-    }
-}
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// g 是原图，g2 是反图</span>
+
+<span class="kt">void</span> <span class="nf">dfs1</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">vis</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">g</span><span class="p">[</span><span class="n">u</span><span class="p">])</span> 
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="n">dfs1</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+    <span class="n">s</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">dfs2</span><span class="p">(</span><span class="kt">int</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">[</span><span class="n">u</span><span class="p">]</span> <span class="o">=</span> <span class="n">sccCnt</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">v</span> <span class="p">:</span> <span class="n">g2</span><span class="p">[</span><span class="n">u</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">color</span><span class="p">[</span><span class="n">v</span><span class="p">])</span> <span class="n">dfs2</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">kosaraju</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">sccCnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">dfs1</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">color</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span> <span class="p">{</span> 
+            <span class="o">++</span><span class="n">sccCnt</span><span class="p">;</span> 
+            <span class="n">dfs2</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> 
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="tarjan">Tarjan 算法<a class="headerlink" href="#tarjan" title="Permanent link">&para;</a></h2>
+<p>Robert E. Tarjan (1948~) 美国人。</p>
+<p>这是你们第一次在本课程中听说此人，但不会是最后一次。</p>
+<p>Tarjan 发明了很多很有用的东西，下到 NOIP 上到 CTSC 难度的都有。</p>
+<p>【举例子：Tarjan 算法，并查集，Splay 树，Tarjan 离线求 lca（Lowest Common Ancestor，最近公共祖先）等等】</p>
+<p>我们这里要介绍的是图论中的 Tarjan 算法，用来处理各种连通性相关的问题。</p>
+<h3 id="_3">定义<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>方便起见，我们先定义一些东西。</p>
+<p><code>dfn[x]</code>：结点 x 第一次被访问的时间戳 (dfs number)</p>
+<p><code>low[x]</code>：结点 x 所能访问到的点的 dfn 值的最小值</p>
+<p>这里的树指的是 DFS 树</p>
+<p>所有结点按 dfn 排序即可得 dfs 序列</p>
+<h3 id="dfs">DFS 树的性质<a class="headerlink" href="#dfs" title="Permanent link">&para;</a></h3>
+<p>一个结点的子树内结点的 dfn 都大于该结点的 dfn。 </p>
+<p>从根开始的一条路径上的 dfn 严格递增。</p>
+<p>一棵 DFS 树被构造出来后，考虑图中的非树边。</p>
+<p>前向边 (forward edge)：祖先→儿子</p>
+<p>后向边 (backward edge)：儿子→祖先</p>
+<p>横叉边 (cross edge)：没有祖先—儿子关系的</p>
+<p>注意：横叉边只会往 dfn 减小的方向连接</p>
+<p>注意：在无向图中，没有横叉边（为什么？）</p>
+<h3 id="_4">实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">dfn</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">low</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="o">++</span><span class="n">index</span><span class="p">;</span>
+    <span class="n">S</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">instack</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="nf">edge</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">dfn</span><span class="p">[</span><span class="n">y</span><span class="p">])</span> <span class="p">{</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+            <span class="n">low</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">low</span><span class="p">[</span><span class="n">y</span><span class="p">]);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">instack</span><span class="p">[</span><span class="n">y</span><span class="p">])</span> <span class="p">{</span>
+            <span class="n">low</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">low</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">dfn</span><span class="p">[</span><span class="n">y</span><span class="p">]);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">dfn</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="n">low</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+            <span class="n">instack</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </td></tr></table>
 
 <p>（转自维基：<a href="https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm">https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm</a>）</p>
 <p>时间复杂度 <span><span class="MathJax_Preview">O(n+m)</span><script type="math/tex">O(n+m)</script></span></p>
-<h2 id="garbow">Garbow算法<a class="headerlink" href="#garbow" title="Permanent link">&para;</a></h2>
-<h2 id="_4">应用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="garbow">Garbow 算法<a class="headerlink" href="#garbow" title="Permanent link">&para;</a></h2>
+<h2 id="_5">应用<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>我们可以将一张图的每个强连通分量都缩成一个点。</p>
-<p>然后这张图会变成一个DAG（为什么？）。</p>
+<p>然后这张图会变成一个 DAG（为什么？）。</p>
 <p>DAG 好啊，能拓扑排序了就能做很多事情了。</p>
 <p>举个简单的例子，求一条路径，可以经过重复结点，要求经过的不同结点数量最多。</p>
-<h2 id="_5">推荐题目<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">推荐题目<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1051">USACO Fall/HAOI 2006 受欢迎的牛</a></p>
 <p><a href="http://poj.org/problem?id=1236">POJ1236 Network of Schools</a></p>
                 
