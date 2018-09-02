@@ -3224,7 +3224,7 @@
 <p>对于边权为正的图，任意两个结点之间的最短路，任意一条的结点数不会超过 <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>，边数不会超过 <span><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span>。</p>
 <h2 id="floyd">Floyd 算法<a class="headerlink" href="#floyd" title="Permanent link">&para;</a></h2>
 <p>是用来求任意两个结点之间的最短路的。</p>
-<p>复杂度比较高，但是常数小，容易实现。（我会说只有三个 for 吗？）</p>
+<p>复杂度比较高，但是常数小，容易实现。（我会说只有三个 <code>for</code> 吗？）</p>
 <p>适用于任何图，不管有向无向，边权正负，但是最短路必须存在。（不能有个负环）</p>
 <h3 id="_3">实现<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>我们定义一个数组 <code>f[k][x][y]</code>，表示只允许经过结点 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 到 <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>，结点 <span><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 到结点 <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 的最短路长度。</p>
